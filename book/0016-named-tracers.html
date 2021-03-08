@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0016-named-tracers</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html" class="active"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#named-tracers-and-meters" id="named-tracers-and-meters">Named Tracers and Meters</a></h1>
+<p><em>Associate Tracers and Meters with the name and version of the instrumentation library which reports telemetry data by parameterizing the API which the library uses to acquire the Tracer or Meter.</em></p>
+<h2><a class="header" href="#suggested-reading" id="suggested-reading">Suggested reading</a></h2>
+<ul>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/10">Proposal: Tracer Components</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/labels/global%20instance">Global Instance discussions</a></li>
+<li><a href="https://github.com/open-telemetry/oteps/pull/38">Proposal: Add a version resource</a></li>
+</ul>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p>The mechanism of &quot;Named Tracers and Meters&quot; proposed here is motivated by the following scenarios:</p>
+<h3><a class="header" href="#faulty-or-expensive-instrumentation" id="faulty-or-expensive-instrumentation">Faulty or expensive instrumentation</a></h3>
+<p>For an operator of an application using OpenTelemetry, there is currently no way to influence the amount of data produced by instrumentation libraries. Instrumentation libraries can easily &quot;spam&quot; backend systems, deliver bogus data, or -- in the worst case -- crash or slow down applications. These problems might even occur suddenly in production environments because of external factors such as increasing load or unexpected input data.</p>
+<h3><a class="header" href="#instrumentation-library-identification" id="instrumentation-library-identification">Instrumentation library identification</a></h3>
+<p>If an instrumentation library hasn't implemented <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/overview.md#semantic-conventions">semantic conventions</a> correctly or those conventions change over time, it's currently hard to interpret and sanitize data produced by it selectively. The produced Spans or Metrics cannot later be associated with the library which reported them, either in the processing pipeline or the backend.</p>
+<h3><a class="header" href="#disable-instrumentation-of-pre-instrumented-libraries" id="disable-instrumentation-of-pre-instrumented-libraries">Disable instrumentation of pre-instrumented libraries</a></h3>
+<p>It is the eventual goal of OpenTelemetry that library vendors implement the OpenTelemetry API, obviating the need to auto-instrument their library. An operator should be able to disable the telemetry that is built into some database driver or other library and provide their own integration if the built-in telemetry is lacking in some way. This should be possible even if the developer of that database driver has not provided a configuration to disable telemetry.</p>
+<h2><a class="header" href="#solution" id="solution">Solution</a></h2>
+<p>This proposal attempts to solve the stated problems by introducing the concept of:</p>
+<ul>
+<li><em>Named Tracers and Meters</em> which are associated with the <strong>name</strong> (e.g. <em>&quot;io.opentelemetry.contrib.mongodb&quot;</em>) and <strong>version</strong> (e.g.<em>&quot;semver:1.0.0&quot;</em>) of the library which acquired them.</li>
+<li>A <code>TracerProvider</code> / <code>MeterProvider</code> as the only means of acquiring a Tracer or Meter.</li>
+</ul>
+<p>Based on the name and version, a Provider could provide a no-op Tracer or Meter to specific instrumentation libraries, or a Sampler could be implemented that discards Spans or Metrics from certain libraries. Also, by providing custom Exporters, Span or Metric data could be sanitized before it gets processed in a back-end system. However, this is beyond the scope of this proposal, which only provides the fundamental mechanisms.</p>
+<h2><a class="header" href="#explanation" id="explanation">Explanation</a></h2>
+<p>From a user perspective, working with <em>Named Tracers / Meters</em> and <code>TracerProvider</code> / <code>MeterProvider</code> is conceptually similar to how e.g. the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/logging/Logger.html#getLogger(java.lang.String)">Java logging API</a> and logging frameworks like <a href="https://www.slf4j.org/apidocs/org/slf4j/LoggerFactory.html">log4j</a> work. In analogy to requesting Logger objects through LoggerFactories, an instrumentation library would create specific Tracer / Meter objects through a TracerProvider / MeterProvider.</p>
+<p>New Tracers or Meters can be created by providing the name and version of an instrumentation library. The version (following the convention proposed in <a href="https://github.com/open-telemetry/oteps/pull/38">https://github.com/open-telemetry/oteps/pull/38</a>) is basically optional but <em>should</em> be supplied since only this information enables following scenarios:</p>
+<ul>
+<li>Only a specific range of versions of a given instrumentation library need to be suppressed, while other versions are allowed (e.g. due to a bug in those specific versions).</li>
+<li>Go modules allow multiple versions of the same middleware in a single build so those need to be determined at runtime.</li>
+</ul>
+<pre><code class="language-java">// Create a tracer/meter for a given instrumentation library in a specific version.
+Tracer tracer = OpenTelemetry.getTracerProvider().getTracer(&quot;io.opentelemetry.contrib.mongodb&quot;, &quot;semver:1.0.0&quot;);
+Meter meter = OpenTelemetry.getMeterProvider().getMeter(&quot;io.opentelemetry.contrib.mongodb&quot;, &quot;semver:1.0.0&quot;);
+</code></pre>
+<p>These factories (<code>TracerProvider</code> and <code>MeterProvider</code>) replace the global <code>Tracer</code> / <code>Meter</code> singleton objects as ubiquitous points to request Tracer and Meter instances.</p>
+<p>The <em>name</em> used to create a Tracer or Meter must identify the <em>instrumentation</em> libraries (also referred to as <em>integrations</em>) and not the library being instrumented. These instrumentation libraries could be libraries developed in an OpenTelemetry repository, a 3rd party implementation, or even auto-injected code (see <a href="https://github.com/open-telemetry/oteps/blob/master/text/0001-telemetry-without-manual-instrumentation.md">Open Telemetry Without Manual Instrumentation OTEP</a>). See also the examples for identifiers at the end.
+If a library (or application) has instrumentation built-in, it is both the instrumenting and instrumented library and should pass its own name here. In all other cases (and to distinguish them from that case), the distinction between instrumenting and instrumented library is very important. For example, if an HTTP library <code>com.example.http</code> is instrumented by either <code>io.opentelemetry.contrib.examplehttp</code>, then it is important that the Tracer is not named <code>com.example.http</code>, but <code>io.opentelemetry.contrib.examplehttp</code> after the actual instrumentation library.</p>
+<p>If no name (null or empty string) is specified, following the suggestions in <a href="https://github.com/open-telemetry/opentelemetry-specification/pull/153">&quot;error handling proposal&quot;</a>, a &quot;smart default&quot; will be applied and a default Tracer / Meter implementation is returned.</p>
+<h3><a class="header" href="#examples-of-tracer-and-meter-names" id="examples-of-tracer-and-meter-names">Examples (of Tracer and Meter names)</a></h3>
+<p>Since Tracer and Meter names describe the libraries which use those Tracers and Meters, their names should be defined in a way that makes them as unique as possible.
+The name of the Tracer / Meter should represent the identity of the library, class or package that provides the instrumentation.</p>
+<p>Examples (based on existing contribution libraries from OpenTracing and OpenCensus):</p>
+<ul>
+<li><code>io.opentracing.contrib.spring.rabbitmq</code></li>
+<li><code>io.opentracing.contrib.jdbc</code></li>
+<li><code>io.opentracing.thrift</code></li>
+<li><code>io.opentracing.contrib.asynchttpclient</code></li>
+<li><code>io.opencensus.contrib.http.servlet</code></li>
+<li><code>io.opencensus.contrib.spring.sleuth.v1x</code></li>
+<li><code>io.opencesus.contrib.http.jaxrs</code></li>
+<li><code>github.com/opentracing-contrib/go-amqp</code> (Go)</li>
+<li><code>github.com/opentracing-contrib/go-grpc</code> (Go)</li>
+<li><code>OpenTracing.Contrib.NetCore.AspNetCore</code> (.NET)</li>
+<li><code>OpenTracing.Contrib.NetCore.EntityFrameworkCore</code> (.NET)</li>
+</ul>
+<h2><a class="header" href="#internal-details" id="internal-details">Internal details</a></h2>
+<p>By providing a <code>TracerProvider</code> / <code>MeterProvider</code> and <em>Named Tracers / Meters</em>, a vendor or OpenTelemetry implementation gains more flexibility in providing Tracers and Meters and which attributes they set in the resulting Spans and Metrics that are produced.</p>
+<p>On an SDK level, the SpanData class and its Metrics counterpart are extended with a <code>getLibraryResource</code> function that returns the resource associated with the Tracer / Meter that created it.</p>
+<h2><a class="header" href="#glossary-of-terms" id="glossary-of-terms">Glossary of Terms</a></h2>
+<h3><a class="header" href="#instrumentation-library" id="instrumentation-library">Instrumentation library</a></h3>
+<p>Also known as the trace/metrics reporter, this may be either a library/module/plugin provided by OpenTelemetry that instruments an existing library, a third party integration which instruments some library, or a library that has implemented the OpenTelemetry API in order to instrument itself. In any case, the instrumentation library is the library which provides tracing and metrics data to OpenTelemetry.</p>
+<p>examples:</p>
+<ul>
+<li><code>@opentelemetry/plugin-http</code></li>
+<li><code>io.opentelemetry.redis</code></li>
+<li><code>redis-client</code> (in this case, <code>redis-client</code> has instrumented itself with the OpenTelemetry API)</li>
+</ul>
+<h3><a class="header" href="#tracer--meter-name-and-version" id="tracer--meter-name-and-version">Tracer / Meter name and version</a></h3>
+<p>When an instrumentation library acquires a Tracer/Meter, it provides its own name and version to the Tracer/Meter Provider. This name/version two-tuple is said to be the Tracer/Meter's <em>name</em> and <em>version</em>. Note that this is the name and version of the library which acquires the Tracer/Meter, and not the library it is monitoring. In cases where the library is instrumenting itself using the OpenTelemetry API, they may be the same.</p>
+<p>example: If the <code>http</code> version <code>semver:3.0.0</code> library is being instrumented by a library with the name <code>io.opentelemetry.contrib.http</code> and version <code>semver:1.3.2</code>, then the tracer name and version are also <code>io.opentelemetry.contrib.http</code> and <code>semver:1.3.2</code>. If that same <code>http</code> library has built-in instrumentation through use of the OpenTelemetry API, then the tracer name and version would be <code>http</code> and <code>semver:3.0.0</code>.</p>
+<h3><a class="header" href="#meter-namespace" id="meter-namespace">Meter namespace</a></h3>
+<p>Meter name is used as a namespace for all metrics created by it. This allows a telemetry library to register a metric using any name, such as <code>latency</code>, without worrying about collisions with a metric registered under the same name by a different library.</p>
+<p>example: The libraries <code>redis</code> and <code>io.opentelemetry.redis</code> may both register metrics with the name <code>latency</code>. These metrics can still be uniquely identified even though they have the same name because they are registered under different namespaces (<code>redis</code> and <code>io.opentelemetry.redis</code> respectively). In this case, the operator may disable one of these metrics because they are measuring the same thing.</p>
+<h2><a class="header" href="#prior-art-and-alternatives" id="prior-art-and-alternatives">Prior art and alternatives</a></h2>
+<p>This proposal originates from an <code>opentelemetry-specification</code> proposal on <a href="https://github.com/open-telemetry/opentelemetry-specification/issues/10">components</a> since having a concept of named Tracers would automatically enable determining this semantic <code>component</code> property.</p>
+<p>Alternatively, instead of having a <code>TracerProvider</code>, existing (global) Tracers could return additional indirection objects (called e.g. <code>TraceComponent</code>), which would be able to produce spans for specifically named traced components.</p>
+<pre><code class="language-java">TraceComponent traceComponent = OpenTelemetry.Tracing.getTracer().componentBuilder(&quot;io.opentelemetry.contrib.mongodb&quot;, &quot;semver:1.0.0&quot;);
+Span span = traceComponent.spanBuilder(&quot;someMethod&quot;).startSpan();
+</code></pre>
+<p>Overall, this would not change a lot compared to the <code>TracerProvider</code> since the levels of indirection until producing an actual span are the same.</p>
+<p>Instead of setting the <code>component</code> property based on the given Tracer names, those names could also be used as <em>prefixes</em> for produced span names (e.g. <code>&lt;TracerName-SpanName&gt;</code>). However, with regard to data quality and semantic conventions, a dedicated <code>component</code> set on spans is probably preferred.</p>
+<p>Instead of using plain strings as an argument for creating new Tracers, a <code>Resource</code> identifying an instrumentation library could be used. Such resources must have a <em>version</em> and a <em>name</em> label (there could be semantic convention definitions for those labels). This implementation alternative mainly depends on the availability of the <code>Resource</code> data type on an API level (see <a href="https://github.com/open-telemetry/opentelemetry-specification/pull/254">https://github.com/open-telemetry/opentelemetry-specification/pull/254</a>).</p>
+<pre><code class="language-java">// Create resource for given instrumentation library information (name + version)
+Map&lt;String, String&gt; libraryLabels = new HashMap&lt;&gt;();
+libraryLabels.put(&quot;name&quot;, &quot;io.opentelemetry.contrib.mongodb&quot;);
+libraryLabels.put(&quot;version&quot;, &quot;1.0.0&quot;);
+Resource libraryResource = Resource.create(libraryLabels);
+// Create tracer for given instrumentation library.
+Tracer tracer = OpenTelemetry.getTracerProvider().getTracer(libraryResource);
+</code></pre>
+<p>Those given alternatives could be applied to Meters and Metrics in the same way.</p>
+<h2><a class="header" href="#future-possibilities" id="future-possibilities">Future possibilities</a></h2>
+<p>Based on the Resource information identifying a Tracer or Meter these could be configured (enabled / disabled) programmatically or via external configuration sources (e.g. environment).</p>
+<p>Based on this proposal, future &quot;signal producers&quot; (i.e. logs) can use the same or a similar creation approach.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="0010-cumulative-to-counter.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0035-opentelemetry-protocol.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="0010-cumulative-to-counter.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0035-opentelemetry-protocol.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

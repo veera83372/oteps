@@ -1,0 +1,622 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0035-opentelemetry-protocol</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html" class="active"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#opentelemetry-protocol-specification" id="opentelemetry-protocol-specification">OpenTelemetry Protocol Specification</a></h1>
+<p><strong>Author</strong>: Tigran Najaryan, Omnition Inc.</p>
+<p>OpenTelemetry Protocol (OTLP) specification describes the encoding, transport and delivery mechanism of telemetry data between telemetry sources, intermediate nodes such as collectors and telemetry backends.</p>
+<h2><a class="header" href="#table-of-contents" id="table-of-contents">Table of Contents</a></h2>
+<ul>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#protocol-details">Protocol Details</a>
+<ul>
+<li><a href="#export-request-and-response">Export Request and Response</a>
+<ul>
+<li><a href="#otlp-over-grpc">OTLP over gRPC</a></li>
+<li><a href="#export-response">Export Response</a></li>
+<li><a href="#throttling">Throttling</a></li>
+<li><a href="#grpc-service-definition">gRPC Service Definition</a></li>
+</ul>
+</li>
+<li><a href="#other-transports">Other Transports</a></li>
+</ul>
+</li>
+<li><a href="#implementation-recommendations">Implementation Recommendations</a>
+<ul>
+<li><a href="#multi-destination-exporting">Multi-Destination Exporting</a></li>
+</ul>
+</li>
+<li><a href="#trade-offs-and-mitigations">Trade-offs and mitigations</a>
+<ul>
+<li><a href="#request-acknowledgements">Request Acknowledgements</a>
+<ul>
+<li><a href="#duplicate-data">Duplicate Data</a></li>
+</ul>
+</li>
+<li><a href="#partial-success">Partial Success</a></li>
+</ul>
+</li>
+<li><a href="#future-versions-and-interoperability">Future Versions and Interoperability</a></li>
+<li><a href="#prior-art-alternatives-and-future-possibilities">Prior Art, Alternatives and Future Possibilities</a></li>
+<li><a href="#open-questions">Open Questions</a></li>
+<li><a href="#appendix-a---protocol-buffer-definitions">Appendix A - Protocol Buffer Definitions</a></li>
+<li><a href="#appendix-b---performance-benchmarks">Appendix B - Performance Benchmarks</a>
+<ul>
+<li><a href="#throughput---sequential-vs-concurrent">Throughput - Sequential vs Concurrent</a></li>
+<li><a href="#cpu-usage---grpc-vs-websocketexperimental">CPU Usage - gRPC vs WebSocket/Experimental</a></li>
+<li><a href="#benchmarking-raw-results">Benchmarking Raw Results</a></li>
+</ul>
+</li>
+<li><a href="#glossary">Glossary</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p>OTLP is a general-purpose telemetry data delivery protocol designed in the scope of OpenTelemetry project. It is an incremental improvement of OpenCensus protocol. Compared to OpenCensus protocol OTLP has the following improvements:</p>
+<ul>
+<li>
+<p>Ensures high reliability of data delivery and clear visibility when the data cannot be delivered. OTLP uses acknowledgements to implement reliable delivery.</p>
+</li>
+<li>
+<p>It is friendly to Level 7 Load Balancers and allows them to correctly map imbalanced incoming traffic to a balanced outgoing traffic. This allows to efficiently operate large networks of nodes where telemetry data generation rates change over time.</p>
+</li>
+<li>
+<p>Allows backpressure signalling from telemetry data destinations to sources. This is important for implementing reliable multi-hop telemetry data delivery all the way from the source to the destination via intermediate nodes, each having different processing capacity and thus requiring different data transfer rates.</p>
+</li>
+</ul>
+<h2><a class="header" href="#protocol-details" id="protocol-details">Protocol Details</a></h2>
+<p>OTLP defines the encoding of telemetry data and the protocol used to exchange data between the client and the server.</p>
+<p>This specification defines how OTLP is implemented over <a href="https://grpc.io/">gRPC</a> and specifies corresponding <a href="https://developers.google.com/protocol-buffers/docs/overview">Protocol Buffers</a> schema. Future extensions to OTLP may define implementations over other transports. For details of gRPC service definition see section <a href="#grpc-transport">gRPC Transport</a>.</p>
+<p>OTLP is a request/response style protocols: the clients send requests, the server replies with corresponding responses. This document defines one requests and response type: <code>Export</code>.</p>
+<h3><a class="header" href="#export-request-and-response" id="export-request-and-response">Export Request and Response</a></h3>
+<p>After establishing the underlying transport the client starts sending telemetry data using <code>Export</code> requests.  The client continuously sends a sequence of <code>Export</code> requests to the server and expects to receive a response to each request:</p>
+<p><img src="images/otlp-request-response.png" alt="Request-Response" /></p>
+<p><em>Note: this protocol is concerned with reliability of delivery between one pair of client/server nodes and aims to ensure that no data is lost in-transit between the client and the server. Many telemetry collection systems have intermediary nodes that the data must travel across until reaching the final destination (e.g. application -&gt; agent -&gt; collector -&gt; backend). End-to-end delivery guarantees in such systems is outside of the scope of OTLP. The acknowledgements described in this protocol happen between a single client/server pair and do not span intermediary nodes in multi-hop delivery paths.</em></p>
+<h4><a class="header" href="#otlp-over-grpc" id="otlp-over-grpc">OTLP over gRPC</a></h4>
+<p>For gRPC transport OTLP uses Unary RPC to send export requests and receives responses.</p>
+<p>After sending the request the client MAY wait until the response is received from the server. In that case there will be at most only one request in flight that is not yet acknowledged by the server.</p>
+<p><img src="images/otlp-sequential.png" alt="Unary" /></p>
+<p>Sequential operation is recommended when simplicity of implementation is desirable and when the client and the server are connected via very low-latency network, such as for example when the client is an instrumented application and the server is a OpenTelemetry Service running as a local daemon.</p>
+<p>The implementations that need to achieve high throughput SHOULD support concurrent Unary calls to achieve higher throughput. The client SHOULD send new requests without waiting for the response to the earlier sent requests, essentially creating a pipeline of requests that are currently in flight that are not acknowledged.</p>
+<p><img src="images/otlp-concurrent.png" alt="Streaming" /></p>
+<p>The number of concurrent requests SHOULD be configurable.</p>
+<p>The maximum achievable throughput is <code>max_concurrent_requests * max_request_size / (network_latency + server_response_time)</code>. For example if the request can contain at most 100 spans, network roundtrip latency is 200ms and server response time is 300 ms, then the maximum achievable throughput with one concurrent request is <code>100 spans / (200ms+300ms)</code> or 200 spans per second. It is easy to see that in high latency networks or when the server response time is high to achieve good throughput the requests need to be very big or a lot concurrent requests must be done.</p>
+<p>If the client is shutting down (e.g. when the containing process wants to exit) the client will optionally wait until all pending acknowledgements are received or until an implementation specific timeout expires. This ensures reliable delivery of telemetry data. The client implementation SHOULD expose an option to turn on and off the waiting during shutdown.</p>
+<p>If the client is unable to deliver a certain request (e.g. a timer expired while waiting for acknowledgements) the client SHOULD record the fact that the data was not delivered.</p>
+<h4><a class="header" href="#export-response" id="export-response">Export Response</a></h4>
+<p>The server may respond with either a success or an error to export requests.</p>
+<p>The success response indicates telemetry data is successfully processed by the server. If the server receives an empty request (a request that does not carry any telemetry data) the server SHOULD respond with success.</p>
+<p>When using gRPC transport, success response is returned via <code>ExportResponse</code> message.</p>
+<p>When an error is returned by the server it falls into 2 broad categories: retryable and not-retryable:</p>
+<ul>
+<li>
+<p>Retryable errors indicate that processing of telemetry data failed and the client SHOULD record the error and may retry exporting the same data. This can happen when the server is temporarily unable to process the data.</p>
+</li>
+<li>
+<p>Not-retryable errors indicate that processing of telemetry data failed and the client MUST NOT retry sending the same telemetry data. The telemetry data MUST be dropped. This can happen, for example, when the request contains bad data and cannot be deserialized or otherwise processed by the server. The client SHOULD maintain a counter of such dropped data.</p>
+</li>
+</ul>
+<p>When using gRPC transport the server SHOULD indicate retryable errors using code <a href="https://godoc.org/google.golang.org/grpc/codes">Unavailable</a> and MAY supply additional <a href="https://godoc.org/google.golang.org/grpc/status#Status.WithDetails">details via status</a> using <a href="https://github.com/googleapis/googleapis/blob/6a8c7914d1b79bd832b5157a09a9332e8cbd16d4/google/rpc/error_details.proto#L40">RetryInfo</a> containing 0 value of RetryDelay. Here is a sample Go code to illustrate:</p>
+<pre><code class="language-go">  // Do this on server side.
+  st, err := status.New(codes.Unavailable, &quot;Server is unavailable&quot;).
+    WithDetails(&amp;errdetails.RetryInfo{RetryDelay: &amp;duration.Duration{Seconds: 0}})
+  if err != nil {
+    log.Fatal(err)
+  }
+
+  return st.Err()
+</code></pre>
+<p>To indicate not-retryable errors the server is recommended to use code <a href="https://godoc.org/google.golang.org/grpc/codes">InvalidArgument</a> and MAY supply additional <a href="https://godoc.org/google.golang.org/grpc/status#Status.WithDetails">details via status</a> using <a href="https://github.com/googleapis/googleapis/blob/6a8c7914d1b79bd832b5157a09a9332e8cbd16d4/google/rpc/error_details.proto#L119">BadRequest</a>. Other gRPC status code may be used if it is more appropriate. Here is a sample Go code to illustrate:</p>
+<pre><code class="language-go">  // Do this on server side.
+  st, err := status.New(codes.InvalidArgument, &quot;Invalid Argument&quot;).
+    WithDetails(&amp;errdetails.BadRequest{})
+  if err != nil {
+    log.Fatal(err)
+  }
+
+  return st.Err()
+</code></pre>
+<p>The server MAY use other gRPC codes to indicate retryable and not-retryable errors if those other gRPC codes are more appropriate for a particular erroneous situation. The client SHOULD interpret gRPC status codes as retryable or not-retryable according to the following table:</p>
+<table><thead><tr><th>gRPC Code</th><th>Retryable?</th></tr></thead><tbody>
+<tr><td>CANCELLED</td><td>Yes</td></tr>
+<tr><td>UNKNOWN</td><td>No</td></tr>
+<tr><td>INVALID_ARGUMENT</td><td>No</td></tr>
+<tr><td>DEADLINE_EXCEEDED</td><td>Yes</td></tr>
+<tr><td>NOT_FOUND</td><td>No</td></tr>
+<tr><td>ALREADY_EXISTS</td><td>No</td></tr>
+<tr><td>PERMISSION_DENIED</td><td>No</td></tr>
+<tr><td>UNAUTHENTICATED</td><td>No</td></tr>
+<tr><td>RESOURCE_EXHAUSTED</td><td>Yes</td></tr>
+<tr><td>FAILED_PRECONDITION</td><td>No</td></tr>
+<tr><td>ABORTED</td><td>Yes</td></tr>
+<tr><td>OUT_OF_RANGE</td><td>Yes</td></tr>
+<tr><td>UNIMPLEMENTED</td><td>No</td></tr>
+<tr><td>INTERNAL</td><td>No</td></tr>
+<tr><td>UNAVAILABLE</td><td>Yes</td></tr>
+<tr><td>DATA_LOSS</td><td>Yes</td></tr>
+</tbody></table>
+<p>When retrying, the client SHOULD implement a backoff strategy. An exception to this is the Throttling case explained below, which provides explicit instructions about retrying interval.</p>
+<h4><a class="header" href="#throttling" id="throttling">Throttling</a></h4>
+<p>OTLP allows backpressure signalling.</p>
+<p>If the server is unable to keep up with the pace of data it receives from the client then it SHOULD signal that fact to the client. The client MUST then throttle itself to avoid overwhelming the server.</p>
+<p>To signal backpressure when using gRPC transport, the server SHOULD return an error with code <a href="https://godoc.org/google.golang.org/grpc/codes">Unavailable</a> and MAY supply additional <a href="https://godoc.org/google.golang.org/grpc/status#Status.WithDetails">details via status</a> using <a href="https://github.com/googleapis/googleapis/blob/6a8c7914d1b79bd832b5157a09a9332e8cbd16d4/google/rpc/error_details.proto#L40">RetryInfo</a>. Here is a sample Go code to illustrate:</p>
+<pre><code class="language-go">  // Do this on server side.
+  st, err := status.New(codes.Unavailable, &quot;Server is unavailable&quot;).
+    WithDetails(&amp;errdetails.RetryInfo{RetryDelay: &amp;duration.Duration{Seconds: 30}})
+  if err != nil {
+    log.Fatal(err)
+  }
+
+  return st.Err()
+  
+  ...
+
+  // Do this on client side.
+  st := status.Convert(err)
+  for _, detail := range st.Details() {
+    switch t := detail.(type) {
+    case *errdetails.RetryInfo:
+      if t.RetryDelay.Seconds &gt; 0 || t.RetryDelay.Nanos &gt; 0 {
+        // Wait before retrying.
+      }
+    }
+  }
+</code></pre>
+<p>When the client receives this signal it SHOULD follow the recommendations outlined in documentation for <code>RetryInfo</code>:</p>
+<pre><code>// Describes when the clients can retry a failed request. Clients could ignore
+// the recommendation here or retry when this information is missing from error
+// responses.
+//
+// It's always recommended that clients should use exponential backoff when
+// retrying.
+//
+// Clients should wait until `retry_delay` amount of time has passed since
+// receiving the error response before retrying.  If retrying requests also
+// fail, clients should use an exponential backoff scheme to gradually increase
+// the delay between retries based on `retry_delay`, until either a maximum
+// number of retires have been reached or a maximum retry delay cap has been
+// reached.
+</code></pre>
+<p>The value of <code>retry_delay</code> is determined by the server and is implementation dependant. The server SHOULD choose a <code>retry_delay</code> value that is big enough to give the server time to recover, yet is not too big to cause the client to drop data while it is throttled.</p>
+<h4><a class="header" href="#grpc-service-definition" id="grpc-service-definition">gRPC Service Definition</a></h4>
+<p><code>Export</code> requests and responses are delivered using unary gRPC calls.</p>
+<p>This is OTLP over gRPC Service definition:</p>
+<pre><code>service UnaryExporter {
+  rpc ExportTraces(TraceExportRequest) returns (ExportResponse) {}
+  rpc ExportMetrics(MetricExportRequest) returns (ExportResponse) {}
+}
+</code></pre>
+<p>Appendix A contains Protocol Buffer definitions for <code>TraceExportRequest</code>, <code>MetricExportRequest</code> and <code>ExportResponse</code>.</p>
+<h3><a class="header" href="#other-transports" id="other-transports">Other Transports</a></h3>
+<p>OTLP can work over any other transport that supports message request/response capabilities. Additional transports supported by OTLP can be specified in future RFCs that extend OTLP.</p>
+<h2><a class="header" href="#implementation-recommendations" id="implementation-recommendations">Implementation Recommendations</a></h2>
+<h3><a class="header" href="#multi-destination-exporting" id="multi-destination-exporting">Multi-Destination Exporting</a></h3>
+<p>When the telemetry data from one client must be sent to more than one destination server there is an additional complication that must be accounted for. When one of the servers acknowledges the data and the other server does not (yet) acknowledges the client needs to make a decision about how to move forward.</p>
+<p>In such situation the the client SHOULD implement queuing, acknowledgement handling and retrying logic per destination. This ensures that servers do not block each other. The queues SHOULD reference shared, immutable data to be sent, thus minimizing the memory overhead caused by having multiple queues.</p>
+<p><img src="images/otlp-multi-destination.png" alt="Multi-Destination Exporting" /></p>
+<p>This ensures that all destination servers receive the data regardless of their speed of reception (within the available limits imposed by the size of the client-side queue).</p>
+<h2><a class="header" href="#trade-offs-and-mitigations" id="trade-offs-and-mitigations">Trade-offs and mitigations</a></h2>
+<h3><a class="header" href="#request-acknowledgements" id="request-acknowledgements">Request Acknowledgements</a></h3>
+<h4><a class="header" href="#duplicate-data" id="duplicate-data">Duplicate Data</a></h4>
+<p>In edge cases (e.g. on reconnections, network interruptions, etc) the client has no way of knowing if recently sent data was delivered if no acknowledgement was received yet. The client will typically choose to re-send such data to guarantee delivery, which may result in duplicate data on the server side. This is a deliberate choice and is considered to be the right tradeoff for telemetry data.</p>
+<h3><a class="header" href="#partial-success" id="partial-success">Partial Success</a></h3>
+<p>The protocol does not attempt to communicate partial reception success from the server to the client (i.e. when part of the data can be received by the server and part of it cannot). Attempting to do so would complicate the protocol and implementations significantly and is left out as a possible future area of work.</p>
+<h2><a class="header" href="#future-versions-and-interoperability" id="future-versions-and-interoperability">Future Versions and Interoperability</a></h2>
+<p>OTLP will evolve and change over time. Future versions of OTLP must be designed and implemented in a way that ensures that clients and servers that implement different versions of OTLP can interoperate and exchange telemetry data. Old clients must be able to talk to new servers and vice versa. If new versions of OTLP introduce new functionality that cannot be understood and supported by nodes implementing the old versions of OTLP the protocol must regress to the lowest common denominator from functional perspective.</p>
+<p>When possible the interoperability SHOULD be ensured between all versions of OTLP that are not declared obsolete.</p>
+<p>OTLP does not use explicit protocol version numbering. OTLP's interoperability of clients and servers of different versions is based on the following concepts:</p>
+<ol>
+<li>
+<p>OTLP (current and future versions) defines a set of capabilities, some of which are mandatory, others are optional. Clients and servers must implement mandatory capabilities and can choose implement only a subset of optional capabilities.</p>
+</li>
+<li>
+<p>For minor changes to the protocol future versions and extension of OTLP are encouraged to use the ability of Protocol Buffers to evolve message schema in backwards compatible manner. Newer versions of OTLP may add new fields to messages that will be ignored by clients and servers that do not understand these fields. In many cases careful design of such schema changes and correct choice of default values for new fields is enough to ensure interoperability of different versions without nodes explicitly detecting that their peer node has different capabilities.</p>
+</li>
+<li>
+<p>More significant changes must be explicitly defined as new optional capabilities in future RFCs. Such capabilities SHOULD be discovered by client and server implementations after establishing the underlying transport. The exact discovery mechanism SHOULD be described in future RFCs which define the new capabilities and typically can be implemented by making a discovery request/response message exchange from the client to server. The mandatory capabilities defined by this specification are implied and do not require a discovery. The implementation which supports a new, optional capability MUST adjust its behavior to match the expectation of a peer that does not support a particular capability.</p>
+</li>
+</ol>
+<p>The current version of OTLP is the initial version that describes mandatory capabilities only. Implementations of this specification SHOULD NOT attempt to detect the capabilities of their peers and should operate as defined in this document.</p>
+<h2><a class="header" href="#prior-art-alternatives-and-future-possibilities" id="prior-art-alternatives-and-future-possibilities">Prior Art, Alternatives and Future Possibilities</a></h2>
+<p>We have considered using gRPC streaming instead of Unary RPC calls. This would require implementations to manually perform stream closing and opening periodically to be L7 Load Balancer friendly. Reference implementation using gRPC Streaming has shown that it results in significantly more complex and error prone code without significant benefits. Because of this Unary RPC was chosen.</p>
+<p>OTLP is an evolution of OpenCensus protocol based on the research and testing of its modifications in production at Omnition. The modifications include changes to data formats (see RFC0059), use of Unary PRC and backpressure signaling capability.</p>
+<p>OTLP uses Protocol Buffers for data encoding. Two other encodings were considered as alternative approaches: FlatBuffers and Capnproto. Both alternatives were rejected. FlatBuffers was rejected because it lacks required functionality in all languages except C++, particularly lack of verification of decoded data and inability to mutate in-memory data. Capnproto was rejected because it is not yet considered production ready, the API is not yet stable and like FlatBuffers it lacks ability mutate in-memory data.</p>
+<p>Both FlatBuffers and Capnproto are worth to be re-evaluated for future versions of OpenTelemetry protocol if they overcome currently known limitations.</p>
+<p>It is also worth researching transports other than gRPC. Other transports are not included in this RFC due to time limitations.</p>
+<p>Experimental implementation of OTLP over WebSockets exists and was researched as an alternate. WebSockets were not chosen as the primary transport for OTLP due to lack or immaturity of certain capabilities (such as <a href="https://github.com/gorilla/websocket#gorilla-websocket-compared-with-other-packages">lack of universal support</a> for <a href="https://tools.ietf.org/html/rfc7692">RFC 7692</a> message compression extension). Despite limitations the experimental implementation demonstrated good performance and WebSocket transport will be considered for inclusion in a future OTLP Extensions RFC.</p>
+<h2><a class="header" href="#open-questions" id="open-questions">Open Questions</a></h2>
+<p>One of the goals for telemetry protocol is reducing CPU usage and memory pressure in garbage collected languages. These goals were not addressed as part of this RFC and remain open. One of the promising future ways to address this is finding a more CPU and memory efficient encoding mechanism.</p>
+<p>Another goal for telemetry protocol is achieving high compression ratios for telemetry data while keeping CPU consumption low. OTLP uses compression provided by gRPC transport. No further improvements to compression were considered as part of this RFC and are a future area of work.</p>
+<h2><a class="header" href="#appendix-a---protocol-buffer-definitions" id="appendix-a---protocol-buffer-definitions">Appendix A - Protocol Buffer Definitions</a></h2>
+<p>This is Protocol Buffers schema for <code>Export</code> request and response:</p>
+<pre><code>// A request from client to server containing trace data to export.
+message TraceExportRequest {
+    // Telemetry data. An array of ResourceSpans.
+    repeated ResourceSpans resourceSpans = 2;
+}
+
+// A request from client to server containing metric data to export.
+message MetricExportRequest {
+    // Telemetry data. An array of ResourceMetrics.
+    repeated ResourceMetrics resourceMetrics = 2;
+}
+
+// A response to ExportRequest.
+message ExportResponse {
+    // Response in an empty message.
+}
+
+// A list of spans from a Resource.
+message ResourceSpans {
+  Resource resource = 1;
+  repeated Span spans = 2;
+}
+
+// A list of metrics from a Resource.
+message ResourceMetrics {
+  Resource resource = 1;
+  repeated Metric metrics = 2;
+}
+</code></pre>
+<p><code>Span</code>, <code>Metric</code> and <code>Resource</code> schema definitions are defined in RFCNNNN (RFC number to be defined and linked from here).</p>
+<h2><a class="header" href="#appendix-b---performance-benchmarks" id="appendix-b---performance-benchmarks">Appendix B - Performance Benchmarks</a></h2>
+<p>Benchmarking of OTLP vs other telemetry protocols was done using <a href="https://github.com/tigrannajaryan/exp-otelproto">reference implementation in Go</a>.</p>
+<h3><a class="header" href="#throughput---sequential-vs-concurrent" id="throughput---sequential-vs-concurrent">Throughput - Sequential vs Concurrent</a></h3>
+<p>Using 20 concurrent requests shows the following throughput advantage in benchmarks compared to sequential for various values of network roundtrip latency:</p>
+<pre><code>+-----------+-----------------------+
++ Latency   | Concurrent/Sequential |
++           |   Throughput Factor   |
++-----------+-----------------------+
++   0.02 ms |          1.7          |
++   2 ms    |          2.1          |
++  20 ms    |          4.9          |
++ 200 ms    |          6.9          |
++-----------+-----------------------+
+</code></pre>
+<p>Benchmarking is done using Export requests each carrying 500 spans, each span containing 10 small attributes.</p>
+<h3><a class="header" href="#cpu-usage---grpc-vs-websocketexperimental" id="cpu-usage---grpc-vs-websocketexperimental">CPU Usage - gRPC vs WebSocket/Experimental</a></h3>
+<p>Experimental implementation using WebSocket transport demonstrated about 30% less CPU usage on small batches compared to gRPC transport and about 7% less CPU usage on large batches.</p>
+<p>This shows that exploring different transports with less overhead is a promising future direction.</p>
+<h3><a class="header" href="#benchmarking-raw-results" id="benchmarking-raw-results">Benchmarking Raw Results</a></h3>
+<p>The following is the benchmarking result, running on on a system with i7 7500U processor, 16 GB RAM. (Note that the benchmarking script sets &quot;performance&quot; CPU governor during execution and sets nice value of the process for more consistent results).</p>
+<pre><code>====================================================================================
+Legend:
+GRPC/Stream/LBTimed/Sync    - GRPC, streaming, load balancer friendly, close stream every 30 sec, with ack
+GRPC/Stream/LBTimed/Async/N - OTLP Streaming. GRPC, N streams, load balancer friendly, close stream every 30 sec, with async ack
+GRPC/Unary                  - OTLP Unary. One request per batch, load balancer friendly, with ack
+GRPC/Unary/Async            - GRPC, unary async request per batch, load balancer friendly, with ack
+GRPC/OpenCensus             - OpenCensus protocol, streaming, not load balancer friendly, without ack
+GRPC/OpenCensusWithAck      - OpenCensus-like protocol, streaming, not load balancer friendly, with ack
+GRPC/Stream/NoLB            - GRPC, streaming, not load balancer friendly, with ack
+GRPC/Stream/LBAlways/Sync   - GRPC, streaming, load balancer friendly, close stream after every batch, with ack
+GRPC/Stream/LBSrv/Async     - OTLP Streaming. Load balancer friendly, server closes stream every 30 sec or 1000 batches, with async ack
+WebSocket/Stream/Sync       - WebSocket, streaming, unknown load balancer friendliness, with sync ack
+WebSocket/Stream/Async      - WebSocket, streaming, unknown load balancer friendliness, with async ack
+WebSocket/Stream/Async/zlib - WebSocket, streaming, unknown load balancer friendliness, with async ack, zlib compression
+
+
+8000 small batches, 100 spans per batch, 4 attrs per span
+GRPC/Stream/LBTimed/Async/1   800000 spans, CPU time  12.4 sec, wall time   5.3 sec, 645.7 batches/cpusec, 1510.0 batches/wallsec
+GRPC/Stream/LBTimed/Async/10  800000 spans, CPU time  12.3 sec, wall time   3.9 sec, 650.9 batches/cpusec, 2058.4 batches/wallsec
+GRPC/Unary                    800000 spans, CPU time  15.3 sec, wall time   9.5 sec, 523.2 batches/cpusec, 840.0 batches/wallsec
+GRPC/Unary/Async              800000 spans, CPU time  14.1 sec, wall time   4.0 sec, 565.8 batches/cpusec, 1986.3 batches/wallsec
+GRPC/OpenCensus               800000 spans, CPU time  21.7 sec, wall time  10.6 sec, 368.7 batches/cpusec, 751.5 batches/wallsec
+GRPC/OpenCensusWithAck        800000 spans, CPU time  23.4 sec, wall time  19.0 sec, 342.3 batches/cpusec, 420.8 batches/wallsec
+GRPC/Stream/NoLB              800000 spans, CPU time  13.6 sec, wall time   9.4 sec, 588.2 batches/cpusec, 848.7 batches/wallsec
+GRPC/Stream/LBAlways/Sync     800000 spans, CPU time  16.1 sec, wall time  10.0 sec, 495.7 batches/cpusec, 798.8 batches/wallsec
+GRPC/Stream/LBTimed/Sync      800000 spans, CPU time  13.7 sec, wall time   9.5 sec, 585.7 batches/cpusec, 845.1 batches/wallsec
+GRPC/Stream/LBSrv/Async       800000 spans, CPU time  12.7 sec, wall time  12.5 sec, 628.9 batches/cpusec, 639.8 batches/wallsec
+WebSocket/Stream/Sync         800000 spans, CPU time   8.4 sec, wall time   8.3 sec, 949.0 batches/cpusec, 965.3 batches/wallsec
+WebSocket/Stream/Async        800000 spans, CPU time   9.4 sec, wall time   5.4 sec, 852.0 batches/cpusec, 1492.0 batches/wallsec
+WebSocket/Stream/Async/zlib   800000 spans, CPU time  23.3 sec, wall time  16.5 sec, 343.8 batches/cpusec, 484.0 batches/wallsec
+
+800 large batches, 500 spans per batch, 10 attrs per span
+GRPC/Stream/LBTimed/Async/1   400000 spans, CPU time  11.4 sec, wall time   7.1 sec, 70.2 batches/cpusec, 113.1 batches/wallsec
+GRPC/Stream/LBTimed/Async/10  400000 spans, CPU time  12.2 sec, wall time   5.8 sec, 65.8 batches/cpusec, 138.4 batches/wallsec
+GRPC/Unary                    400000 spans, CPU time  10.7 sec, wall time   9.6 sec, 74.7 batches/cpusec, 83.2 batches/wallsec
+GRPC/Unary/Async              400000 spans, CPU time  11.9 sec, wall time   5.6 sec, 67.0 batches/cpusec, 141.8 batches/wallsec
+GRPC/OpenCensus               400000 spans, CPU time  23.9 sec, wall time  14.1 sec, 33.5 batches/cpusec, 56.8 batches/wallsec
+GRPC/OpenCensusWithAck        400000 spans, CPU time  22.0 sec, wall time  21.1 sec, 36.4 batches/cpusec, 38.0 batches/wallsec
+GRPC/Stream/NoLB              400000 spans, CPU time  10.7 sec, wall time   9.8 sec, 74.9 batches/cpusec, 81.8 batches/wallsec
+GRPC/Stream/LBAlways/Sync     400000 spans, CPU time  11.5 sec, wall time  10.2 sec, 69.9 batches/cpusec, 78.2 batches/wallsec
+GRPC/Stream/LBTimed/Sync      400000 spans, CPU time  11.1 sec, wall time  10.2 sec, 71.9 batches/cpusec, 78.4 batches/wallsec
+GRPC/Stream/LBSrv/Async       400000 spans, CPU time  11.3 sec, wall time   7.0 sec, 70.5 batches/cpusec, 113.6 batches/wallsec
+WebSocket/Stream/Sync         400000 spans, CPU time  10.3 sec, wall time  10.1 sec, 78.0 batches/cpusec, 79.4 batches/wallsec
+WebSocket/Stream/Async        400000 spans, CPU time  10.5 sec, wall time   7.2 sec, 76.2 batches/cpusec, 111.2 batches/wallsec
+WebSocket/Stream/Async/zlib   400000 spans, CPU time  29.0 sec, wall time  22.1 sec, 27.6 batches/cpusec, 36.1 batches/wallsec
+
+2ms network roundtrip latency
+800 large batches, 500 spans per batch, 10 attrs per span
+GRPC/Stream/LBTimed/Async/1   400000 spans, CPU time  11.1 sec, wall time   7.0 sec, 71.9 batches/cpusec, 114.9 batches/wallsec
+GRPC/Stream/LBTimed/Async/10  400000 spans, CPU time  11.4 sec, wall time   5.4 sec, 70.5 batches/cpusec, 148.0 batches/wallsec
+GRPC/Unary                    400000 spans, CPU time  11.5 sec, wall time  11.8 sec, 69.5 batches/cpusec, 68.1 batches/wallsec
+GRPC/Unary/Async              400000 spans, CPU time  11.3 sec, wall time   5.3 sec, 70.5 batches/cpusec, 150.4 batches/wallsec
+GRPC/OpenCensus               400000 spans, CPU time  23.1 sec, wall time  13.6 sec, 34.6 batches/cpusec, 58.7 batches/wallsec
+GRPC/OpenCensusWithAck        400000 spans, CPU time  21.9 sec, wall time  22.6 sec, 36.6 batches/cpusec, 35.4 batches/wallsec
+GRPC/Stream/NoLB              400000 spans, CPU time  11.1 sec, wall time  11.6 sec, 72.3 batches/cpusec, 69.2 batches/wallsec
+GRPC/Stream/LBAlways/Sync     400000 spans, CPU time  11.5 sec, wall time  11.6 sec, 69.8 batches/cpusec, 68.9 batches/wallsec
+GRPC/Stream/LBTimed/Sync      400000 spans, CPU time  11.3 sec, wall time  11.7 sec, 71.0 batches/cpusec, 68.2 batches/wallsec
+GRPC/Stream/LBSrv/Async       400000 spans, CPU time  11.1 sec, wall time   6.9 sec, 72.0 batches/cpusec, 115.1 batches/wallsec
+WebSocket/Stream/Sync         400000 spans, CPU time  10.8 sec, wall time  12.0 sec, 74.1 batches/cpusec, 66.5 batches/wallsec
+WebSocket/Stream/Async        400000 spans, CPU time  10.6 sec, wall time   7.2 sec, 75.5 batches/cpusec, 111.8 batches/wallsec
+WebSocket/Stream/Async/zlib   400000 spans, CPU time  28.6 sec, wall time  21.9 sec, 27.9 batches/cpusec, 36.6 batches/wallsec
+
+20ms network roundtrip latency
+400 large batches, 500 spans per batch, 10 attrs per span
+GRPC/Stream/LBTimed/Async/1   200000 spans, CPU time   6.2 sec, wall time   4.1 sec, 64.9 batches/cpusec, 96.7 batches/wallsec
+GRPC/Stream/LBTimed/Async/10  200000 spans, CPU time   6.2 sec, wall time   3.0 sec, 64.0 batches/cpusec, 132.9 batches/wallsec
+GRPC/Unary                    200000 spans, CPU time   6.2 sec, wall time  13.5 sec, 64.3 batches/cpusec, 29.6 batches/wallsec
+GRPC/Unary/Async              200000 spans, CPU time   5.9 sec, wall time   3.0 sec, 68.0 batches/cpusec, 132.9 batches/wallsec
+GRPC/OpenCensus               200000 spans, CPU time  12.6 sec, wall time   7.5 sec, 31.8 batches/cpusec, 53.3 batches/wallsec
+GRPC/OpenCensusWithAck        200000 spans, CPU time  12.0 sec, wall time  19.5 sec, 33.4 batches/cpusec, 20.5 batches/wallsec
+GRPC/Stream/NoLB              200000 spans, CPU time   5.9 sec, wall time  13.3 sec, 68.3 batches/cpusec, 30.0 batches/wallsec
+GRPC/Stream/LBAlways/Sync     200000 spans, CPU time   5.9 sec, wall time  13.3 sec, 68.0 batches/cpusec, 30.2 batches/wallsec
+GRPC/Stream/LBTimed/Sync      200000 spans, CPU time   5.8 sec, wall time  13.3 sec, 69.3 batches/cpusec, 30.1 batches/wallsec
+GRPC/Stream/LBSrv/Async       200000 spans, CPU time   5.5 sec, wall time   3.7 sec, 73.4 batches/cpusec, 107.3 batches/wallsec
+WebSocket/Stream/Sync         200000 spans, CPU time   5.8 sec, wall time  14.6 sec, 69.4 batches/cpusec, 27.4 batches/wallsec
+WebSocket/Stream/Async        200000 spans, CPU time   5.5 sec, wall time   3.9 sec, 72.3 batches/cpusec, 102.1 batches/wallsec
+WebSocket/Stream/Async/zlib   200000 spans, CPU time  14.7 sec, wall time  11.2 sec, 27.3 batches/cpusec, 35.7 batches/wallsec
+
+200ms network roundtrip latency
+40 large batches, 500 spans per batch, 10 attrs per span
+GRPC/Stream/LBTimed/Async/1    20000 spans, CPU time   0.5 sec, wall time   3.1 sec, 74.1 batches/cpusec, 12.7 batches/wallsec
+GRPC/Stream/LBTimed/Async/10   20000 spans, CPU time   0.7 sec, wall time   3.1 sec, 61.5 batches/cpusec, 12.8 batches/wallsec
+GRPC/Unary                     20000 spans, CPU time   0.6 sec, wall time   9.9 sec, 65.6 batches/cpusec,  4.0 batches/wallsec
+GRPC/Unary/Async               20000 spans, CPU time   0.6 sec, wall time   3.6 sec, 65.6 batches/cpusec, 11.1 batches/wallsec
+GRPC/OpenCensus                20000 spans, CPU time   1.1 sec, wall time   3.5 sec, 35.1 batches/cpusec, 11.3 batches/wallsec
+GRPC/OpenCensusWithAck         20000 spans, CPU time   1.2 sec, wall time  10.2 sec, 32.8 batches/cpusec,  3.9 batches/wallsec
+GRPC/Stream/NoLB               20000 spans, CPU time   0.6 sec, wall time   9.5 sec, 67.8 batches/cpusec,  4.2 batches/wallsec
+GRPC/Stream/LBAlways/Sync      20000 spans, CPU time   0.6 sec, wall time   9.5 sec, 63.5 batches/cpusec,  4.2 batches/wallsec
+GRPC/Stream/LBTimed/Sync       20000 spans, CPU time   0.6 sec, wall time   9.5 sec, 66.7 batches/cpusec,  4.2 batches/wallsec
+GRPC/Stream/LBSrv/Async        20000 spans, CPU time   0.5 sec, wall time   3.3 sec, 74.1 batches/cpusec, 12.0 batches/wallsec
+WebSocket/Stream/Sync          20000 spans, CPU time   0.6 sec, wall time  13.5 sec, 69.0 batches/cpusec,  3.0 batches/wallsec
+WebSocket/Stream/Async         20000 spans, CPU time   0.5 sec, wall time   6.1 sec, 74.1 batches/cpusec,  6.5 batches/wallsec
+WebSocket/Stream/Async/zlib    20000 spans, CPU time   1.5 sec, wall time   2.0 sec, 26.3 batches/cpusec, 19.8 batches/wallsec
+
+
+400 large batches, 500 spans per batch, 10 attrs per span
+200ms network roundtrip latency
+GRPC/OpenCensus               200000 spans, CPU time  11.9 sec, wall time  10.1 sec, 33.6 batches/cpusec, 39.6 batches/wallsec
+GRPC/Stream/LBTimed/Async/1   200000 spans, CPU time   5.3 sec, wall time   9.5 sec, 76.0 batches/cpusec, 41.9 batches/wallsec
+GRPC/Stream/LBTimed/Async/10  200000 spans, CPU time   6.4 sec, wall time   8.9 sec, 62.3 batches/cpusec, 44.7 batches/wallsec
+GRPC/Unary/Async              200000 spans, CPU time   5.8 sec, wall time  12.0 sec, 68.6 batches/cpusec, 33.3 batches/wallsec
+WebSocket/Stream/Async        200000 spans, CPU time   5.3 sec, wall time  11.2 sec, 75.3 batches/cpusec, 35.7 batches/wallsec
+WebSocket/Stream/Async/zlib   200000 spans, CPU time  15.1 sec, wall time  12.0 sec, 26.5 batches/cpusec, 33.4 batches/wallsec
+====================================================================================
+</code></pre>
+<h2><a class="header" href="#glossary" id="glossary">Glossary</a></h2>
+<p>There are 2 parties involved in telemetry data exchange. In this document the party that is the source of telemetry data is called the <code>Client</code>, the party that is the destination of telemetry data is called the <code>Server</code>.</p>
+<p><img src="images/otlp-client-server.png" alt="Client-Server" /></p>
+<p>Examples of a Client are instrumented applications or sending side of telemetry collectors, examples of Servers are telemetry backends or receiving side of telemetry collectors (so a Collector is typically both a Client and a Server depending on which side you look from).</p>
+<p>Both the Client and the Server are also a <code>Node</code>. This term is used in the document when referring to either one.</p>
+<h2><a class="header" href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h2>
+<p>Special thanks to Owais Lone who helped to conduct experiments with Load Balancers, to Paulo Janotti, Bogdan Drutu and Yuri Shkuro for thoughtful discussions around the protocol.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="0016-named-tracers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0038-version-semantic-attribute.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="0016-named-tracers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0038-version-semantic-attribute.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0003-measure-metric-type</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html" class="active"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#consolidate-pre-aggregated-and-raw-metrics-apis" id="consolidate-pre-aggregated-and-raw-metrics-apis">Consolidate pre-aggregated and raw metrics APIs</a></h1>
+<h2><a class="header" href="#foreword" id="foreword">Foreword</a></h2>
+<p>A working group convened on 8/21/2019 to discuss and debate the two metrics RFCs (0003 and 0004) and several surrounding concerns.  This document has been revised with related updates that were agreed upon during this working session.  See the <a href="https://docs.google.com/document/d/1d0afxe3J6bQT-I6UbRXeIYNcTIyBQv4axfjKF4yvAPA/edit#">meeting notes</a>.</p>
+<h2><a class="header" href="#overview" id="overview">Overview</a></h2>
+<p>Introduce a <code>Measure</code> kind of metric object that supports a <code>Record</code> API method.  Like existing <code>Gauge</code> and <code>Cumulative</code> metrics, the new <code>Measure</code> metric supports pre-defined labels.  A new <code>RecordBatch</code> measurement API  is introduced for recording multiple metric observations simultaneously.</p>
+<h2><a class="header" href="#terminology" id="terminology">Terminology</a></h2>
+<p>This RFC changes how &quot;Measure&quot; is used in the OpenTelemetry metrics specification.  Before, &quot;Measure&quot; was the name of a series of raw measurements.  After, &quot;Measure&quot; is the kind of a metric object used for recording a series raw measurements.</p>
+<p>Since this document will be read in the future after the proposal has been written, uses of the word &quot;current&quot; lead to confusion.  For this document, the term &quot;preceding&quot; refers to the state that was current prior to these changes.</p>
+<p>The preceding specification used the term <code>TimeSeries</code> to describe an instrument bound with a set of pre-defined labels.  In this document, <a href="0009-metric-handles.html">the term &quot;Handle&quot; is used to describe an instrument with bound labels</a>.  In a future OTEP this will be again changed to &quot;Bound instrument&quot;.  The term &quot;Handle&quot; is used throughout this document to refer to a bound instrument.</p>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p>In the preceding <code>Metric.GetOrCreateTimeSeries</code> API for Gauges and Cumulatives, the caller obtains a <code>TimeSeries</code> handle for repeatedly recording metrics with certain pre-defined label values set.  This enables an important optimization for exporting pre-aggregated metrics, since the implementation is able to compute the aggregate summary &quot;entry&quot; using a pointer or fast table lookup. The efficiency gain requires that the aggregation keys be a subset of the pre-defined labels.</p>
+<p>Application programs with long-lived objects and associated Metrics can take advantage of pre-defined labels by computing label values once per object (e.g., in a constructor), rather than once per call site. In this way, the use of pre-defined labels improves the usability of the API as well as makes an important optimization possible to the implementation.</p>
+<p>The preceding raw statistics API did not specify support for pre-defined labels.  This RFC replaces the raw statistics API by a new, general-purpose kind of metric, <code>MeasureMetric</code>, generally intended for recording individual measurements like the preceding raw statistics API, with explicit support for pre-defined labels.</p>
+<p>The preceding raw statistics API supported all-or-none recording for interdependent measurements using a common label set.  This RFC introduces a <code>RecordBatch</code> API to support recording batches of measurements in a single API call, where a <code>Measurement</code> is now defined as a pair of <code>MeasureMetric</code> and <code>Value</code> (integer or floating point).</p>
+<h2><a class="header" href="#explanation" id="explanation">Explanation</a></h2>
+<p>The common use for <code>MeasureMetric</code>, like the preceding raw statistics API, is for reporting information about rates and distributions over structured, numerical event data.  Measure metrics are the most general-purpose of metrics.  Informally, the individual metric event has a logical format expressed as one primary key=value (the metric name and a numerical value) and any number of secondary key=values (the labels, resources, and context).</p>
+<pre><code>metric_name=_number_
+pre_defined1=_any_value_
+pre_defined2=_any_value_
+...
+resource1=_any_value_
+resource2=_any_value_
+...
+context_tag1=_any_value_
+context_tag2=_any_value_
+...
+</code></pre>
+<p>Here, &quot;pre_defined&quot; keys are those captured in the metrics handle, &quot;resource&quot; keys are those configured when the SDK was initialized, and &quot;context_tag&quot; keys are those propagated via context.</p>
+<p>Events of this form can logically capture a single update to a named metric, whether a cumulative, gauge, or measure kind of metric.  This logical structure defines a <em>low-level encoding</em> of any metric event, across the three kinds of metric.  An SDK could simply encode a stream of these events and the consumer, provided access to the metric definition, should be able to interpret these events according to the semantics prescribed for each kind of metric.</p>
+<h2><a class="header" href="#metrics-api-concepts" id="metrics-api-concepts">Metrics API concepts</a></h2>
+<p>The <code>Meter</code> interface represents the metrics portion of the OpenTelemetry API.</p>
+<p>There are three kinds of metric instrument, <code>CumulativeMetric</code>, <code>GaugeMetric</code>, and <code>MeasureMetric</code>.</p>
+<p>Metric instruments are constructed through the <code>Meter</code> API. Constructing an instrument automatically registers it with the SDK. The common attributes of a metric instrument are:</p>
+<table><thead><tr><th>Field</th><th>Description</th></tr></thead><tbody>
+<tr><td>Name</td><td>A string.</td></tr>
+<tr><td>Kind</td><td>One of Cumulative, Gauge, or Measure.</td></tr>
+<tr><td>Recommended Keys</td><td>Default aggregation keys.</td></tr>
+<tr><td>Unit</td><td>The unit of measurement being recorded.</td></tr>
+<tr><td>Description</td><td>Information about this metric.</td></tr>
+</tbody></table>
+<p>See the specification for more information on these fields, including formatting and uniqueness requirements.  To define a new metric, use one of the <code>Meter</code> API methods (e.g., with names like <code>NewCumulativeMetric</code>, <code>NewGaugeMetric</code>, or <code>NewMeasureMetric</code>).</p>
+<p>Metric instrument Handles combine a metric instrument with a set of pre-defined labels.  Handles are obtained by calling a language-specific API method (e.g., <code>GetHandle</code>) on the metric instrument with certain label values.  Handles may be used to <code>Set()</code>, <code>Add()</code>, or <code>Record()</code> metrics according to their kind.</p>
+<h2><a class="header" href="#selecting-metric-kind" id="selecting-metric-kind">Selecting Metric Kind</a></h2>
+<p>By separation of API and implementation in OpenTelemetry, we know that an implementation is free to do <em>anything</em> in response to a metric API call.  By the low-level interpretation defined above, all metric events have the same structural representation, only their logical interpretation varies according to the metric definition.  Therefore, we select metric kinds based on two primary concerns:</p>
+<ol>
+<li>What should be the default implementation behavior?  Unless configured otherwise, how should the implementation treat this metric variable?</li>
+<li>How will the program source code read?  Each metric uses a different verb, which helps convey meaning and describe default behavior.  Cumulatives have an <code>Add()</code> method.  Gauges have a <code>Set()</code> method.  Measures have a <code>Record()</code> method.</li>
+</ol>
+<p>To guide the user in selecting the right kind of metric for an application, we'll consider the following questions about the primary intent of reporting given data.  We use &quot;of primary interest&quot; here to mean information that is almost certainly useful in understanding system behavior.  Consider these questions:</p>
+<ul>
+<li>Does the measurement represent a quantity of something?  Is it also non-negative?</li>
+<li>Is the sum a matter of primary interest?</li>
+<li>Is the event count a matter of primary interest?</li>
+<li>Is the distribution (p50, p99, etc.) a matter of primary interest?</li>
+</ul>
+<p>The specification will be updated with the following guidance.</p>
+<h3><a class="header" href="#cumulative-metric" id="cumulative-metric">Cumulative metric</a></h3>
+<p>Likely to be the most common kind of metric, cumulative metric events express the computation of a sum.  Choose this kind of metric when the value is a quantity, the sum is of primary interest, and the event count and distribution are not of primary interest.  To raise (or lower) a cumulative metric, call the <code>Add()</code> method.</p>
+<p>If the quantity in question is always non-negative, it implies that the sum is monotonic.  This is the common case, <code>Monotonic(true)</code>, where cumulative sums only rise, and these metric instruments serve to compute a rate.  For this reason, cumulative metrics have a <code>Monotonic(false)</code> option to be declared as allowing negative inputs, the uncommon case.  The SDK should reject negative inputs to monotonic cumulative metrics, but it is not required to.</p>
+<p>For cumulative metrics, the default OpenTelemetry implementation exports the sum of event values taken over an interval of time.</p>
+<h3><a class="header" href="#gauge-metric" id="gauge-metric">Gauge metric</a></h3>
+<p>Gauge metrics express a pre-calculated value that is either <code>Set()</code> by explicit instrumentation or observed through a callback.  Generally, this kind of metric should be used when the metric cannot be expressed as a sum or a rate because the measurement interval is arbitrary.  Use this kind of metric when the measurement is a computed value and the sum and event count are not of interest.</p>
+<p>Only the gauge kind of metric supports observing the metric via a gauge <code>Observer</code> callback (as an option, see <code>0008-metric-observer.md</code>).  Semantically, there is an important difference between explicitly setting a gauge and observing it through a callback.  In case of setting the gauge explicitly, the <code>Set()</code> call happens inside of an implicit or explicit context.  The implementation is free to associate the explicit <code>Set()</code> event with a context, for example.  When observing gauge metrics via a callback, there is no context associated with the event.</p>
+<p>As a special case, to support existing metrics infrastructure and the <code>Observer</code> pattern, a gauge metric may be declared as a precomputed, monotonic sum using the <code>Monotonic(true)</code> option, in which case it is may be used to define a rate.  The initial value is presumed to be zero.  The SDK should reject descending updates to monotonic gauges, but it is not required to.</p>
+<p>For gauge metrics, the default OpenTelemetry implementation exports the last value that was explicitly <code>Set()</code>, or if using a callback, the current value from the <code>Observer</code>.</p>
+<h3><a class="header" href="#measure-metric" id="measure-metric">Measure metric</a></h3>
+<p>Measure metrics express a distribution of measured values.  This kind of metric should be used when the count or rate of events is meaningful and either:</p>
+<ol>
+<li>The sum is of interest in addition to the count (rate)</li>
+<li>Quantile information is of interest.</li>
+</ol>
+<p>The key property of a measure metric event is that computing quantiles and/or summarizing a distribution (e.g., via a histogram) may be expensive.  Not only will implementations have various capabilities and algorithms for this task, users may wish to control the quality and cost of aggregating measure metrics.</p>
+<p>Like cumulative metrics, non-negative measures are an important case because they support rate calculations.  Measure metrics are described as <code>Absolute(true)</code> when the inputs are non-negative.  As an option, measure metrics may be declared as <code>Absolute(false)</code> to support positive and negative values.  The SDK should reject negative measurements for Absolute measures, but it is not required to.</p>
+<h3><a class="header" href="#option-to-disable-metrics-by-default" id="option-to-disable-metrics-by-default">Option to disable metrics by default</a></h3>
+<p>Metric instruments are enabled by default, meaning that SDKs will export metric data for this instrument without configuration.  Metric instruments support a <code>Disabled</code> option, marking them as verbose sources of information that may be configured on an as-needed basis to control cost (e.g., using a &quot;views&quot; API).</p>
+<h3><a class="header" href="#kind-specific-option-summary" id="kind-specific-option-summary">Kind-specific option summary</a></h3>
+<p>The kind-specific optional properties of a metric instrument are:</p>
+<table><thead><tr><th>Property</th><th>Description</th><th>Metric kind</th></tr></thead><tbody>
+<tr><td>Monotonic(true)</td><td>Indicates a cumulative that accepts only non-negative values</td><td>Cumulative (default)</td></tr>
+<tr><td></td><td>Indicate a gauge supports ascending value sequences starting at 0</td><td>Gauge</td></tr>
+<tr><td>Monotonic(false)</td><td>Indicates a cumulative that accepts positive and negative values</td><td>Cumulative</td></tr>
+<tr><td></td><td>Indicate a gauge that expresses a monotonic cumulative value</td><td>Gauge (default)</td></tr>
+<tr><td>Absolute(true)</td><td>Indicates a measure that accepts non-negative values</td><td>Measure (default)</td></tr>
+<tr><td>Absolute(false)</td><td>Indicates a measure that accepts positive and negative values</td><td>Measure</td></tr>
+</tbody></table>
+<h3><a class="header" href="#recordbatch-api" id="recordbatch-api">RecordBatch API</a></h3>
+<p>Applications sometimes want to act upon multiple metric instruments in a single API call, either because the values are inter-related to each other, or because it lowers overhead.  RecordBatch logically updates each instrument in the batch using the supplied value.  A single label set applies to the batch.</p>
+<p>A single measurement is defined as:</p>
+<ul>
+<li>Instrument: the measure instrument (not a Handle)</li>
+<li>Value: the recorded floating point or integer data</li>
+</ul>
+<p>The batch measurement API uses a language-specific method name (e.g., <code>RecordBatch</code>).  The entire batch of measurements takes place within a (implicit or explicit) context.</p>
+<h2><a class="header" href="#prior-art-and-alternatives" id="prior-art-and-alternatives">Prior art and alternatives</a></h2>
+<p>Prometheus supports the notion of vector metrics, which are those that support pre-defined labels for a specific set of required keys.  The vector-metric API supports a variety of methods like <code>WithLabelValues</code> to associate labels with a metric handle, similar to <code>GetHandle</code> in OpenTelemetry.  As in this proposal, Prometheus supports a vector API for all metric types.</p>
+<h2><a class="header" href="#open-questions" id="open-questions">Open questions</a></h2>
+<h3><a class="header" href="#gethandle-argument-ordering" id="gethandle-argument-ordering"><code>GetHandle</code> argument ordering</a></h3>
+<p>Argument ordering has been proposed as the way to pass pre-defined label values in <code>GetHandle</code>.  The argument list must match the parameter list exactly, and if it doesn't we generally find out at runtime or not at all.  This model has more optimization potential, but is easier to misuse than the alternative.  The alternative approach is to always pass label:value pairs to <code>GetOrCreateTimeseries</code>, as opposed to an ordered list of values.</p>
+<h3><a class="header" href="#recordbatch-argument-ordering" id="recordbatch-argument-ordering"><code>RecordBatch</code> argument ordering</a></h3>
+<p>The discussion above can be had for the proposed <code>RecordBatch</code> method.  It can be declared with an ordered list of metrics, then the <code>Record</code> API takes only an ordered list of numbers.  Alternatively, and less prone to misuse, the <code>RecordBatch</code> API has been declared with a list of metric:number pairs.</p>
+<h3><a class="header" href="#eliminate-getdefaulthandle" id="eliminate-getdefaulthandle">Eliminate <code>GetDefaultHandle()</code></a></h3>
+<p>Instead of a mechanism to obtain a default handle, some languages may prefer to simply operate on the metric instrument directly in this case.  Should OpenTelemetry eliminate <code>GetDefaultHandle</code> and instead specify that cumulative, gauge, and measure metric instruments implement <code>Add()</code>, <code>Set()</code>, and <code>Record()</code> with the same interpretation?</p>
+<p>If we eliminate <code>GetDefaultHandle()</code>, the SDK may keep a map of metric instrument to default handle on its own.</p>
+<h3><a class="header" href="#recordbatch-support-for-all-metrics" id="recordbatch-support-for-all-metrics"><code>RecordBatch</code> support for all metrics</a></h3>
+<p>In the 8/21 working session, we agreed to limit <code>RecordBatch</code> to recording of simultaneous measure metrics, meaning to exclude cumulatives and gauges from batch recording.  There are arguments in favor of supporting batch recording for all metric instruments.</p>
+<ul>
+<li>If atomicity (i.e., the all-or-none property) is the reason for batch reporting, it makes sense to include all the metric instruments in the API</li>
+<li><code>RecordBatch</code> support for cumulatives and gauges will be natural for SDKs that act as forwarders for metric events . The natural implementation for <code>Add()</code> and <code>Set()</code> methods will be <code>RecordBatch</code> with a single event.</li>
+<li>Likewise, it is simple for an SDK that acts as an aggregator (not a forwarder) to redirect <code>Add()</code> and <code>Set()</code> APIs to the handle-specific <code>Add()</code> and <code>Set()</code> methods; while the SDK, as the implementation, still may (not must) treat these cumulative and gauge updates as atomic.</li>
+</ul>
+<p>Arguments against batch recording for all metric instruments:</p>
+<ul>
+<li>The <code>Record</code> in <code>RecordBatch</code> suggests it is to be applied to measure metrics.  This is due to measure metrics being the most general-purpose of metric instruments.</li>
+</ul>
+<h2><a class="header" href="#issues-addressed" id="issues-addressed">Issues addressed</a></h2>
+<p><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/83">Raw vs. other metrics / measurements are unclear</a></p>
+<p><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/145">Eliminate Measurement class to save on allocations</a></p>
+<p><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/146">Implement three more types of Metric</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="0002-remove-spandata.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0005-global-init.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="0002-remove-spandata.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0005-global-init.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

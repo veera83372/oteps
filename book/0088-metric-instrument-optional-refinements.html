@@ -1,0 +1,656 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0088-metric-instrument-optional-refinements</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html" class="active"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#metric-instruments" id="metric-instruments">Metric Instruments</a></h1>
+<p>Removes the optional semantic declarations <code>Monotonic</code> and <code>Absolute</code>
+for metric instruments, declares the Measure and Observer instruments
+as <em>foundational</em>, and introduces a process for standardizing new
+instrument <em>refinements</em>.</p>
+<p>Note that <a href="https://github.com/open-telemetry/oteps/pull/93">OTEP 93</a>
+contains a final proposal for the set of instruments, of which there
+are seven.  Note that <a href="https://github.com/open-telemetry/oteps/pull/96">OTEP
+96</a> contains a final
+proposal for the names of the seven standard instruments.  These three
+OTEPs will be applied as a group to the specification, using the names
+finalized in OTEP 96.</p>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p>With the removal of Gauge instruments and the addition of Observer
+instruments in the specification, the existing <code>Monotonic</code> and
+<code>Absolute</code> options began to create confusion.  For example, a Counter
+instrument is used for capturing changes in a Sum, and we could say
+that non-negative-valued metric events define a monotonic Counter, in
+the sense that its Sum is monotonic.  The confusion arises, in this
+case, because <code>Absolute</code> refers to the captured values, whereas
+<code>Monotonic</code> refers to the semantic output.</p>
+<p>From a different perspective, Counter instruments might be treated as
+refinements of the Measure instrument.  Whereas the Measure instrument
+is used for capturing all-purpose synchronous measurements, the
+Counter instrument is used specifically for synchronously capturing
+measurements of changes in a sum, therefore it uses <code>Add()</code> instead of
+<code>Record()</code>, and it specifies <code>Sum</code> as the standard aggregation.</p>
+<p>What this illustrates is that we have modeled this space poorly.  This
+proposal does not propose to change any existing metrics APIs, only
+our understanding of the three instruments currently included in the
+specification: Measure, Observer, and Counter.</p>
+<h2><a class="header" href="#explanation" id="explanation">Explanation</a></h2>
+<p>The Measure and Observer instrument are defined as <em>foundational</em>
+here, in the sense that any kind of metric instrument must reduce to
+one of these.  The foundational instruments are unrestricted, in the
+sense that metric events support any numerical value, positive or
+negative, zero or infinity.</p>
+<p>The distinction between the two foundational instruments is whether
+they are synchronous.  Measure instruments are called synchronously by
+the user, while Observer instruments are called asynchronously by the
+implementation.  Synchronous instruments (Measure and its refinements)
+have three calling patterns (<em>Bound</em>, <em>Unbound</em>, and <em>Batch</em>) to
+capture measurements.  Asynchronous instruments (Observer and its
+refinements) use callbacks to capture measurements.</p>
+<p>All measurement APIs produce metric events consisting of <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/metrics/api.md#metric-event-format">timestamp,
+instrument descriptor, label set, and numerical
+value</a>.  Synchronous instrument
+events additionally have <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/context/context.md">Context</a>, describing
+properties of the associated trace and distributed correlation values.</p>
+<h3><a class="header" href="#terminology-kinds-of-aggregation" id="terminology-kinds-of-aggregation">Terminology: Kinds of Aggregation</a></h3>
+<p><em>Aggregation</em> refers to the technique used to summarize many
+measurements and/or observations into <em>some</em> kind of summary of the
+data.  As detailed in the <a href="https://github.com/open-telemetry/opentelemetry-specification/pull/347/files?short_path=5b01bbf#diff-5b01bbf3430dde7fc5789b5919d03001">metric SDK specification (TODO:
+WIP)</a>,
+there are generally two relevant modes of aggregation:</p>
+<ol>
+<li>Within one collection interval, for one label set, the SDK's
+<code>Aggregator.Add()</code> interface method incorporates one new measurement
+value into the current aggregation value.  This happens at run time,
+therefore is referred to as <em>temporal aggregation</em>.  This mode applies
+only to Measure instruments.</li>
+<li>Within one collection interval, when combining label sets, the
+SDK's <code>Aggregator.Merge()</code> interface method incorporates two
+aggregation values into one aggregation value.  This is referred to as
+<em>spatial aggregation</em>.  This mode applies to both Measure and Observer
+instruments.</li>
+</ol>
+<p>As discussed below, we are especially interested in aggregating rate
+information, which sometimes requires that temporal and spatial
+aggregation be treated differently.</p>
+<h3><a class="header" href="#last-value-relationship" id="last-value-relationship">Last-value relationship</a></h3>
+<p>Observer instruments have a well-defined <em>Last Value</em> measured by the
+instrument, that can be useful in defining aggregations.  The Last
+Value of an Observer instrument is the value that was captured during
+the last-completed collection interval, and it is a useful
+relationship because it is defined without relation to collection
+interval timing.  The Last Value of an Observer is determined by the
+single most-recently completed collection interval--it is not
+necessary to consider prior collection intervals.  The Last Value of
+an Observer is undefined when it is not observed during a collection
+interval.</p>
+<p>To maintain this property, we impose a requirement: two or more
+<code>Observe()</code> calls with an identical LabelSet during a single Observer
+callback invocation are treated as duplicates of each other, where the
+last call to <code>Observe()</code> wins.</p>
+<p>Based on the Last Value relationship, we can ask and answer questions
+such as &quot;what is the average last value of a metric at a point in
+time?&quot;.  Observer instruments define the Last Value relationship
+without referring to the collection interval and without ambiguity.</p>
+<h3><a class="header" href="#last-value-and-measure-instruments" id="last-value-and-measure-instruments">Last-value and Measure instruments</a></h3>
+<p>Measure instruments do not define a Last Value relationship.  One
+reason is that <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/metrics/api.md#time">synchronous events can happen
+simultaneously</a>.</p>
+<p>For Measure instruments, it is possible to compute an aggregation that
+computes the last-captured value in a collection interval, but it is
+potentially not unique and the result will vary depending on the
+timing of the collection interval.  For example, a synchronous metric
+event that last took place one minute ago will appear as the last
+value for collection intervals one minute or longer, but the last
+value will be undefined if the collection interval is shorter than one
+minute.</p>
+<h3><a class="header" href="#aggregating-changes-to-a-sum-rate-calculation" id="aggregating-changes-to-a-sum-rate-calculation">Aggregating changes to a sum: Rate calculation</a></h3>
+<p>The former <code>Monotonic</code> option had been introduced in order to support
+reporting of a current sum, such that a rate calculation is implied.
+Here we defined <em>Rate</em> as an aggregation, defined for a subset of
+instruments, that may be calculated differently depending on how the
+instrument is defined.  The rate aggregation outputs the amount of
+change in a quantity divided by the amount of change in time.</p>
+<p>A rate can be computed from values that are reported as differences,
+referred to as <em>delta</em> reporting here, or as sums, referred to as
+<em>cumulative</em> reporting here.  The primary goal of the instrument
+refinements introduced in this proposal is to facilitate rate
+calculations in more than one way.</p>
+<p>When delta reporting, a rate is calculated by summing individual
+measurements or observations.  When cumulative reporting, a rate is
+calculated by computing a difference between individual values.</p>
+<p>Note that cumulative-reported metric data requires special treatment
+of the time dimension when computing rates.  When aggregating across
+the time dimension, the difference should be computed.  When
+aggregating across spatial dimensions, the sum should be computed.</p>
+<h3><a class="header" href="#standard-implementation-of-measure-and-observer" id="standard-implementation-of-measure-and-observer">Standard implementation of Measure and Observer</a></h3>
+<p>OpenTelemetry specifies how the default SDK should treat metric
+events, by default, when asked to export data from an instrument.
+Measure and Observer instruments compute <code>Sum</code> and <code>Count</code>
+aggregations, by default, in the standard implementation.  This pair
+of measurements, of course, defines an average value.  There are no
+restrictions placed on the numerical value in an event for the two
+foundational instruments.</p>
+<h3><a class="header" href="#refinements-to-measure-and-observer" id="refinements-to-measure-and-observer">Refinements to Measure and Observer</a></h3>
+<p>The <code>Monotonic</code> and <code>Absolute</code> options were removed in the 0.3
+specification.  Here, we propose to regain the equivalent effects
+through instrument refinements.  Instrument refinements are added to
+the foundational instruments, yielding new instruments with the same
+calling patterns as the foundational instrument they refine.  These
+refinements support adding either a different standard implementation
+or a restriction of the input domain to the instrument.</p>
+<p>We have done away with instrument options, in other words, in favor of
+optional metric instruments.  Here we discuss four significant
+instrument refinements.</p>
+<h4><a class="header" href="#non-negative" id="non-negative">Non-negative</a></h4>
+<p>For some instruments, such as those that measure real quantities,
+negative values are meaningless.  For example, it is impossible for a
+person to weigh a negative amount.</p>
+<p>A non-negative instrument refinement accepts only non-negative values.
+For instruments with this property, negative values are considered
+measurement errors.  Both Measure and Observer instruments support
+non-negative refinements.</p>
+<h4><a class="header" href="#sum-only" id="sum-only">Sum-only</a></h4>
+<p>A sum-only instrument is one where only the sum is considered to be of
+interest.  For a sum-only instrument refinement, we have a semantic
+property that two events with numeric values <code>M</code> and <code>N</code> are
+semantically equivalent to a single event with value <code>M+N</code>.  For
+example, in a sum-only count of users arriving by bus to an event, we
+are not concerned with the number of buses that arrived.</p>
+<p>A sum-only instrument is one where the number of events is not
+counted, only the <code>Sum</code>.  A key property of sum-only instruments is
+that they always support a Rate aggregation, whether reporting delta-
+or cumulative-values.  Both Measure and Observer instruments support
+sum-only refinements.</p>
+<h4><a class="header" href="#precomputed-sum" id="precomputed-sum">Precomputed-sum</a></h4>
+<p>A precomputed-sum refinement indicates that values reported through an
+instrument are observed or measured in terms of a sum that changes
+over time.  Pre-computed sum instruments support cumulative reporting,
+meaning the rate aggregation is defined by computing a difference
+across timestamps or collection intervals.</p>
+<p>A precomputed sum refinement implies a sum-only refinement.  Note that
+values associated with a precomputed sum are still sums.  Precomputed
+sum values are combined using addition, when aggregating over the
+spatial dimensions; only the time dimension receives special treatment.</p>
+<h4><a class="header" href="#non-negative-rate" id="non-negative-rate">Non-negative-rate</a></h4>
+<p>A non-negative-rate instrument refinement states that rate aggregation
+produces only non-negative results.  There are non-negative-rate cases
+of interest for delta reporting and cumulative reporting, as follows.</p>
+<p>For delta reporting, any non-negative and sum-only instrument is also
+a non-negative-rate instrument.</p>
+<p>For cumulative reporting, a sum-only and pre-computed sum instrument
+does not necessarily have a non-negative rate, but adding an explicit
+non-negative-rate refinement makes it the equivalent of <code>Monotonic</code> in
+the 0.2 specification.</p>
+<p>For example, the CPU time used by a process, as read in successive
+collection intervals, cannot change by a negative amount, because it
+is impossible to use a negative amount of CPU time.  CPU time a
+typical value to report through an Observer instrument, so the rate
+for a specific set of labels is defined by subtracting the prior
+observation from the current observation.  Using a non-negative-rate
+refinement asserts that the values increases by a non-negative amount
+on subsequent collection intervals.</p>
+<h4><a class="header" href="#discussion-additive-vs-non-additive-numbers" id="discussion-additive-vs-non-additive-numbers">Discussion: Additive vs. Non-Additive numbers</a></h4>
+<p>The refinements proposed above may leave us wondering about the
+distinction between an unrefined Measure and the
+<em>UpDownCumulativeCounter</em>.  Both values are unrestricted, in terms of
+range, so why should they be treated differently?</p>
+<p>The <em>UpDownCumulativeCounter</em> has sum-only and precomputed-sum
+refinements, which indicate that the numbers being observed are the
+result of addition.  These instruments have the additive property that
+observing <code>N</code> and <code>M</code> separately is equivalent to observing <code>N+M</code>.
+When performing spatial aggregation over data with these additive
+properties, it is natural to compute the sum.</p>
+<p>When performing spatial aggregation over data without additive
+properties, it is natural to combine the distributions.  The
+distinction is about how we interpret the values when aggregating.
+Use one of the sum-only refinments to report a sum in the default
+configuration, otherwise use one of the non-sum-only instruments to
+report a distribution.</p>
+<h4><a class="header" href="#language-level-refinements" id="language-level-refinements">Language-level refinements</a></h4>
+<p>OpenTelemetry implementations may wish to add instrument refinements
+to accommodate built-in types.  Languages with distinct integer and
+floating point should offer instrument refinements for each, leading
+to type names like <code>Int64Measure</code> and <code>Float64Measure</code>.</p>
+<p>A language with support for unsigned integer types may wish to create
+dedicated instruments to report these values, leading to type names
+like <code>UnsignedInt64Observer</code> and <code>UnsignedFloat64Observer</code>.  These
+would naturally apply a non-negative refinment.</p>
+<p>Other uses for built-in type refinements involve the type for duration
+measurements.  For example, where there is built-in type for the
+difference between two clock measurements, OpenTelemetry APIs should
+offer a refinement to automatically apply the correct unit of time to
+the measurement.</p>
+<h3><a class="header" href="#counter-refinement" id="counter-refinement">Counter refinement</a></h3>
+<p>Counter is a sum-only, non-negative, thus non-negative-rate refinement
+of the Measure instrument.</p>
+<h3><a class="header" href="#standardizing-new-instruments" id="standardizing-new-instruments">Standardizing new instruments</a></h3>
+<p>With these refinements we can exhaustively list each distinct kind of
+instrument.  There are a total of twelve hypothetical instruments
+listed in the table below, of which only one has been standardized.
+Hypothetical future instrument names are <em>italicized</em>.</p>
+<table><thead><tr><th>Foundation instrument</th><th>Sum-only?</th><th>Precomputed-sum?</th><th>Non-negative?</th><th>Non-negative-rate?</th><th>Instrument name <em>(hyptothetical)</em></th></tr></thead><tbody>
+<tr><td>Measure</td><td>sum-only</td><td></td><td>non-negative</td><td>non-negative-rate</td><td>Counter</td></tr>
+<tr><td>Measure</td><td>sum-only</td><td>precomputed-sum</td><td></td><td>non-negative-rate</td><td><em>CumulativeCounter</em></td></tr>
+<tr><td>Measure</td><td>sum-only</td><td></td><td></td><td></td><td><em>UpDownCounter</em></td></tr>
+<tr><td>Measure</td><td>sum-only</td><td>precomputed-sum</td><td></td><td></td><td><em>UpDownCumulativeCounter</em></td></tr>
+<tr><td>Measure</td><td></td><td></td><td>non-negative</td><td></td><td><em>AbsoluteDistribution</em></td></tr>
+<tr><td>Measure</td><td></td><td></td><td></td><td></td><td><em>Distribution</em></td></tr>
+<tr><td>Observer</td><td>sum-only</td><td></td><td>non-negative</td><td>non-negative-rate</td><td><em>DeltaObserver</em></td></tr>
+<tr><td>Observer</td><td>sum-only</td><td>precomputed-sum</td><td></td><td>non-negative-rate</td><td><em>CumulativeObserver</em></td></tr>
+<tr><td>Observer</td><td>sum-only</td><td></td><td></td><td></td><td><em>UpDownDeltaObserver</em></td></tr>
+<tr><td>Observer</td><td>sum-only</td><td>precomputed-sum</td><td></td><td></td><td><em>UpDownCumulativeObserver</em></td></tr>
+<tr><td>Observer</td><td></td><td></td><td>non-negative</td><td></td><td><em>AbsoluteLastValueObserver</em></td></tr>
+<tr><td>Observer</td><td></td><td></td><td></td><td></td><td><em>LastValueObserver</em></td></tr>
+</tbody></table>
+<p>To arrive at this listing, several assumptions have been made.  For
+example, the precomputed-sum and non-negative-rate refeinments are
+only applicable in conjunction with a sum-only refinement.</p>
+<p>For the precomputed-sum instruments, we technically do not care
+whether the inputs are non-negative, because rate aggregation computes
+differences.  However, it is useful for other aggregations to assume
+that precomputed sums start at zero, and we will ignore the case where
+a precomputed sum has an initial value other than zero.</p>
+<h4><a class="header" href="#gauge-instrument" id="gauge-instrument">Gauge instrument</a></h4>
+<p>A Measure instrument with a default Last Value aggregation could be
+defined, hypothetically named a <em>Gauge</em> instrument.  This would offer
+convenience for users that want this behavior, for there is otherwise
+no standard Measure refinement with Last Value aggregation.</p>
+<p>Sum-only uses for this hypothetical instrument should instead use
+either <em>CumulativeCounter</em> or <em>UpDownCumulativeCounter</em>, since they
+are reporting a sum.  This (hypothetical) <em>Gauge</em> instrument would be
+useful when a value is time-dependent and the average value is not of
+interest.</p>
+<h2><a class="header" href="#internal-details" id="internal-details">Internal details</a></h2>
+<p>This is a change of understanding.  It does not request any new
+instruments be created or APIs be changed, but it does specify how we
+should think about adding new instruments.</p>
+<p>No API changes are called for in this proposal.</p>
+<h3><a class="header" href="#translation-into-well-known-systems" id="translation-into-well-known-systems">Translation into well-known systems</a></h3>
+<h4><a class="header" href="#prometheus" id="prometheus">Prometheus</a></h4>
+<p>The Prometheus system defines four kinds of <a href="https://prometheus.io/docs/concepts/metric_types">synchronous metric
+instrument</a>.</p>
+<table><thead><tr><th>System</th><th>Metric Kind</th><th>Operation</th><th>Aggregation</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Prometheus</td><td>Counter</td><td>Inc()</td><td>Sum</td><td>Sum of positive deltas</td></tr>
+<tr><td>Prometheus</td><td>Counter</td><td>Add()</td><td>Sum</td><td>Sum of positive deltas</td></tr>
+<tr><td>Prometheus</td><td>Gauge</td><td>Set()</td><td>Last Value</td><td>Non-additive or monotonic cumulative</td></tr>
+<tr><td>Prometheus</td><td>Gauge</td><td>Inc()/Dec()</td><td>Sum</td><td>Sum of deltas</td></tr>
+<tr><td>Prometheus</td><td>Gauge</td><td>Add()/Sub()</td><td>Sum</td><td>Sum of deltas</td></tr>
+<tr><td>Prometheus</td><td>Histogram</td><td>Observe()</td><td>Histogram</td><td>Non-negative values</td></tr>
+<tr><td>Prometheus</td><td>Summary</td><td>Observe()</td><td>Summary</td><td>Aggregation does not merge</td></tr>
+</tbody></table>
+<p>Note that the Prometheus Gauge supports five methods (<code>Set</code>, <code>Inc</code>,
+<code>Dec</code>, <code>Add</code>, and <code>Sub</code>), one which sets the last value while the
+others modify the last value.  This interface is not compatible with
+OpenTelemetry, because it requires the SDK to maintain long-lived
+state about Gauge values in order to compute the last value following
+one of the additive methods (<code>Inc</code>, <code>Dec</code>, <code>Add</code>, and <code>Sub</code>).</p>
+<p>If we restrict Prometheus Gauges to support only a <code>Set</code> method, or to
+support only the additive methods, then we can model these two
+instruments seprately, in a way that is compatible with OpenTelemetry.
+A Prometheus Gauge that is used exclusively with <code>Set()</code> can be
+modeled as a Measure instrument with Last Value aggregation.  A
+Prometheus Gauge that is used exclusively with the additive methods be
+modeled as a <code>UpDownCounter</code></p>
+<p>Prometheus has support for asynchronous reporting via the &quot;Collector&quot;
+interface, but this is a low-level API to support directly exporting
+encoded metric data.  The Prometheus &quot;Collector&quot; interface could be
+used to implement Observer-like instruments, but they are not natively
+supported in Prometheus.</p>
+<h4><a class="header" href="#statsd" id="statsd">Statsd</a></h4>
+<p>The Statsd system supports only synchronous reporting.</p>
+<table><thead><tr><th>System</th><th>Metric Event</th><th>Operation</th><th>Aggregation</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Statsd</td><td>Count</td><td>Count()</td><td>Sum</td><td>Sum of deltas</td></tr>
+<tr><td>Statsd</td><td>Gauge</td><td>Gauge()</td><td>Last Value</td><td></td></tr>
+<tr><td>Statsd</td><td>Histogram</td><td>Histogram()</td><td>Histogram</td><td></td></tr>
+<tr><td>Statsd</td><td>Distribution</td><td>Distribution()</td><td><em>Not specified</em></td><td>A distribution summary</td></tr>
+<tr><td>Statsd</td><td>Timing</td><td>Timing()</td><td><em>Not specified</em></td><td>Non-negative, distribution summary, Millisecond units</td></tr>
+<tr><td>Statsd</td><td>Set</td><td>Set()</td><td>Cardinality</td><td>Unique value count</td></tr>
+</tbody></table>
+<p>The Statsd Count operation translates into either a Counter, if
+increments are non-negative, or an <em>UpDownCounter</em> if values may be
+negative.  The Statsd Gauge operation translates into a Measure
+instrument configured with Last Value aggregation.</p>
+<p>The Histogram, Distribution, and Timing operations are semantically
+identical, but have different units and default behavior in statsd
+systems.  Each of these distribution-valued instruments can be
+replaced using a Measure with a distribution-valued aggregation such
+as MinMaxSumCount, Histogram, Exact, or Summary.</p>
+<p>The Set operation does not have a direct replacement in OpenTelemetry,
+however one can be constructed using a Measure or Observer instrument
+and a dummy value.  Each distinct label set is naturally output each
+collection interval, whether reported synchronously or asynchronously,
+so the set size can be computed by using a metric label as the unique
+element and no aggregation operator.</p>
+<h4><a class="header" href="#opencensus" id="opencensus">OpenCensus</a></h4>
+<p>The OpenCensus system defines three kinds of instrument:</p>
+<table><thead><tr><th>System</th><th>Metric Kind</th><th>Operation</th><th>Aggregation</th><th>Notes</th></tr></thead><tbody>
+<tr><td>OpenCensus</td><td>Cumulative</td><td>Inc()</td><td>Sum</td><td>Positive deltas</td></tr>
+<tr><td>OpenCensus</td><td>Gauge</td><td>Set()</td><td>LastValue</td><td></td></tr>
+<tr><td>OpenCensus</td><td>Gauge</td><td>Add()</td><td>Sum</td><td>Deltas</td></tr>
+<tr><td>OpenCensus</td><td>Raw-Stats</td><td>Record()</td><td>Sum, Count, Mean, or Distribution</td><td></td></tr>
+</tbody></table>
+<p>OpenCensus departed from convention with the introduction of a Views
+API, which makes it possible to support fewer kinds of instrument
+directly, since they can be configured in multiple ways.</p>
+<p>Like Prometheus, the combination of multiple APIs in the Gauge
+instrument is not compatible with OpenTelemetry.  A Gauge used with
+Set() generally implies last-value aggregation, whereas a Gauge used
+with Add() is additive and uses Sum aggregation.</p>
+<p>Raw statstistics can be aggregated using any aggregation, and all the
+OpenCensus aggregations have equivalents in OpenTelemetry.</p>
+<p>OpenCensus supported callback-oriented asynchronous forms of both
+Cumulative and Gauge instruments.  An asynchronous Cumulative
+instrument would be replaced by a CumulativeObserver in OpenTelemetry.
+An asynchronous Last-value Gauge would be replaced by AbsoluteObserver
+or just the unrestricted Observer.  An asynchronous Additive Gauge
+would be replaced by a DeltaObserver.</p>
+<h3><a class="header" href="#sample-proposal" id="sample-proposal">Sample Proposal</a></h3>
+<p>The the information above will be used to propose a set of refinements
+for both synchronous and asynchronous instruments in a follow-on OTEP.
+What follows is a sample of the forthcoming proposal, to motivate the
+discussion here.</p>
+<h4><a class="header" href="#synchronous-instruments" id="synchronous-instruments">Synchronous instruments</a></h4>
+<p>The foundational <code>Measure</code> instrument without refinements or
+restrictions will be called a <code>Distribution</code> instrument.</p>
+<p>Along with <code>Counter</code> and <code>Distribution</code>, we recognize several less-common
+but still important cases and reasons why they should be standardized:</p>
+<ul>
+<li><em>UpDownCounter</em>: Support Prometheus additive Gauge instrument use</li>
+<li><em>Timing</em>: Support Prometheus and Statsd timing measurements.</li>
+</ul>
+<p>Instruments that are not standardized but may be in the future (and why):</p>
+<ul>
+<li><em>CumulativeCounter</em>: Support a synchronous monotonic cumulative instrument</li>
+<li><em>AbsoluteDistribution</em>: Support non-negative valued distributions</li>
+</ul>
+<p>Instruments that are probably not seen as widely useful:</p>
+<ul>
+<li><em>UpDownCumulativeCounter</em>: We believe this is better handled asynchronously.</li>
+</ul>
+<h4><a class="header" href="#observer-instruments" id="observer-instruments">Observer instruments</a></h4>
+<p>The foundational <code>Observer</code> instrument without refinements or
+restrictions shall be called a <code>LastValueObserver</code> instrument.</p>
+<p>We have identified important cases that should be standardized:</p>
+<ul>
+<li><em>CumulativeObserver</em>: Support a cumulative monotone counter</li>
+<li><em>DeltaObserver</em>: Support an asynchronous delta counter.</li>
+</ul>
+<p>Observer refinements that could be standardized in the future:</p>
+<ul>
+<li><em>UpDownCumulativeObserver</em>: Observe a non-monotonic cumluative counter</li>
+<li><em>UpDownDeltaObserver</em>: Observe positive and negative deltas</li>
+<li><em>AbsoluteLastValueObserver</em>: Observe non-negative current values.</li>
+</ul>
+<h2><a class="header" href="#example-observer-aggregation" id="example-observer-aggregation">Example: Observer aggregation</a></h2>
+<p>Suppose you wish to capture the CPU usage of a process broken down by
+the CPU core ID.  The operating system provides a mechanism to read
+the current usage from the <code>/proc</code> file system, which will be reported
+once per collection interval using an Observer instrument.  Because
+this is a precomputed sum with a non-negative rate, use a
+<em>CumulativeObserver</em> to report this quantity with a metric label
+indicating the CPU core ID.</p>
+<p>It will be common to compute a rate of CPU usage over this data.  The
+rate can be calculated for an individual CPU core by computing a
+difference between the value of two metric events.  To compute the
+aggregate rate across all cores–a spatial aggregation–these
+differences are added together.</p>
+<h2><a class="header" href="#open-questions" id="open-questions">Open Questions</a></h2>
+<p>Are there still questions surrounding the former Monotonic refinement?</p>
+<p>Should the <em>CumulativeObserver</em> instrument be named
+<em>MonotonicObserver</em>?  In this proposal, we prefer <em>Cumulative</em> and
+<em>UpDownCumulative</em>.  <em>Cumulative</em> is a good descriptive term in this
+setting (i.e., some additive values are <em>cumulative</em>, some are
+<em>delta</em>).  Being <em>Cumulative</em> and not <em>UpDownCumulative</em> implies
+monotonicity in this proposal.</p>
+<p>For synchronous instruments, this proposals does not standardize
+<em>CumulativeCounter</em>. Such an instrument might be named
+<em>MonotonicCounter</em>.</p>
+<h2><a class="header" href="#trade-offs-and-mitigations" id="trade-offs-and-mitigations">Trade-offs and mitigations</a></h2>
+<p>The trade-off explicitly introduced here is that we should prefer to
+create new instrument refinements, each for a dedicated purpose,
+rather than create generic instruments with support for multiple
+semantic options.</p>
+<h2><a class="header" href="#prior-art-and-alternatives" id="prior-art-and-alternatives">Prior art and alternatives</a></h2>
+<p>The optional behaviors <code>Monotonic</code> and <code>Absolute</code> were first discussed
+in the August 2019 Metrics working group meeting.</p>
+<h2><a class="header" href="#future-possibilities" id="future-possibilities">Future possibilities</a></h2>
+<p>A future OTEP will request the introduction of two standard
+refinements for the 0.4 API specification.  This will be the
+<code>CumulativeObserver</code> instrument described above plus a synchronous
+timing instrument named <code>TimingMeasure</code> that is equivalent to
+<em>AbsoluteMeasure</em> with the correct unit and a language-specific
+duration type for measuring time.</p>
+<p>If the above open question is decided in favor of treating the
+foundational instruments as abstract, instrument names like
+<em>NonAbsoluteMeasure</em> and <em>NonAbsoluteCounter</em> will need to be
+standardized.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="0083-component.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0090-remove-labelset-from-metrics-api.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="0083-component.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0090-remove-labelset-from-metrics-api.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

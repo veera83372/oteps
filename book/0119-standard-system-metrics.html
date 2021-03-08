@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0119-standard-system-metrics</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html" class="active"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#standard-names-for-systemruntime-metric-instruments" id="standard-names-for-systemruntime-metric-instruments">Standard names for system/runtime metric instruments</a></h1>
+<p>This OTEP proposes a set of standard names, labels, and semantic conventions for common system/runtime metric instruments in OpenTelemetry. The instrument names proposed here are common across the supported operating systems and runtime environments. Also included are general semantic conventions for system/runtime metrics including those not specific to a particular OS or runtime.</p>
+<p>This OTEP is largely based on the existing implementation in the OpenTelemetry Collector's <a href="https://github.com/open-telemetry/opentelemetry-collector/tree/1ad767e62f3dff6f62f32c7360b6fefe0fbf32ff/receiver/hostmetricsreceiver">Host Metrics Receiver</a>. The proposed names aim to make system/runtime metrics unambiguous and easily discoverable. See <a href="https://github.com/open-telemetry/oteps/pull/108/files">OTEP #108</a> for additional motivation.</p>
+<h2><a class="header" href="#trade-offs-and-mitigations" id="trade-offs-and-mitigations">Trade-offs and mitigations</a></h2>
+<p>When naming a metric instrument, there is a trade off between discoverability and ambiguity. For example, a metric called <code>system.cpu.load_average</code> is very discoverable, but the meaning of this metric is ambiguous. <a href="https://en.wikipedia.org/wiki/Load_(computing)">Load average</a> is well defined on UNIX, but is not a standard metric on Windows. While discoverability is important, names must be unambiguous.</p>
+<h2><a class="header" href="#prior-art" id="prior-art">Prior art</a></h2>
+<p>There are already a few implementations of system and/or runtime metric collection in OpenTelemetry:</p>
+<ul>
+<li>
+<p><strong><a href="https://github.com/open-telemetry/oteps/pull/108/files">OTEP #108</a></strong></p>
+<ul>
+<li>Provides high level guidelines around naming metric instruments.</li>
+<li>Came out of a <a href="https://docs.google.com/spreadsheets/d/1WlStcUe2eQoN1y_UF7TOd6Sw7aV_U0lFcLk5kBNxPsY/edit#gid=0">prior proposal</a> for system metrics?</li>
+</ul>
+</li>
+<li>
+<p><strong>Collector</strong></p>
+<ul>
+<li><a href="https://github.com/open-telemetry/opentelemetry-collector/tree/1ad767e62f3dff6f62f32c7360b6fefe0fbf32ff/receiver/hostmetricsreceiver">Host Metrics Receiver</a> generates metrics about the host system when run as an agent.</li>
+<li>Currently is the most comprehensive implementation.</li>
+<li>Collects system metrics for CPU, memory, swap, disks, filesystems, network, and load.</li>
+<li>There are plans to collect process metrics for CPU, memory, and disk I/O.</li>
+<li>Makes good use of labels rather than defining individual metrics.</li>
+<li><a href="https://docs.google.com/spreadsheets/d/11qSmzD9e7PnzaJPYRFdkkKbjTLrAKmvyQpjBjpJsR2s">Overview of collected metrics</a>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Go</strong></p>
+<ul>
+<li>Go <a href="https://github.com/open-telemetry/opentelemetry-go-contrib/tree/master/instrumentation/runtime">has instrumentation</a> to collect runtime metrics for GC, heap use, and goroutines.</li>
+<li>This package does not export metrics with labels, instead exporting individual metrics.</li>
+<li><a href="https://docs.google.com/spreadsheets/d/1r50cC9ass0A8SZIg2ZpLdvZf6HmQJsUSXFOu-rl4yaY/edit#gid=0">Overview of collected metrics</a>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Python</strong></p>
+<ul>
+<li>Python <a href="https://github.com/open-telemetry/opentelemetry-python/tree/master/ext/opentelemetry-ext-system-metrics">has instrumentation</a> to collect some system and runtime metrics.</li>
+<li>Collects system CPU, memory, and network metrics.</li>
+<li>Collects runtime CPU, memory, and GC metrics.</li>
+<li>Makes use of labels, similar to the Collector.</li>
+<li><a href="https://docs.google.com/spreadsheets/d/1r50cC9ass0A8SZIg2ZpLdvZf6HmQJsUSXFOu-rl4yaY/edit#gid=0">Overview of collected metrics</a>.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#semantic-conventions" id="semantic-conventions">Semantic Conventions</a></h2>
+<p>The following semantic conventions aim to keep naming consistent. Not all possible metrics are covered by these conventions, but they provide guidelines for most of the cases in this proposal:</p>
+<ul>
+<li><strong>usage</strong> - an instrument that measures an amount used out of a known total amount should be called <code>entity.usage</code>. For example, <code>system.filesystem.usage</code> for the amount of disk spaced used. A measure of the amount of an unlimited resource consumed is differentiated from <strong>usage</strong>. This may be time, data, etc.</li>
+<li><strong>utilization</strong> - an instrument that measures a <em>value ratio</em> of usage (like percent, but in the range <code>[0, 1]</code>) should be called <code>entity.utilization</code>. For example, <code>system.memory.utilization</code> for the ratio of memory in use.</li>
+<li><strong>time</strong> - an instrument that measures passage of time should be called <code>entity.time</code>. For example, <code>system.cpu.time</code> with varying values of label <code>state</code> for idle, user, etc.</li>
+<li><strong>io</strong> - an instrument that measures bidirectional data flow should be called <code>entity.io</code> and have labels for direction. For example, <code>system.network.io</code>.</li>
+<li>Other instruments that do not fit the above descriptions may be named more freely. For example, <code>system.swap.page_faults</code> and <code>system.network.packets</code>. Units do not need to be specified in the names since they are included during instrument creation, but can be added if there is ambiguity.</li>
+</ul>
+<h2><a class="header" href="#internal-details" id="internal-details">Internal details</a></h2>
+<p>The following standard metric instruments should be used in libraries instrumenting system/runtime metrics (here is a <a href="https://docs.google.com/spreadsheets/d/1r50cC9ass0A8SZIg2ZpLdvZf6HmQJsUSXFOu-rl4yaY/edit#gid=973941697">spreadsheet</a> of the tables below).</p>
+<p>In the tables below, units of <code>1</code> refer to a ratio value that is always in the range <code>[0, 1]</code>. Instruments that measure an integer count of something use semantic units like <code>packets</code>, <code>errors</code>, <code>faults</code>, etc.</p>
+<h3><a class="header" href="#standard-system-metrics---system" id="standard-system-metrics---system">Standard System Metrics - <code>system.</code></a></h3>
+<hr />
+<h4><a class="header" href="#systemcpu" id="systemcpu"><code>system.cpu.</code></a></h4>
+<p><strong>Description:</strong> System level processor metrics.
+|Name                  |Units  |Instrument Type  |Value Type|Label Key|Label Values                       |
+|----------------------|-------|-----------------|----------|---------|-----------------------------------|
+|system.cpu.time       |seconds|SumObserver      |Double    |state    |idle, user, system, interrupt, etc.|
+|                      |       |                 |          |cpu      |1 - #cores                         |
+|system.cpu.utilization|1      |UpDownSumObserver|Double    |state    |idle, user, system, interrupt, etc.|
+|                      |       |                 |          |cpu      |1 - #cores                         |</p>
+<h4><a class="header" href="#systemmemory" id="systemmemory"><code>system.memory.</code></a></h4>
+<p><strong>Description:</strong> System level memory metrics.
+|Name                     |Units|Instrument Type  |Value Type|Label Key|Label Values            |
+|-------------------------|-----|-----------------|----------|---------|------------------------|
+|system.memory.usage      |bytes|UpDownSumObserver|Int64     |state    |used, free, cached, etc.|
+|system.memory.utilization|1    |UpDownSumObserver|Double    |state    |used, free, cached, etc.|</p>
+<h4><a class="header" href="#systemswap" id="systemswap"><code>system.swap.</code></a></h4>
+<p><strong>Description:</strong> System level swap/paging metrics.
+|Name                        |Units     |Instrument Type  |Value Type|Label Key|Label Values|
+|----------------------------|----------|-----------------|----------|---------|------------|
+|system.swap.usage           |pages     |UpDownSumObserver|Int64     |state    |used, free  |
+|system.swap.utilization     |1         |UpDownSumObserver|Double    |state    |used, free  |
+|system.swap.page_faults    |faults    |SumObserver      |Int64     |type     |major, minor|
+|system.swap.page_operations|operations|SumObserver      |Int64     |type     |major, minor|
+|                            |          |                 |          |direction|in, out     |</p>
+<h4><a class="header" href="#systemdisk" id="systemdisk"><code>system.disk.</code></a></h4>
+<p><strong>Description:</strong> System level disk performance metrics.
+|Name                        |Units     |Instrument Type|Value Type|Label Key|Label Values|
+|----------------------------|----------|---------------|----------|---------|------------|
+|system.disk.io<!--notlink-->|bytes     |SumObserver    |Int64     |device   |(identifier)|
+|                            |          |               |          |direction|read, write |
+|system.disk.operations      |operations|SumObserver    |Int64     |device   |(identifier)|
+|                            |          |               |          |direction|read, write |
+|system.disk.time            |seconds   |SumObserver    |Double    |device   |(identifier)|
+|                            |          |               |          |direction|read, write |
+|system.disk.merged          |1         |SumObserver    |Int64     |device   |(identifier)|
+|                            |          |               |          |direction|read, write |</p>
+<h4><a class="header" href="#systemfilesystem" id="systemfilesystem"><code>system.filesystem.</code></a></h4>
+<p><strong>Description:</strong> System level filesystem metrics.
+|Name                         |Units|Instrument Type  |Value Type|Label Key|Label Values        |
+|-----------------------------|-----|-----------------|----------|---------|--------------------|
+|system.filesystem.usage      |bytes|UpDownSumObserver|Int64     |device   |(identifier)        |
+|                             |     |                 |          |state    |used, free, reserved|
+|system.filesystem.utilization|1    |UpDownSumObserver|Double    |device   |(identifier)        |
+|                             |     |                 |          |state    |used, free, reserved|</p>
+<h4><a class="header" href="#systemnetwork" id="systemnetwork"><code>system.network.</code></a></h4>
+<p><strong>Description:</strong> System level network metrics.
+|Name                           |Units      |Instrument Type  |Value Type|Label Key|Label Values                                                                                  |
+|-------------------------------|-----------|-----------------|----------|---------|----------------------------------------------------------------------------------------------|
+|system.network.dropped_packets|packets    |SumObserver      |Int64     |device   |(identifier)                                                                                  |
+|                               |           |                 |          |direction|transmit, receive                                                                             |
+|system.network.packets         |packets    |SumObserver      |Int64     |device   |(identifier)                                                                                  |
+|                               |           |                 |          |direction|transmit, receive                                                                             |
+|system.network.errors          |errors     |SumObserver      |Int64     |device   |(identifier)                                                                                  |
+|                               |           |                 |          |direction|transmit, receive                                                                             |
+|system<!--notlink-->.network.io|bytes      |SumObserver      |Int64     |device   |(identifier)                                                                                  |
+|                               |           |                 |          |direction|transmit, receive                                                                             |
+|system.network.connections     |connections|UpDownSumObserver|Int64     |device   |(identifier)                                                                                  |
+|                               |           |                 |          |protocol |tcp, udp, <a href="https://en.wikipedia.org/wiki/Transport_layer#Protocols">others</a>                   |
+|                               |           |                 |          |state    |<a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Protocol_operation">e.g. for tcp</a>|</p>
+<h4><a class="header" href="#os-specific-system-metrics---systemos" id="os-specific-system-metrics---systemos">OS Specific System Metrics - <code>system.{os}.</code></a></h4>
+<p>Instrument names for system level metrics specific to a certain operating system should be prefixed with <code>system.{os}.</code> and follow the hierarchies listed above for different entities like CPU, memory, and network. For example, an instrument for counting the number of Linux merged disk operations (see <a href="https://unix.stackexchange.com/questions/462704/iostat-what-is-exactly-the-concept-of-merge">here</a> and <a href="https://man7.org/linux/man-pages/man1/iostat.1.html">here</a>) could be named <code>system.linux.disk.merged_operations</code>, reusing the <code>disk</code> name proposed above.</p>
+<h3><a class="header" href="#standard-runtime-metrics---runtime" id="standard-runtime-metrics---runtime">Standard Runtime Metrics - <code>runtime.</code></a></h3>
+<hr />
+<p>Runtime environments vary widely in their terminology, implementation, and relative values for a given metric. For example, Go and Python are both garbage collected languages, but comparing heap usage between the two runtimes directly is not meaningful. For this reason, this OTEP does not propose any standard top-level runtime metric instruments. See <a href="https://github.com/open-telemetry/oteps/pull/108/files">OTEP #108</a> for additional discussion.</p>
+<h4><a class="header" href="#runtime-specific-metrics---runtimeenvironment" id="runtime-specific-metrics---runtimeenvironment">Runtime Specific Metrics - <code>runtime.{environment}.</code></a></h4>
+<p>Runtime level metrics specific to a certain runtime environment should be prefixed with <code>runtime.{environment}.</code> and follow the semantic conventions outlined in <a href="#semantic-conventions">Semantic Conventions</a>. For example, Go runtime metrics use <code>runtime.go.</code> as a prefix.</p>
+<p>Some programming languages have multiple runtime environments that vary significantly in their implementation, for example <a href="https://wiki.python.org/moin/PythonImplementations">Python has many implementations</a>. For these languages, consider using specific <code>environment</code> prefixes to avoid ambiguity, like <code>runtime.cpython.</code> and <code>runtime.pypy.</code>.</p>
+<h2><a class="header" href="#open-questions" id="open-questions">Open questions</a></h2>
+<ul>
+<li>Should the individual runtimes have their specific naming conventions in the spec?</li>
+<li>Is it ok to include instruments specific to an OS (or OS family) under a top-level prefix, as long as they are unambiguous? For example, naming inode related instruments, which of the below is preferred?
+<ol>
+<li>Top level: <code>system.filesystem.inodes.*</code></li>
+<li>UNIX family level: <code>system.unix.filesystem.inodes.*</code></li>
+<li>One for each UNIX OS: <code>system.linux.filesystem.inodes.*</code>, <code>system.freebsd.filesystem.inodes.*</code>, <code>system.netbsd.filesystem.inodes.*</code>, etc.</li>
+</ol>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="0113-exemplars.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0121-config-service.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="0113-exemplars.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0121-config-service.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

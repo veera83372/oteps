@@ -1,0 +1,760 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0066-separate-context-propagation</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html" class="active"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#context-propagation-a-layered-approach" id="context-propagation-a-layered-approach">Context Propagation: A Layered Approach</a></h1>
+<ul>
+<li><a href="#Motivation">Motivation</a></li>
+<li><a href="#OpenTelemetry-layered-architecture">OpenTelemetry layered architecture</a>
+<ul>
+<li><a href="#Cross-Cutting-Concerns">Cross-Cutting Concerns</a>
+<ul>
+<li><a href="#Observability-API">Observability API</a></li>
+<li><a href="#Correlations-API">Correlations API</a></li>
+</ul>
+</li>
+<li><a href="#Context-Propagation">Context Propagation</a>
+<ul>
+<li><a href="#Context-API">Context API</a></li>
+<li><a href="#Propagation-API">Propagation API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Prototypes">Prototypes</a></li>
+<li><a href="#Examples">Examples</a>
+<ul>
+<li><a href="#Global-initialization">Global initialization</a></li>
+<li><a href="#Extracting-and-injecting-from-HTTP-headers">Extracting and injecting from HTTP headers</a></li>
+<li><a href="#Simplify-the-API-with-automated-context-propagation">Simplify the API with automated context propagation</a></li>
+<li><a href="#Implementing-a-propagator">Implementing a propagator</a></li>
+<li><a href="#Implementing-a-concern">Implementing a concern</a></li>
+<li><a href="#The-scope-of-current-context">The scope of current context</a></li>
+<li><a href="#Referencing-multiple-contexts">Referencing multiple contexts</a></li>
+<li><a href="#Falling-back-to-explicit-contexts">Falling back to explicit contexts</a></li>
+</ul>
+</li>
+<li><a href="#Internal-details">Internal details</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<p><img src="img/0066_context_propagation_overview.png" alt="drawing" /></p>
+<p>A proposal to refactor OpenTelemetry into a set of separate cross-cutting concerns which
+operate on a shared context propagation mechanism.</p>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p>This RFC addresses the following topics:</p>
+<h3><a class="header" href="#separation-of-concerns" id="separation-of-concerns">Separation of concerns</a></h3>
+<ul>
+<li>Cleaner package layout results in an easier to learn system. It is possible to
+understand Context Propagation without needing to understand Observability.</li>
+<li>Allow for multiple types of context propagation, each self contained with
+different rules. For example, TraceContext may be sampled, while
+CorrelationContext never is.</li>
+<li>Allow the Observability and Context Propagation to have different defaults.
+The Observability systems ships with a no-op implementation and a pluggable SDK,
+the context propagation system ships with a canonical, working implementation.</li>
+</ul>
+<h3><a class="header" href="#extensibility" id="extensibility">Extensibility</a></h3>
+<ul>
+<li>A clean separation allows the context propagation mechanisms to be used on
+their own, so they may be consumed by other systems which do not want to
+depend on an observability tool for their non-observability concerns.</li>
+<li>Allow developers to create new applications for context propagation. For
+example: A/B testing, authentication, and network switching.</li>
+</ul>
+<h2><a class="header" href="#opentelemetry-layered-architecture" id="opentelemetry-layered-architecture">OpenTelemetry layered architecture</a></h2>
+<p>The design of OpenTelemetry is based on the principles of <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">aspect-oriented
+programming</a>,
+adopted to the needs of distributed systems.</p>
+<p>Some concerns &quot;cut across&quot; multiple abstractions in a program. Logging
+exemplifies aspect orientation because a logging strategy necessarily affects
+every logged part of the system. Logging thereby &quot;cross-cuts&quot; across all logged
+classes and methods. Distributed tracing takes this strategy to the next level,
+and cross-cuts across all classes and methods in all services in the entire
+transaction. This requires a distributed form of the same aspect-oriented
+programming principles in order to be implemented cleanly.</p>
+<p>OpenTelemetry approaches this by separating it's design into two layers. The top
+layer contains a set of independent <strong>cross-cutting concerns</strong>, which intertwine
+with a program's application logic and cannot be cleanly encapsulated. All
+concerns share an underlying distributed <strong>context propagation</strong> layer, for
+storing state and accessing data across the lifespan of a distributed
+transaction.</p>
+<h2><a class="header" href="#cross-cutting-concerns" id="cross-cutting-concerns">Cross-Cutting Concerns</a></h2>
+<h3><a class="header" href="#observability-api" id="observability-api">Observability API</a></h3>
+<p>Distributed tracing is one example of a cross-cutting concern. Tracing code is
+interleaved with regular code, and ties together independent code modules which
+would otherwise remain encapsulated. Tracing is also distributed, and requires
+transaction-level context propagation in order to execute correctly.</p>
+<p>The various observability APIs are not described here directly. However, in this new
+design, all observability APIs would be modified to make use of the generalized
+context propagation mechanism described below, rather than the tracing-specific
+propagation system it uses today.</p>
+<p>Note that OpenTelemetry APIs calls should <em>always</em> be given access to the entire
+context object, and never just a subset of the context, such as the value in a
+single key. This allows the SDK to make improvements and leverage additional
+data that may be available, without changes to all of the call sites.</p>
+<p>The following are notes on the API, and not meant as final.</p>
+<p><strong><code>StartSpan(context, options) -&gt; context</code></strong>
+When a span is started, a new context is returned, with the new span set as the
+current span.</p>
+<p><strong><code>GetSpanPropagator() -&gt; (HTTP_Extractor, HTTP_Injector)</code></strong><br />
+When a span is extracted, the extracted value is stored in the context seprately
+from the current span.</p>
+<h3><a class="header" href="#correlations-api" id="correlations-api">Correlations API</a></h3>
+<p>In addition to trace propagation, OpenTelemetry provides a simple mechanism for
+propagating indexes, called the Correlations API. Correlations are
+intended for indexing observability events in one service with attributes
+provided by a prior service in the same transaction. This helps to establish a
+causal relationship between these events. For example, determining that a
+particular browser version is associated with a failure in an image processing
+service.</p>
+<p>The Correlations API is based on the <a href="https://w3c.github.io/correlation-context/">W3C Correlation-Context specification</a>,
+and implements the protocol as it is defined in that working group. There are
+few details provided here as it is outside the scope of this OTEP to finalize
+this API.</p>
+<p>While Correlations can be used to prototype other cross-cutting concerns, this
+mechanism is primarily intended to convey values for the OpenTelemetry
+observability systems.</p>
+<p>For backwards compatibility, OpenTracing Baggage is propagated as Correlations
+when using the OpenTracing bridge. New concerns with different criteria should
+be modeled separately, using the same underlying context propagation layer as
+building blocks.</p>
+<p>The following is an example API, and not meant as final.</p>
+<p><strong><code>GetCorrelation(context, key) -&gt; value</code></strong><br />
+To access the value for a label set by a prior event, the Correlations API
+provides a function which takes a context and a key as input, and returns a
+value.</p>
+<p><strong><code>SetCorrelation(context, key, value) -&gt; context</code></strong><br />
+To record the value for a label, the Correlations API provides a function which
+takes a context, a key, and a value as input, and returns an updated context
+which contains the new value.</p>
+<p><strong><code>RemoveCorrelation(context, key) -&gt; context</code></strong><br />
+To delete a label, the Correlations API provides a function
+which takes a context and a key as input, and returns an updated context which
+no longer contains the selected key-value pair.</p>
+<p><strong><code>ClearCorrelations(context) -&gt; context</code></strong><br />
+To avoid sending any labels to an untrusted process, the Correlation API
+provides a function to remove all Correlations from a context.</p>
+<p><strong><code>GetCorrelationPropagator() -&gt; (HTTP_Extractor, HTTP_Injector)</code></strong><br />
+To deserialize the previous labels set by prior processes, and to serialize the
+current total set of labels and send them to the next process, the Correlations
+API provides a function which returns a Correlation-specific implementation of
+the <code>HTTPExtract</code> and <code>HTTPInject</code> functions found in the Propagation API.</p>
+<h2><a class="header" href="#context-propagation" id="context-propagation">Context Propagation</a></h2>
+<h3><a class="header" href="#context-api" id="context-api">Context API</a></h3>
+<p>Cross-cutting concerns access data in-process using the same, shared context
+object. Each concern uses its own namespaced set of keys in the context,
+containing all of the data for that cross-cutting concern.</p>
+<p>The following is an example API, and not meant as final.</p>
+<p><strong><code>CreateKey(name) -&gt; key</code></strong>
+To allow concerns to control access to their data, the Context API uses keys
+which cannot be guessed by third parties which have not been explicitly handed
+the key. It is recommended that concerns mediate data access via an API, rather
+than provide direct public access to their keys.</p>
+<p><strong><code>GetValue(context, key) -&gt; value</code></strong><br />
+To access the local state of an concern, the Context API provides a function
+which takes a context and a key as input, and returns a value.</p>
+<p><strong><code>SetValue(context, key, value) -&gt; context</code></strong><br />
+To record the local state of a cross-cutting concern, the Context API provides a
+function which takes a context, a key, and a value as input, and returns a
+new context which contains the new value. Note that the new value is not present
+in the old context.</p>
+<p><strong><code>RemoveValue(context, key) -&gt; context</code></strong>
+RemoveValue returns a new context with the key cleared. Note that the removed
+value still remains present in the old context.</p>
+<h4><a class="header" href="#optional-automated-context-management" id="optional-automated-context-management">Optional: Automated Context Management</a></h4>
+<p>When possible, the OpenTelemetry context should automatically be associated
+with the program execution context. Note that some languages do not provide any
+facility for setting and getting a current context. In these cases, the user is
+responsible for managing the current context.</p>
+<p><strong><code>GetCurrent() -&gt; context</code></strong><br />
+To access the context associated with program execution, the Context API
+provides a function which takes no arguments and returns a Context.</p>
+<p><strong><code>SetCurrent(context)</code></strong><br />
+To associate a context with program execution, the Context API provides a
+function which takes a Context.</p>
+<h3><a class="header" href="#propagation-api" id="propagation-api">Propagation API</a></h3>
+<p>Cross-cutting concerns send their state to the next process via propagators:
+functions which read and write context into RPC requests. Each concern creates a
+set of propagators for every type of supported medium - currently only HTTP
+requests.</p>
+<p>The following is an example API, and not meant as final.</p>
+<p><strong><code>Extract(context, []http_extractor, headers) -&gt; context</code></strong><br />
+In order to continue transmitting data injected earlier in the transaction,
+the Propagation API provides a function which takes a context, a set of
+HTTP_Extractors, and a set of HTTP headers, and returns a new context which
+includes the state sent from the prior process.</p>
+<p><strong><code>Inject(context, []http_injector, headers) -&gt; headers</code></strong><br />
+To send the data for all concerns to the next process in the transaction, the
+Propagation API provides a function which takes a context, a set of
+HTTP_Injectors, and adds the contents of the context in to HTTP headers to
+include an HTTP Header representation of the context.</p>
+<p><strong><code>HTTP_Extractor(context, headers) -&gt; context</code></strong><br />
+Each concern must implement an HTTP_Extractor, which can locate the headers
+containing the http-formatted data, and then translate the contents into an
+in-memory representation, set within the returned context object.</p>
+<p><strong><code>HTTP_Injector(context, headers) -&gt; headers</code></strong><br />
+Each concern must implement an HTTP_Injector, which can take the in-memory
+representation of its data from the given context object, and add it to an
+existing set of HTTP headers.</p>
+<h4><a class="header" href="#optional-global-propagators" id="optional-global-propagators">Optional: Global Propagators</a></h4>
+<p>It may be convenient to create a list of propagators during program
+initialization, and then access these propagators later in the program.
+To facilitate this, global injectors and extractors are optionally available.
+However, there is no requirement to use this feature.</p>
+<p><strong><code>GetExtractors() -&gt; []http_extractor</code></strong><br />
+To access the global extractor, the Propagation API provides a function which
+returns an extractor.</p>
+<p><strong><code>SetExtractors([]http_extractor)</code></strong><br />
+To update the global extractor, the Propagation API provides a function which
+takes an extractor.</p>
+<p><strong><code>GetInjectors() -&gt; []http_injector</code></strong><br />
+To access the global injector, the Propagation API provides a function which
+returns an injector.</p>
+<p><strong><code>SetInjectors([]http_injector)</code></strong><br />
+To update the global injector, the Propagation API provides a function which
+takes an injector.</p>
+<h2><a class="header" href="#prototypes" id="prototypes">Prototypes</a></h2>
+<p><strong>Erlang:</strong> <a href="https://github.com/open-telemetry/opentelemetry-erlang-api/pull/4">https://github.com/open-telemetry/opentelemetry-erlang-api/pull/4</a><br />
+<strong>Go:</strong> <a href="https://github.com/open-telemetry/opentelemetry-go/pull/381">https://github.com/open-telemetry/opentelemetry-go/pull/381</a><br />
+<strong>Java:</strong> <a href="https://github.com/open-telemetry/opentelemetry-java/pull/655">https://github.com/open-telemetry/opentelemetry-java/pull/655</a><br />
+<strong>Python:</strong> <a href="https://github.com/open-telemetry/opentelemetry-python/pull/325">https://github.com/open-telemetry/opentelemetry-python/pull/325</a><br />
+<strong>Ruby:</strong> <a href="https://github.com/open-telemetry/opentelemetry-ruby/pull/147">https://github.com/open-telemetry/opentelemetry-ruby/pull/147</a><br />
+<strong>C#/.NET:</strong> <a href="https://github.com/open-telemetry/opentelemetry-dotnet/pull/399">https://github.com/open-telemetry/opentelemetry-dotnet/pull/399</a></p>
+<h2><a class="header" href="#examples" id="examples">Examples</a></h2>
+<p>It might be helpful to look at some examples, written in pseudocode. Note that
+the pseudocode only uses simple functions and immutable values. Most mutable,
+object-orient languages will use objects, such as a Span object, to encapsulate
+the context object and hide it from the user in most cases.</p>
+<p>Let's describe
+a simple scenario, where <code>service A</code> responds to an HTTP request from a <code>client</code>
+with the result of a request to <code>service B</code>.</p>
+<pre><code>client -&gt; service A -&gt; service B
+</code></pre>
+<p>Now, let's assume the <code>client</code> in the above system is version 1.0. With version
+v2.0 of the <code>client</code>, <code>service A</code> must call <code>service C</code> instead of <code>service B</code>
+in order to return the correct data.</p>
+<pre><code>client -&gt; service A -&gt; service C
+</code></pre>
+<p>In this example, we would like <code>service A</code> to decide on which backend service
+to call, based on the client version. We would also like to trace the entire
+system, in order to understand if requests to <code>service C</code> are slower or faster
+than <code>service B</code>. What might <code>service A</code> look like?</p>
+<h3><a class="header" href="#global-initialization" id="global-initialization">Global initialization</a></h3>
+<p>First, during program initialization, <code>service A</code> configures correlation and tracing
+propagation, and include them in the global list of injectors and extractors.
+Let's assume this tracing system is configured to use B3, and has a specific
+propagator for that format. Initializing the propagators might look like this:</p>
+<pre><code class="language-php">func InitializeOpentelemetry() {
+  // create the propagators for tracing and correlations.
+  bagExtract, bagInject = Correlations::HTTPPropagator()
+  traceExtract, traceInject = Tracer::B3Propagator()
+  
+  // add the propagators to the global list.
+  Propagation::SetExtractors(bagExtract, traceExtract)
+  Propagation::SetInjectors(bagInject, traceInject)
+}
+</code></pre>
+<h3><a class="header" href="#extracting-and-injecting-from-http-headers" id="extracting-and-injecting-from-http-headers">Extracting and injecting from HTTP headers</a></h3>
+<p>These propagators can then be used in the request handler for <code>service A</code>. The
+tracing and correlations concerns use the context object to handle state without
+breaking the encapsulation of the functions they are embedded in.</p>
+<pre><code class="language-php">func ServeRequest(context, request, project) -&gt; (context) {
+  // Extract the context from the HTTP headers. Because the list of
+  // extractors includes a trace extractor and a correlations extractor, the
+  // contents for both systems are included in the  request headers into the
+  // returned context.
+  extractors = Propagation::GetExtractors()
+  context = Propagation::Extract(context, extractors, request.Headers)
+
+  // Start a span, setting the parent to the span context received from
+  // the client process. The new span will then be in the returned context.
+  context = Tracer::StartSpan(context, [span options])
+  
+  // Determine the version of the client, in order to handle the data
+  // migration and allow new clients access to a data source that older
+  // clients are unaware of.
+  version = Correlations::GetCorrelation( context, &quot;client-version&quot;)
+
+  switch( version ){
+    case &quot;v1.0&quot;:
+      data, context = FetchDataFromServiceB(context)
+    case &quot;v2.0&quot;:
+      data, context = FetchDataFromServiceC(context)
+  }
+
+  context = request.Response(context, data)
+
+  // End the current span
+  Tracer::EndSpan(context)
+
+  return context
+}
+
+func FetchDataFromServiceB(context) -&gt; (context, data) {
+  request = NewRequest([request options])
+  
+  // Inject the contexts to be propagated. Note that there is no direct
+  // reference to tracing or correlations.
+  injectors = Propagation::GetInjectors()
+  request.Headers = Propagation::Inject(context, injectors, request.Headers)
+
+  // make an http request
+  data = request.Do()
+
+  return data
+}
+</code></pre>
+<h3><a class="header" href="#simplify-the-api-with-automated-context-propagation" id="simplify-the-api-with-automated-context-propagation">Simplify the API with automated context propagation</a></h3>
+<p>In this version of pseudocode above, we assume that the context object is
+explicit, and is pass and returned from every function as an ordinary parameter.
+This is cumbersome, and in many languages, a mechanism exists which allows
+context to be propagated automatically.</p>
+<p>In this version of pseudocode, assume that the current context can be stored as
+a thread local, and is implicitly passed to and returned from every function.</p>
+<pre><code class="language-php">func ServeRequest(request, project) {
+  extractors = Propagation::GetExtractors()
+  Propagation::Extract(extractors, request.Headers)
+  
+  Tracer::StartSpan([span options])
+  
+  version = Correlations::GetCorrelation(&quot;client-version&quot;)
+  
+  switch( version ){
+    case &quot;v1.0&quot;:
+      data = FetchDataFromServiceB()
+    case &quot;v2.0&quot;:
+      data = FetchDataFromServiceC()
+  }
+
+  request.Response(data)
+  
+  Tracer::EndSpan()
+}
+
+func FetchDataFromServiceB() -&gt; (data) {
+  request = newRequest([request options])
+  
+  injectors = Propagation::GetInjectors()
+  Propagation::Inject(request.Headers)
+  
+  data = request.Do()
+
+  return data
+}
+</code></pre>
+<h3><a class="header" href="#implementing-a-propagator" id="implementing-a-propagator">Implementing a propagator</a></h3>
+<p>Digging into the details of the tracing system, what might the internals of a
+span context propagator look like? Here is a crude example of extracting and
+injecting B3 headers, using an explicit context.</p>
+<pre><code class="language-php">  func B3Extractor(context, headers) -&gt; (context) {
+    context = Context::SetValue( context,
+                                 &quot;trace.parentTraceID&quot;,
+                                 headers[&quot;X-B3-TraceId&quot;])
+    context = Context::SetValue( context,
+                                &quot;trace.parentSpanID&quot;,
+                                 headers[&quot;X-B3-SpanId&quot;])
+    return context
+  }
+
+  func B3Injector(context, headers) -&gt; (headers) {
+    headers[&quot;X-B3-TraceId&quot;] = Context::GetValue( context, &quot;trace.parentTraceID&quot;)
+    headers[&quot;X-B3-SpanId&quot;] = Context::GetValue( context, &quot;trace.parentSpanID&quot;)
+
+    return headers
+  }
+</code></pre>
+<h3><a class="header" href="#implementing-a-concern" id="implementing-a-concern">Implementing a concern</a></h3>
+<p>Now, have a look at a crude example of how StartSpan might make use of the
+context. Note that this code must know the internal details about the context
+keys in which the propagators above store their data. For this pseudocode, let's
+assume again that the context is passed implicitly in a thread local.</p>
+<pre><code class="language-php">  func StartSpan(options) {
+    spanData = newSpanData()
+
+    spanData.parentTraceID = Context::GetValue( &quot;trace.parentTraceID&quot;)
+    spanData.parentSpanID = Context::GetValue( &quot;trace.parentSpanID&quot;)
+
+    spanData.traceID = newTraceID()
+    spanData.spanID = newSpanID()
+
+    Context::SetValue( &quot;trace.parentTraceID&quot;, spanData.traceID)
+    Context::SetValue( &quot;trace.parentSpanID&quot;, spanData.spanID)
+
+    // store the spanData object as well, for in-process propagation. Note that
+    // this key will not be propagated, it is for local use only.
+    Context::SetValue( &quot;trace.currentSpanData&quot;, spanData)
+
+    return
+  }
+</code></pre>
+<h3><a class="header" href="#the-scope-of-current-context" id="the-scope-of-current-context">The scope of current context</a></h3>
+<p>Let's look at a couple other scenarios related to automatic context propagation.</p>
+<p>When are the values in the current context available? Scope management may be
+different in each language, but as long as the scope does not change (by
+switching threads, for example) the current context follows the execution of
+the program. This includes after a function returns. Note that the context
+objects themselves are immutable, so explicit handles to prior contexts will not
+be updated when the current context is changed.</p>
+<pre><code class="language-php">func Request() {
+  emptyContext = Context::GetCurrent()
+  
+  Context::SetValue( &quot;say-something&quot;, &quot;foo&quot;)
+  secondContext = Context::GetCurrent()
+  
+  print(Context::GetValue(&quot;say-something&quot;)) // prints &quot;foo&quot;
+  
+  DoWork()
+  
+  thirdContext = Context::GetCurrent()
+  
+  print(Context::GetValue(&quot;say-something&quot;)) // prints &quot;bar&quot;
+
+  print( emptyContext.GetValue(&quot;say-something&quot;) )  // prints &quot;&quot;
+  print( secondContext.GetValue(&quot;say-something&quot;) ) // prints &quot;foo&quot;
+  print( thirdContext.GetValue(&quot;say-something&quot;) )  // prints &quot;bar&quot;
+}
+
+func DoWork(){
+  Context::SetValue( &quot;say-something&quot;, &quot;bar&quot;)
+}
+</code></pre>
+<h3><a class="header" href="#referencing-multiple-contexts" id="referencing-multiple-contexts">Referencing multiple contexts</a></h3>
+<p>If context propagation is automatic, does the user ever need to reference a
+context object directly? Sometimes. Even when automated context propagation is
+an available option, there is no restriction which says that concerns must only
+ever access the current context.</p>
+<p>For example, if a concern wanted to merge the data between two contexts, at
+least one of them will not be the current context.</p>
+<pre><code class="language-php">mergedContext = MergeCorrelations( Context::GetCurrent(), otherContext)
+Context::SetCurrent(mergedContext)
+</code></pre>
+<h3><a class="header" href="#falling-back-to-explicit-contexts" id="falling-back-to-explicit-contexts">Falling back to explicit contexts</a></h3>
+<p>Sometimes, suppling an additional version of a function which uses explicit
+contexts is necessary, in order to handle edge cases. For example, in some cases
+an extracted context is not intended to be set as current context. An
+alternate extract method can be added to the API to handle this.</p>
+<pre><code class="language-php">// Most of the time, the extract function operates on the current context.
+Extract(headers)
+
+// When a context needs to be extracted without changing the current
+// context, fall back to the explicit API.
+otherContext = ExtractWithContext(Context::GetCurrent(), headers)
+</code></pre>
+<h2><a class="header" href="#internal-details" id="internal-details">Internal details</a></h2>
+<p><img src="img/0066_context_propagation_details.png" alt="drawing" /></p>
+<h3><a class="header" href="#example-package-layout" id="example-package-layout">Example Package Layout</a></h3>
+<pre><code>  Context
+    ContextAPI
+  Observability
+    Correlations
+      CorrelationAPI
+      HttpInjector
+      HttpExtractor
+    Metrics
+      MetricAPI
+    Trace
+      TracerAPI
+      HttpInjector
+      HttpExtractor
+  Propagation
+    Registry
+    HttpInjectorInterface
+    HttpExtractorInterface
+</code></pre>
+<h3><a class="header" href="#edge-cases" id="edge-cases">Edge Cases</a></h3>
+<p>There are some complications that can arise when managing a span context extracted off the wire and in-process spans for tracer operations that operate on an implicit parent. In order to ensure that a context key references an object of the expected type and that the proper implicit parent is used, the following conventions have been established:</p>
+<h3><a class="header" href="#extract" id="extract">Extract</a></h3>
+<p>When extracting a remote context, the extracted span context MUST be stored separately from the current span.</p>
+<h3><a class="header" href="#default-span-parentage" id="default-span-parentage">Default Span Parentage</a></h3>
+<p>When a new span is created from a context, a default parent for the span can be assigned. The order is of assignment is as follows:</p>
+<ul>
+<li>The current span.</li>
+<li>The extracted span.</li>
+<li>The root span.</li>
+</ul>
+<h3><a class="header" href="#inject" id="inject">Inject</a></h3>
+<p>When injecting a span to send over the wire, the default order is of
+assignment is as follows:</p>
+<ul>
+<li>The current span.</li>
+<li>The extracted span.</li>
+</ul>
+<h3><a class="header" href="#default-http-headers" id="default-http-headers">Default HTTP headers</a></h3>
+<p>OpenTelemetry currently uses two standard header formats for context propagation.
+Their properties and requirements are integrated into the OpenTelemetry APIs.</p>
+<p><strong>Span Context -</strong> The OpenTelemetry Span API is modeled on the <code>traceparent</code>
+and <code>tracestate</code> headers defined in the <a href="https://www.w3.org/TR/trace-context/">W3C Trace Context specification</a>.</p>
+<p><strong>Correlation Context -</strong> The OpenTelemetry Correlations API is modeled on the
+<code>Correlation-Context</code> headers defined in the <a href="https://w3c.github.io/correlation-context/">W3C Correlation Context specification</a>.</p>
+<h3><a class="header" href="#context-management-and-in-process-propagation" id="context-management-and-in-process-propagation">Context management and in-process propagation</a></h3>
+<p>In order for Context to function, it must always remain bound to the execution
+of code it represents. By default, this means that the programmer must pass a
+Context down the call stack as a function parameter. However, many languages
+provide automated context management facilities, such as thread locals.
+OpenTelemetry should leverage these facilities when available, in order to
+provide automatic context management.</p>
+<h3><a class="header" href="#pre-existing-context-implementations" id="pre-existing-context-implementations">Pre-existing context implementations</a></h3>
+<p>In some languages, a single, widely used context implementation exists. In other
+languages, there many be too many implementations, or none at all. For example,
+Go has a the <code>context.Context</code> object, and widespread conventions for how to
+pass it down the call stack. Java has MDC, along with several other context
+implementations, but none are so widely used that their presence can be
+guaranteed or assumed.</p>
+<p>In the cases where an extremely clear, pre-existing option is not available,
+OpenTelemetry should provide its own context implementation.</p>
+<h2><a class="header" href="#faq" id="faq">FAQ</a></h2>
+<h3><a class="header" href="#what-about-complex-propagation-behavior" id="what-about-complex-propagation-behavior">What about complex propagation behavior</a></h3>
+<p>Some OpenTelemetry proposals have called for more complex propagation behavior.
+For example, falling back to extracting B3 headers if W3C Trace-Context headers
+are not found. &quot;Fallback propagators&quot; and other complex behavior can be modeled as
+implementation details behind the Propagator interface. Therefore, the
+propagation system itself does not need to provide an mechanism for chaining
+together propagators or other additional facilities.</p>
+<h2><a class="header" href="#prior-art-and-alternatives" id="prior-art-and-alternatives">Prior art and alternatives</a></h2>
+<p>Prior art:</p>
+<ul>
+<li>OpenTelemetry distributed context</li>
+<li>OpenCensus propagators</li>
+<li>OpenTracing spans</li>
+<li>gRPC context</li>
+</ul>
+<h2><a class="header" href="#risks" id="risks">Risks</a></h2>
+<p>The Correlations API is related to the <a href="https://w3c.github.io/correlation-context/">W3C Correlation-Context</a>
+specification. Work on this specification has begun, but is not complete. While
+unlikely, it is possible that this W3C specification could diverge from the
+design or guarantees needed by the Correlations API.</p>
+<h2><a class="header" href="#future-possibilities" id="future-possibilities">Future possibilities</a></h2>
+<p>Cleanly splitting OpenTelemetry into Aspects and Context Propagation layer may
+allow us to move the Context Propagation layer into its own, stand-alone
+project. This may facilitate adoption, by allowing us to share Context
+Propagation with gRPC and other projects.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="0059-otlp-trace-data-format.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0070-metric-bound-instrument.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="0059-otlp-trace-data-format.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0070-metric-bound-instrument.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0122-otlp-http-json</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html" class="active"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#otlp-json-encoding-for-otlphttp" id="otlp-json-encoding-for-otlphttp">OTLP: JSON Encoding for OTLP/HTTP</a></h1>
+<p>This is a proposal to add HTTP Transport extension supporting json serialization for
+<a href="0035-opentelemetry-protocol.html">OTLP</a> (OpenTelemetry Protocol).</p>
+<h2><a class="header" href="#table-of-contents" id="table-of-contents">Table of Contents</a></h2>
+<ul>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#otlphttpjson-protocol-details">OTLP/HTTP+JSON Protocol Details</a>
+<ul>
+<li><a href="#json-mapping">JSON Mapping</a></li>
+<li><a href="#request">Request</a></li>
+<li><a href="#response">Response</a>
+<ul>
+<li><a href="#success">Success</a></li>
+<li><a href="#failures">Failures</a></li>
+<li><a href="#throttling">Throttling</a></li>
+<li><a href="#all-other-responses">All Other Responses</a></li>
+</ul>
+</li>
+<li><a href="#connection">Connection</a></li>
+<li><a href="#parallel-connections">Parallel Connections</a></li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p>Protobuf is a relatively big dependency, which some clients are not willing to take. For example, webjs, iOS/Android (in some scenarios, the size of the installation package is limited, do not want to introduce protobuf dependencies). Plain JSON is a smaller dependency and is built in the standard libraries of many programming languages.</p>
+<h2><a class="header" href="#otlphttpjson-protocol-details" id="otlphttpjson-protocol-details">OTLP/HTTP+JSON Protocol Details</a></h2>
+<p>OTLP/HTTP+JSON will be consistent with the <a href="0099-otlp-http.html">OTLP/HTTP</a> specification except that the payload will use JSON instead of protobuf.</p>
+<h3><a class="header" href="#json-mapping" id="json-mapping">JSON Mapping</a></h3>
+<p>Use proto3 standard defined <a href="https://developers.google.com/protocol-buffers/docs/proto3#json">JSON Mapping</a> for mapping between protobuf and json. <code>trace_id</code>  and <code>span_id</code> is base64 encoded in OTLP/HTTP+JSON, not hex.</p>
+<h3><a class="header" href="#request" id="request">Request</a></h3>
+<p>Telemetry data is sent via HTTP POST request.</p>
+<p>The default URL path for requests that carry trace data is <code>/v1/traces</code> (for
+example the full URL when connecting to &quot;example.com&quot; server will be
+<code>https://example.com/v1/traces</code>). The request body is a JSON-encoded
+<a href="https://github.com/open-telemetry/opentelemetry-proto/blob/e6c3c4a74d57f870a0d781bada02cb2b2c497d14/opentelemetry/proto/collector/trace/v1/trace_service.proto#L38"><code>ExportTraceServiceRequest</code></a>
+message.</p>
+<p>The default URL path for requests that carry metric data is <code>/v1/metrics</code> and the
+request body is a JSON-encoded
+<a href="https://github.com/open-telemetry/opentelemetry-proto/blob/e6c3c4a74d57f870a0d781bada02cb2b2c497d14/opentelemetry/proto/collector/metrics/v1/metrics_service.proto#L35"><code>ExportMetricsServiceRequest</code></a>
+message.</p>
+<p>The client MUST set &quot;Content-Type: application/json&quot; request header. The
+client MAY gzip the content and in that case SHOULD include &quot;Content-Encoding:
+gzip&quot; request header. The client MAY include &quot;Accept-Encoding: gzip&quot; request
+header if it can receive gzip-encoded responses.</p>
+<p>Non-default URL paths for requests MAY be configured on the client and server
+sides.</p>
+<h3><a class="header" href="#response" id="response">Response</a></h3>
+<h4><a class="header" href="#success" id="success">Success</a></h4>
+<p>On success the server MUST respond with <code>HTTP 200 OK</code>. Response body MUST be
+JSON-encoded
+<a href="https://github.com/open-telemetry/opentelemetry-proto/blob/e6c3c4a74d57f870a0d781bada02cb2b2c497d14/opentelemetry/proto/collector/trace/v1/trace_service.proto#L47"><code>ExportTraceServiceResponse</code></a>
+message for traces and
+<a href="https://github.com/open-telemetry/opentelemetry-proto/blob/e6c3c4a74d57f870a0d781bada02cb2b2c497d14/opentelemetry/proto/collector/metrics/v1/metrics_service.proto#L44"><code>ExportMetricsServiceResponse</code></a>
+message for metrics.</p>
+<p>The server MUST set &quot;Content-Type: application/json&quot; response header. If
+the request header &quot;Accept-Encoding: gzip&quot; is present in the request the server
+MAY gzip-encode the response and set &quot;Content-Encoding: gzip&quot; response header.</p>
+<p>The server SHOULD respond with success no sooner than after successfully
+decoding and validating the request.</p>
+<h4><a class="header" href="#failures" id="failures">Failures</a></h4>
+<p>If the processing of the request fails the server MUST respond with appropriate
+<code>HTTP 4xx</code> or <code>HTTP 5xx</code> status code. See sections below for more details about
+specific failure cases and HTTP status codes that should be used.</p>
+<p>Response body for all <code>HTTP 4xx</code> and <code>HTTP 5xx</code> responses MUST be a
+JSON-encoded
+<a href="https://godoc.org/google.golang.org/genproto/googleapis/rpc/status#Status">Status</a>
+message that describes the problem.</p>
+<p>This specification does not use <code>Status.code</code> field and the server MAY omit
+<code>Status.code</code> field. The clients are not expected to alter their behavior based
+on <code>Status.code</code> field but MAY record it for troubleshooting purposes.</p>
+<p>The <code>Status.message</code> field SHOULD contain a developer-facing error message as
+defined in <code>Status</code> message schema.</p>
+<p>The server MAY include <code>Status.details</code> field with additional details. Read
+below about what this field can contain in each specific failure case.</p>
+<h4><a class="header" href="#bad-data" id="bad-data">Bad Data</a></h4>
+<p>If the processing of the request fails because the request contains data that
+cannot be decoded or is otherwise invalid and such failure is permanent then the
+server MUST respond with <code>HTTP 400 Bad Request</code>. The <code>Status.details</code> field in
+the response SHOULD contain a
+<a href="https://github.com/googleapis/googleapis/blob/d14bf59a446c14ef16e9931ebfc8e63ab549bf07/google/rpc/error_details.proto#L166">BadRequest</a>
+that describes the bad data.</p>
+<p>The client MUST NOT retry the request when it receives <code>HTTP 400 Bad Request</code>
+response.</p>
+<h4><a class="header" href="#throttling" id="throttling">Throttling</a></h4>
+<p>If the server receives more requests than the client is allowed or the server is
+overloaded the server SHOULD respond with <code>HTTP 429 Too Many Requests</code> or
+<code>HTTP 503 Service Unavailable</code> and MAY include
+<a href="https://tools.ietf.org/html/rfc7231#section-7.1.3">&quot;Retry-After&quot;</a> header with a
+recommended time interval in seconds to wait before retrying.</p>
+<p>The client SHOULD honour the waiting interval specified in &quot;Retry-After&quot; header
+if it is present. If the client receives <code>HTTP 429</code> or <code>HTTP 503</code> response and
+&quot;Retry-After&quot; header is not present in the response then the client SHOULD
+implement an exponential backoff strategy between retries.</p>
+<h4><a class="header" href="#all-other-responses" id="all-other-responses">All Other Responses</a></h4>
+<p>All other HTTP responses that are not explicitly listed in this document should
+be treated according to HTTP specification.</p>
+<p>If the server disconnects without returning a response the client SHOULD retry
+and send the same request. The client SHOULD implement an exponential backoff
+strategy between retries to avoid overwhelming the server.</p>
+<h3><a class="header" href="#connection" id="connection">Connection</a></h3>
+<p>If the client is unable to connect to the server the client SHOULD retry the
+connection using exponential backoff strategy between retries. The interval
+between retries must have a random jitter.</p>
+<p>The client SHOULD keep the connection alive between requests.</p>
+<p>Server implementations MAY handle OTLP/gRPC, OTLP/HTTP requests and OTLP/HTTP+JSON on the same
+port and multiplex the connections to the corresponding transport handler based
+on &quot;Content-Type&quot; request header.</p>
+<h3><a class="header" href="#parallel-connections" id="parallel-connections">Parallel Connections</a></h3>
+<p>To achieve higher total throughput the client MAY send requests using several
+parallel HTTP connections. In that case the maximum number of parallel
+connections SHOULD be configurable.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="0121-config-service.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0126-Configurable-Metric-Aggregations.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="0121-config-service.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0126-Configurable-Metric-Aggregations.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

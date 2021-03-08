@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0001-telemetry-without-manual-instrumentation</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html" class="active"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#open-telemetry-without-manual-instrumentation" id="open-telemetry-without-manual-instrumentation">(Open) Telemetry Without Manual Instrumentation</a></h1>
+<p><em>Cross-language requirements for automated approaches to extracting portable telemetry data with zero source code modification.</em></p>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p>The purpose of OpenTelemetry is to make robust, portable telemetry a built-in feature of cloud-native software. For some software and some situations, that instrumentation can literally be part of the source code. In other situations, it’s not so simple: for example, we can’t necessarily edit or even recompile some of our software, the OpenTelemetry instrumentation only exists as a plugin, or instrumentation just never rises to the top of the priority list for a service-owner. Furthermore, there is occasionally a desire to disable instrumentation for a single plugin or module at runtime, again without requiring developers to make changes to source code.</p>
+<p>One way to navigate situations like these is with a software layer that adds OpenTelemetry instrumentation to a service without modifying the source code for that service. (In the conventional APM world, these software layers are often called “agents”, though that term is overloaded and ambiguous so we try avoid it in this document.)</p>
+<h3><a class="header" href="#why-cross-language" id="why-cross-language">Why “cross-language”?</a></h3>
+<p>Many people have correctly observed that “agent” design is highly language-dependent. This is certainly true, but there are still higher-level “product” objectives for OpenTelemetry that can guide the design choices we make across languages and help users form a consistent impression of what OpenTelemetry provides (and what it does not).</p>
+<h3><a class="header" href="#suggested-reading" id="suggested-reading">Suggested reading</a></h3>
+<ul>
+<li>This GitHub issue: <a href="https://github.com/open-telemetry/community/pull/87">Propose an &quot;Auto-Instrumentation SIG&quot;</a></li>
+<li><a href="https://docs.google.com/document/d/1ix0WtzB5j-DRj1VQQxraoqeUuvgvfhA6Sd8mF5WLNeY/edit">Rough notes from the June 11, 2019 meeting</a> following this ^^ issue</li>
+<li>The <a href="https://docs.google.com/document/d/1sovSQIGdxXtsauxUNp4qUMEIJZzObdukzPT52eyPCHM/edit#">rough draft for this RFC</a>, including the comments</li>
+</ul>
+<h2><a class="header" href="#proposed-guidelines" id="proposed-guidelines">Proposed guidelines</a></h2>
+<h3><a class="header" href="#requirements" id="requirements">Requirements</a></h3>
+<p>Without further ado, here are a set of requirements for “official” OpenTelemetry efforts to accomplish zero-source-code-modification instrumentation (i.e., “OpenTelemetry agents”) in any given language:</p>
+<ul>
+<li><em>Manual</em> source code modifications &quot;very strongly discouraged&quot;, with an exception for languages or environments that leave no credible alternatives. Any code changes must be trivial and <code>O(1)</code> per source file (rather than per-function, etc).</li>
+<li>Licensing must be permissive (e.g., ASL / BSD)</li>
+<li>Packaging must allow vendors to “wrap” or repackage the portable (OpenTelemetry) library into a single asset that’s delivered to customers
+<ul>
+<li>That is, vendors do not want to require users to comprehend both an OpenTelemetry package and a vendor-specific package</li>
+</ul>
+</li>
+<li>Explicit, whitebox OpenTelemetry instrumentation must interoperate with the “automatic” / zero-source-code-modification / blackbox instrumentation.
+<ul>
+<li>If the blackbox instrumentation starts a Span, whitebox instrumentation must be able to discover it as the active Span (and vice versa)</li>
+<li>Relatedly, there also must be a way to discover and avoid potential conflicts/overlap/redundancy between explicit whitebox instrumentation and blackbox instrumentation of the same libraries/packages
+<ul>
+<li>That is, if a developer has already added the “official” OpenTelemetry plugin for, say, gRPC, then when the blackbox instrumentation effort adds gRPC support, it should <em>not</em> “double-instrument” it and create a mess of extra spans/etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>From the standpoint of the actual telemetry being gathered, the same standards and expectations (about tagging, metadata, and so on) apply to &quot;whitebox&quot; instrumentation and automatic instrumentation</li>
+<li>The code in the OpenTelemetry package must not take a hard dependency on any particular vendor/vendors (that sort of functionality should work via a plugin or registry mechanism)
+<ul>
+<li>Further, the code in the OpenTelemetry package must be isolated to avoid possible conflicts with the host application (e.g., shading in Java, etc)</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#nice-to-have-properties" id="nice-to-have-properties">Nice-to-have properties</a></h3>
+<ul>
+<li>Run-time integration (vs compile-time integration)</li>
+<li>Automated and modular testing of individual library/package plugins
+<ul>
+<li>Note that this also makes it easy to test against multiple different versions of any given library</li>
+</ul>
+</li>
+<li>A fully pluggable architecture, where plugins can be registered at runtime without requiring changes to the central repo at github.com/open-telemetry
+<ul>
+<li>E.g., for ops teams that want to write a plugin for a proprietary piece of legacy software they are unable to recompile</li>
+</ul>
+</li>
+<li>Augemntation of whitebox instrumentation by blackbox instrumentation (or, perhaps, vice versa). That is, not only can the trace context be shared by these different flavors of instrumentation, but even things like in-flight Span objects can be shared and co-modified (e.g., to use runtime interposition to grab local variables and attach them to a manually-instrumented span).</li>
+</ul>
+<h2><a class="header" href="#trade-offs-and-mitigations" id="trade-offs-and-mitigations">Trade-offs and mitigations</a></h2>
+<p>Approaching a problem this language-specific at the cross-language altitude is intrinsically challenging since &quot;different languages are different&quot; – e.g., in Go there is no way to perform the kind of runtime interpositioning that's possible in Python, Ruby, or even Java.</p>
+<p>There is also a school of thought that we should only be focusing on the bits and bytes that actually escape the running process and ignore how that's actually accomplished. This has a certain elegance to it, but it also runs afoul of the need to have manual instrumentation interoperate with the zero-touch instrumentation, especially when it comes to the (shared) distributed context itself.</p>
+<h2><a class="header" href="#proposal" id="proposal">Proposal</a></h2>
+<h3><a class="header" href="#what-is-our-desired-end-state-for-opentelemetry-end-users" id="what-is-our-desired-end-state-for-opentelemetry-end-users">What is our desired end state for OpenTelemetry end-users?</a></h3>
+<p>To reiterate much of the above:</p>
+<ul>
+<li>First and foremost, <strong>portable OpenTelemetry instrumentation can be installed without manual source code modification</strong></li>
+<li>There’s one “clear winner” when it comes to portable, automatic instrumentation; just like with OpenTracing and OpenCensus, this is a situation where choice is not necessarily a good thing. End-users who wish to contribute instrumentation plugins should not have their enthusiasm and generosity diluted across competing projects.</li>
+<li>As much as such a thing is possible, consistency across languages</li>
+<li>Broad coverage / “plugin support”</li>
+<li>Broad vendor support for OpenTelemetry</li>
+<li>All other things being equal, get all of these ^^ benefits ASAP!</li>
+</ul>
+<h3><a class="header" href="#whats-the-basic-proposal" id="whats-the-basic-proposal">What's the basic proposal?</a></h3>
+<p>Given the desired end state, the Datadog tracers seem like the closest-fit, permissively-licensed option out there today. We asked Datadog's leadership whether they would be interested in donating that code to OpenTelemetry, and they were receptive to the idea. (I.e., this would not be a &quot;hard fork&quot; that must be maintained in parallel forever)</p>
+<h3><a class="header" href="#the-overarching-technical-process-per-language" id="the-overarching-technical-process-per-language">The overarching (technical) process, per-language</a></h3>
+<ul>
+<li>Start with <a href="https://github.com/DataDog">the Datadog <code>dd-trace-foo</code> tracers</a></li>
+<li>For each language:
+<ul>
+<li>Fork the Datadog <code>datadog/dd-trace-foo</code> repo into a <code>open-telemetry/auto-instr-foo</code> OpenTelemetry repo (exact naming TBD)</li>
+<li>In parallel:
+<ul>
+<li>The <code>dd-trace-foo</code> codebases already do a good job separating Datadog-specific functionality from general-purpose functionality. Where needed, make that boundary even more explicit through an API (or &quot;SPI&quot;, really).</li>
+<li>Create a new <code>dd-trace-foo</code> lib that wraps <code>auto-instr-foo</code> and includes the Datadog-specific pieces factored out above</li>
+<li>Show that it’s also possible to bind to arbitrary OpenTelemetry-based tracers to the above API/SPI</li>
+</ul>
+</li>
+<li>Declare the forked <code>auto-instr-foo</code> repository ready for production beta use</li>
+<li>For some (ideally brief) period:
+<ul>
+<li>When new plugins are added to Datadog's (original) repo, merge them over into the <code>auto-instr-foo</code> repo</li>
+<li>Allow Datadog end-users to bind to either for some period of time (ultimately Datadog's decision on timeline here, and does not prevent other tracers from using <code>auto-instr-foo</code>)</li>
+<li>Finally, when the combination of <code>auto-instr-foo</code> and a Datadog wrapper is functionally equivalent to the <code>dd-trace-foo</code> mainline, the latter can be safely replaced by the former.
+<ul>
+<li>Note that, by design, this is not expected to affect Datadog end-users</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Moved repo is GA’d: all new plugins (and improvements to the auto-instrumentation core) happen in the <code>auto-instr-foo</code> repo</li>
+</ul>
+</li>
+</ul>
+<p>There are some languages that will have OpenTelemetry support before they have Datadog <code>dd-trace-foo</code> support. In those situations, we will fall back to the requirements in this OTEP and leave the technical determinations up to the language SIG and the OpenTelemetry TC.</p>
+<h3><a class="header" href="#governance-of-the-auto-instrumentation-libraries" id="governance-of-the-auto-instrumentation-libraries">Governance of the auto-instrumentation libraries</a></h3>
+<p>Each <code>auto-instr-foo</code> repository must have at least one <a href="https://github.com/open-telemetry/community/blob/master/community-membership.md#maintainer">Maintainer</a> in common with the main <code>opentelemetry-foo</code> language repository. There are no other requirements or constraints about the set of maintainers/approvers for the main language repository and the respective auto-instrumentation repository; in particular, there may be maintainers/approvers of the main language repository that are not maintainers/approvers for the auto-instrumentation repository, and vice versa.</p>
+<h3><a class="header" href="#mini-faq-about-this-proposal" id="mini-faq-about-this-proposal">Mini-FAQ about this proposal</a></h3>
+<p><strong>Will this be the only auto-instrumentation story for OpenTelemetry?</strong> It need not be. The auto-instrumentation libraries described above will have no privileged access to OpenTelemetry APIs, and as such they have no exclusive advantage over any other auto-instrumentation libraries.</p>
+<p><strong>What about auto-instrumenting <em>Project X</em>? Why aren't we using that instead??</strong> First of all, there's nothing preventing any of us from taking great ideas from <em>Project X</em> and incorporating them into these auto-instrumentation libraries. We propose that we start with the Datadog codebases and iterate from there as need be. If there are improvements to be made in any given language, they will be welcomed by all.</p>
+<h2><a class="header" href="#prior-art-and-alternatives" id="prior-art-and-alternatives">Prior art and alternatives</a></h2>
+<p>There are many proprietary APM language agents – no need to survey them all here. There is a much smaller list of &quot;APM agents&quot; (or other auto-instrumentation efforts) that are already permissively-licensed OSS. For instance, when we met to discuss options for JVM (longer notes <a href="https://docs.google.com/document/d/1ix0WtzB5j-DRj1VQQxraoqeUuvgvfhA6Sd8mF5WLNeY/edit#heading=h.kjctiyv4rxup">here</a>), we came away with the following list:</p>
+<ul>
+<li><a href="https://github.com/honeycombio/beeline-java">Honeycomb's Java beeline</a></li>
+<li><a href="https://github.com/datadog/dd-trace-java">Datadog's Java tracer</a></li>
+<li><a href="https://glowroot.org/">Glowroot</a></li>
+<li><a href="https://github.com/opentracing-contrib/java-specialagent">SpecialAgent</a></li>
+</ul>
+<p>The most obvious &quot;alternative approach&quot; would be to choose &quot;starting points&quot; independently in each language. This has several problems:</p>
+<ul>
+<li>Higher likelihood of &quot;hard forks&quot;: we want to avoid an end state where two projects (the OpenTelemetry version, and the original version) evolve – and diverge – independently</li>
+<li>Higher likelihood of &quot;concept divergence&quot; across languages: while each language presents unique requirements and challenges, the Datadog auto-instrumentation libraries were written by a single organization with some common concepts and architectural requirements (they were also written to be OpenTracing-compatible, which greatly increases our odds of success given the similarities to OpenTelemetry)</li>
+<li>Datadog would also like a uniform strategy here, and this donation requires their consent (unless we want to do a hard fork, which is suboptimal for everyone). So starting with the Datadog libraries in &quot;all but one&quot; (or &quot;all but two&quot;, etc) languages makes this less palatable for them</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0002-remove-spandata.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0002-remove-spandata.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

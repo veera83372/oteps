@@ -1,0 +1,388 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0111-auto-resource-detection</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html" class="active"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#automatic-resource-detection" id="automatic-resource-detection">Automatic Resource Detection</a></h1>
+<p>Introduce a mechanism to support auto-detection of resources.</p>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p>Resource information, i.e. attributes associated with the entity producing
+telemetry, can currently be supplied to tracer and meter providers or appended
+in custom exporters. In addition to this, it would be useful to have a mechanism
+to automatically detect resource information from the host (e.g. from an
+environment variable or from aws, gcp, etc metadata) and apply this to all kinds
+of telemetry. This will in many cases prevent users from having to manually
+configure resource information.</p>
+<p>Note there are some existing implementations of this already in the SDKs (see
+<a href="#prior-art-and-alternatives">below</a>), but nothing currently in the
+specification.</p>
+<h2><a class="header" href="#explanation" id="explanation">Explanation</a></h2>
+<p>In order to apply auto-detected resource information to all kinds of telemetry,
+a user will need to configure which resource detector(s) they would like to run
+(e.g. AWS EC2 detector).</p>
+<p>If multiple detectors are configured, and more than one of these successfully
+detects a resource, the resources will be merged according to the Merge
+interface already defined in the specification, i.e. the earliest matched
+resource's attributes will take precedence. Each detector may be run in
+parallel, but to ensure deterministic results, the resources must be merged in
+the order the detectors were added.</p>
+<p>A default implementation of a detector that reads resource data from the
+<code>OTEL_RESOURCE</code> environment variable will be included in the SDK. The
+environment variable will contain of a list of key value pairs, and these are
+expected to be represented in a format similar to the <a href="https://github.com/w3c/baggage/blob/master/baggage/HTTP_HEADER_FORMAT.md#header-content">W3C
+Baggage</a>,
+except that additional semi-colon delimited metadata is not supported, i.e.:
+<code>key1=value1,key2=value2</code>. If the user does not specify any resource, this
+detector will be run by default.</p>
+<p>Custom resource detectors related to specific environments (e.g. specific cloud
+vendors) must be implemented as packages separate to the core SDK, and users
+will need to import these separately.</p>
+<h2><a class="header" href="#internal-details" id="internal-details">Internal details</a></h2>
+<p>As described above, the following will be added to the Resource SDK
+specification:</p>
+<ul>
+<li>An interface for &quot;detectors&quot;, to retrieve resource information</li>
+<li>Specification for a global function to merge resources returned by a set of
+detectors</li>
+<li>Details of the &quot;from environment variable&quot; detector implementation as
+described above</li>
+<li>Specification that default detection (from environment variable) runs once on
+startup, and is used by all tracer &amp; meter providers by default if no custom
+resource is supplied</li>
+</ul>
+<h3><a class="header" href="#usage" id="usage">Usage</a></h3>
+<p>The following example in Go creates a tracer and meter provider that uses
+resource information automatically detected from AWS or GCP:</p>
+<p>Assumes a dependency has been added on the <code>otel/api</code>, <code>otel/sdk</code>,
+<code>otel/awsdetector</code>, and <code>otel/gcpdetector</code> packages.</p>
+<pre><code class="language-go">resource, _ := sdkresource.Detect(ctx, 5 * time.Second, awsdetector.ec2, gcpdetector.gce)
+tp := sdktrace.NewProvider(sdktrace.WithResource(resource))
+mp := push.New(..., push.WithResource(resource))
+</code></pre>
+<h3><a class="header" href="#components" id="components">Components</a></h3>
+<h4><a class="header" href="#detector" id="detector">Detector</a></h4>
+<p>The <code>Detector</code> interface will simply contain a <code>Detect</code> function that returns a
+Resource.</p>
+<p>The <code>Detect</code> function should contain a mechanism to timeout and cancel the
+operation. If a detector is not able to detect a resource, it must return an
+uninitialized resource such that the result of each call to <code>Detect</code> can be
+merged.</p>
+<h4><a class="header" href="#global-function" id="global-function">Global Function</a></h4>
+<p>The SDK will also provide a global <code>Detect</code> function. This will take a timeout
+duration and a set of detectors that should be run and merged in order as
+described in the intro, and return a resource.</p>
+<h3><a class="header" href="#error-handling" id="error-handling">Error Handling</a></h3>
+<p>In the case of one or more detectors raising an error, there are two reasonable
+options:</p>
+<ol>
+<li>Ignore that detector, and continue with a warning (likely meaning we will
+continue without expected resource information)</li>
+<li>Crash the application (raise a panic)</li>
+</ol>
+<p>The user can decide how to recover from failure.</p>
+<h2><a class="header" href="#trade-offs-and-mitigations" id="trade-offs-and-mitigations">Trade-offs and mitigations</a></h2>
+<ul>
+<li>This OTEP proposes storing Vendor resource detection packages outside of the
+SDK. This ensures the SDK is free of vendor specific code. Given the
+relatively straightforward &amp; minimal amount of code generally needed to
+perform resource detection, and the relatively small number of cloud
+providers, we may instead decide its okay for all the resource detection code
+to live in the SDK directly.
+<ul>
+<li>If we do allow Vendor resource detection packages in the SDK, we presumably
+need to restrict these to not being able to use non-trivial libraries</li>
+</ul>
+</li>
+<li>This OTEP proposes only performing environment variable resource detection by
+default. Given the relatively small number of cloud providers, we may instead
+decide its okay to run all detectors by default. This raises the question of
+if any restrictions would need to be put on this, and how we would handle this
+in the future if the number of Cloud Providers rises. It would be difficult to
+back out of running these by default as that would lead to a breaking change.</li>
+<li>This OTEP proposes a global function the user calls with the detectors they
+want to run, and then expects the user to pass these into the providers. An
+alternative option (that was previously proposed in this OTEP) would be to
+supply a set of detectors directly to the metric or trace provider instead of,
+or as an additional option to, a static resource. That would result in
+marginally simpler setup code where the user doesn't need to call <code>AutoDetect</code>
+themselves. Another advantage of this approach is that its easier to specify
+default detectors and override these separately to any static resource the
+user may want to provide. On the downside, this approach adds the complexity
+of having to deal with the merging the detected resource with a static
+resource if provided. It also potentially adds a lot of complexity around how
+to avoid having detectors run multiple times since they will be configured for
+each provider. Avoiding having to specify detectors for tracer &amp; meter
+providers is the primary reason for not going with that option in the end.</li>
+<li>The attribute proto now supports arrays &amp; maps. We could support parsing this
+out of the <code>OTEL_RESOURCE</code> environment variable similar to how Correlation
+Context supports semi colon lists of keys &amp; key-value pairs, but the added
+complexity is probably not worthwhile implementing unless someone has a good
+use case for this.</li>
+<li>In the case of an error at resource detection time, another alternative would
+be to start a background thread to retry following some strategy, but it's not
+clear that there would be much value in doing this, and it would add
+considerable unnecessary complexity.</li>
+</ul>
+<h2><a class="header" href="#prior-art-and-alternatives" id="prior-art-and-alternatives">Prior art and alternatives</a></h2>
+<p>This proposal is largely inspired by the existing OpenCensus specification, the
+OpenCensus Go implementation, and the OpenTelemetry JS implementation. For
+reference, see the relevant section of the <a href="https://github.com/census-instrumentation/opencensus-specs/blob/master/resource/Resource.md#populating-resources">OpenCensus
+specification</a></p>
+<h3><a class="header" href="#existing-opentelemetry-implementations" id="existing-opentelemetry-implementations">Existing OpenTelemetry implementations</a></h3>
+<ul>
+<li>Resource detection implementation in JS SDK
+<a href="https://github.com/open-telemetry/opentelemetry-js/tree/master/packages/opentelemetry-resources">here</a>:
+The JS implementation is very similar to this proposal. This proposal states
+that the SDK will allow detectors to be passed into telemetry providers
+directly instead of just having a global <code>DetectResources</code> function which the
+user will need to call and pass in explicitly. In addition, vendor specific
+resource detection code is currently in the JS resource package, so this would
+need to be separated.</li>
+<li>Environment variable resource detection in Java SDK
+<a href="https://github.com/open-telemetry/opentelemetry-java/blob/master/sdk/src/main/java/io/opentelemetry/sdk/resources/EnvVarResource.java">here</a>:
+This implementation does not currently include a detector interface, but is
+used by default for tracer and meter providers</li>
+</ul>
+<h2><a class="header" href="#open-questions" id="open-questions">Open questions</a></h2>
+<ul>
+<li>Does this interfere with any other upcoming specification changes related to
+resources?</li>
+<li>If custom detectors need to live outside the core repo, what is the
+expectation regarding where they should be hosted?</li>
+<li>Also see the <a href="#trade-offs-and-mitigations">Trade-offs and mitigations</a> section</li>
+</ul>
+<h2><a class="header" href="#future-possibilities" id="future-possibilities">Future possibilities</a></h2>
+<p>When the Collector is run as an agent, the same interface, shared with the Go
+SDK, could be used to append resource information detected from the host to all
+kinds of telemetry in a Processor (probably as an extension to the existing
+Resource Processor). This would require a translation from the SDK resource to
+the collector's internal representation of a resource.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="0110-z-pages.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0113-exemplars.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="0110-z-pages.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0113-exemplars.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0006-sampling</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html" class="active"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#sampling-api" id="sampling-api">Sampling API</a></h1>
+<h2><a class="header" href="#tldr" id="tldr">TL;DR</a></h2>
+<p>This section tries to summarize all the changes proposed in this RFC:</p>
+<ol>
+<li>Move the <code>Sampler</code> interface from the API to SDK package. Apply some minor changes to the
+<code>Sampler</code> API.</li>
+<li>Add capability to record <code>Attributes</code> that can be used for sampling decision during the <code>Span</code>
+creation time.</li>
+<li>Remove <code>addLink</code> APIs from the <code>Span</code> interface, and allow recording links only during the span
+construction time.</li>
+</ol>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p>Different users of OpenTelemetry, ranging from library developers, packaged infrastructure binary
+developers, application developers, operators, and telemetry system owners, have separate use cases
+for OpenTelemetry that have gotten muddled in the design of the original Sampling API. Thus, we need
+to clarify what APIs each should be able to depend upon, and how they will configure sampling and
+OpenTelemetry according to their needs.</p>
+<pre><code>
+                    +----------+           +-----------+
+           grpc     |  Library |           |           |
+           Django   |  Devs    +----------&gt;| OTel API  |
+           Express  |          |   +------&gt;|           |
+                    +----------+   |  +---&gt;+-----------+                  +---------+
+                                   |  |          ^                        | OTel    |
+                                   |  |          |                     +-&gt;| Proxy   +---+
+                                   |  |          |                     |  |         |   |
+                    +----------+   |  |    +-----+-----+------------+  |  +---------+   |
+                    |          |   |  |    |           | OTel Wire  |  |                |
+           Hbase    |  Infra   |   |  |    |           | Export     |+-+                v
+           Envoy    |  Binary  +---+  |    |  OTel     |            |  |           +----v-----+
+                    |  Devs    |      |    |  SDK      +------------+  |           |          |
+                    +----------+----------&gt;|           |            |  +----------&gt;|  Backend |
+                                   +------&gt;|           | Custom     |  +----------&gt;|          |
+                                   |  |    |           | Export     |  |           +----------+
+                    +----------+   |  |    |           |            |+-+             ^
+                    |          +---+  |    +-----------+------------+                |
+                    |  App     +------+       ^              ^                       |
+                    |  Devs    +              |              |          +------------+-+
+                    |          |              |              |          |              |
+                    +----------+          +---+----+         +----------+   Telemetry  |
+                                          |  SRE   |                    |   Owner      |
+                                          |        |                    |              |
+                                          +--------+                    +--------------+
+                                                                          Lightstep
+                                                                          Honeycomb
+
+</code></pre>
+<h2><a class="header" href="#explanation" id="explanation">Explanation</a></h2>
+<p>We outline five different use cases (who may be overlapping sets of people), and how they should
+interact with OpenTelemetry:</p>
+<h3><a class="header" href="#library-developer" id="library-developer">Library developer</a></h3>
+<p>Examples: gRPC, Express, Django developers.</p>
+<ul>
+<li>They must only depend upon the OpenTelemetry API and not upon the SDK.
+<ul>
+<li>For testing only they may depend on the SDK with InMemoryExporter.</li>
+</ul>
+</li>
+<li>They are shipping source code that will be linked into others' applications.</li>
+<li>They have no explicit runtime control over the application.</li>
+<li>They know some signal about what traces may be interesting (e.g. unusual control plane requests)
+or uninteresting (e.g. health-checks), but have to write fully generically.</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>For the moment, the OpenTelemetry API will not offer any <code>SamplingHint</code> functionality for the last use case.
+This is intentional to avoid premature optimizations, and it is based on the fact that changing an API is
+backwards incompatible compared to adding a new API.</li>
+</ul>
+<h3><a class="header" href="#infrastructure-packagebinary-developer" id="infrastructure-packagebinary-developer">Infrastructure package/binary developer</a></h3>
+<p>Examples: HBase, Envoy developers.</p>
+<ul>
+<li>They are shipping self-contained binaries that may accept YAML or similar run-time configuration,
+but are not expected to support extensibility/plugins beyond the default OpenTelemetry SDK,
+OpenTelemetry SDKTracer, and OpenTelemetry wire format exporter.</li>
+<li>They may have their own recommendations for sampling rates, but don't run the binaries in
+production, only provide packaged binaries. So their sampling rate configs, and sampling strategies
+need to be a finite &quot;built in&quot; set from OpenTelemetry's SDK.</li>
+<li>They need to deal with upstream sampling decisions made by services that call them.</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Allow different sampling strategies by default in OpenTelemetry SDK, all configurable easily via
+YAML or feature flags. See <a href="#default-samplers">default samplers</a>.</li>
+</ul>
+<h3><a class="header" href="#application-developer" id="application-developer">Application developer</a></h3>
+<p>These are the folks we've been thinking the most about for OpenTelemetry in general.</p>
+<ul>
+<li>They have full control over the OpenTelemetry implementation or SDK configuration. When using the
+SDK they can configure custom exporters, custom code/samplers, etc.</li>
+<li>They can choose to implement runtime configuration via a variety of means (e.g. baking in feature
+flags, reading YAML files, etc.), or even configure the library in code.</li>
+<li>They make heavy usage of OpenTelemetry for instrumenting application-specific behavior, beyond
+what may be provided by the libraries they use such as gRPC, Django, etc.</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Allow application developers to link in custom samplers or write their own when using the
+official SDK.
+<ul>
+<li>These might include dynamic per-field sampling to achieve a target rate
+(e.g. <a href="https://github.com/honeycombio/dynsampler-go">https://github.com/honeycombio/dynsampler-go</a>)</li>
+</ul>
+</li>
+<li>Sampling decisions are made within the start Span operation, after attributes relevant to the
+span have been added to the Span start operation but before a concrete Span object exists (so that
+either a NoOpSpan can be made, or an actual Span instance can be produced depending upon the
+sampler's decision).</li>
+<li>Span.IsRecording() needs to be present to allow costly span attribute/log computation to be
+skipped if the span is a NoOp span.</li>
+</ul>
+<h3><a class="header" href="#application-operator" id="application-operator">Application operator</a></h3>
+<p>Often the same people as the application developers, but not necessarily</p>
+<ul>
+<li>They care about adjusting sampling rates and strategies to meet operational needs, debugging,
+and cost.</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Use config files or feature flags written by the application developers to control the
+application sampling logic.</li>
+<li>Use the config files to configure libraries and infrastructure package behavior.</li>
+</ul>
+<h3><a class="header" href="#telemetry-infrastructure-owner" id="telemetry-infrastructure-owner">Telemetry infrastructure owner</a></h3>
+<p>They are the people who provide an implementation for the OpenTelemetry API by using the SDK with
+custom <code>Exporter</code>s, <code>Sampler</code>s, hooks, etc. or by writing a custom implementation, as well as
+running the infrastructure for collecting exported traces.</p>
+<ul>
+<li>They care about a variety of things, including efficiency, cost effectiveness, and being able to
+gather spans in a way that makes sense for them.</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Infrastructure owners receive information attached to the span, after sampling hooks have already
+been run.</li>
+</ul>
+<h2><a class="header" href="#internal-details" id="internal-details">Internal details</a></h2>
+<p>In Dapper based systems (or systems without a deferred sampling decision) all exported spans are
+stored to the backend, thus some of these systems usually don't scale to a high volume of traces,
+or the cost to store all the Spans may be too high. In order to support this use-case and to
+ensure the quality of the data we send, OpenTelemetry needs to natively support sampling with some
+requirements:</p>
+<ul>
+<li>Send as many complete traces as possible. Sending just a subset of the spans from a trace is
+less useful because in this case the interaction between the spans may be missing.</li>
+<li>Allow application operator to configure the sampling frequency.</li>
+</ul>
+<p>For new modern systems that need to collect all the Spans and later may or may not make a deferred
+sampling decision, OpenTelemetry needs to natively support a way to configure the library to
+collect and export all the Spans. This is possible (even though OpenTelemetry supports sampling) by
+setting a default config to always collect all the spans.</p>
+<h3><a class="header" href="#sampling-flags" id="sampling-flags">Sampling flags</a></h3>
+<p>OpenTelemetry API has two flags/properties:</p>
+<ul>
+<li><code>RecordEvents</code>
+<ul>
+<li>This property is exposed in the <code>Span</code> interface (e.g. <code>Span.isRecordingEvents()</code>).</li>
+<li>If <code>true</code> the current <code>Span</code> records tracing events (attributes, events, status, etc.),
+otherwise all tracing events are dropped.</li>
+<li>Users can use this property to determine if expensive trace events can be avoided.</li>
+</ul>
+</li>
+<li><code>SampledFlag</code>
+<ul>
+<li>This flag is propagated via the <code>TraceOptions</code> to the child Spans (e.g.
+<code>TraceOptions.isSampled()</code>). For more details see the w3c definition <a href="https://github.com/w3c/trace-context/blob/master/spec/20-http_request_header_format.md#trace-flags">here</a>.</li>
+<li>In Dapper based systems this is equivalent to <code>Span</code> being <code>sampled</code> and exported.</li>
+</ul>
+</li>
+</ul>
+<p>The flag combination <code>SampledFlag == false</code> and <code>RecordEvents == true</code> means that the current <code>Span</code>
+does record tracing events, but most likely the child <code>Span</code> will not. This combination is
+necessary because:</p>
+<ul>
+<li>Allow users to control recording for individual Spans.</li>
+<li>OpenCensus has this to support z-pages, so we need to keep backwards compatibility.</li>
+</ul>
+<p>The flag combination <code>SampledFlag == true</code> and <code>RecordEvents == false</code> can cause gaps in the
+distributed trace, and because of this OpenTelemetry API should NOT allow this combination.</p>
+<p>It is safe to assume that users of the API should only access the <code>RecordEvents</code> property when
+instrumenting code and never access <code>SampledFlag</code> unless used in context propagators.</p>
+<h3><a class="header" href="#sampler-interface" id="sampler-interface">Sampler interface</a></h3>
+<p>The interface for the Sampler class that is available only in the OpenTelemetry SDK:</p>
+<ul>
+<li><code>TraceID</code></li>
+<li><code>SpanID</code></li>
+<li>Parent <code>SpanContext</code> if any</li>
+<li><code>Links</code></li>
+<li>Span name</li>
+<li><code>SpanKind</code></li>
+<li>Initial set of <code>Attributes</code> for the <code>Span</code> being constructed</li>
+</ul>
+<p>It produces an output called <code>SamplingResult</code> that includes:</p>
+<ul>
+<li>A <code>SamplingDecision</code> enum [<code>NOT_RECORD</code>, <code>RECORD</code>, <code>RECORD_AND_PROPAGATE</code>].</li>
+<li>A set of span Attributes that will also be added to the <code>Span</code>.
+<ul>
+<li>These attributes will be added after the initial set of <code>Attributes</code>.</li>
+</ul>
+</li>
+<li>(under discussion in separate RFC) the SamplingRate float.</li>
+</ul>
+<h3><a class="header" href="#default-samplers" id="default-samplers">Default Samplers</a></h3>
+<p>These are the default samplers implemented in the OpenTelemetry SDK:</p>
+<ul>
+<li>ALWAYS_ON</li>
+<li>ALWAYS_OFF</li>
+<li>ALWAYS_PARENT
+<ul>
+<li>Trust parent sampling decision (trusting and propagating parent <code>SampledFlag</code>).</li>
+<li>For root Spans (no parent available) returns <code>NOT_RECORD</code>.</li>
+</ul>
+</li>
+<li>Probability
+<ul>
+<li>Allows users to configure to ignore the parent <code>SampledFlag</code>.</li>
+<li>Allows users to configure if probability applies only for &quot;root spans&quot;, &quot;root spans and remote
+parent&quot;, or &quot;all spans&quot;.
+<ul>
+<li>Default is to apply only for &quot;root spans and remote parent&quot;.</li>
+<li>Remote parent property should be added to the SpanContext see specs <a href="https://github.com/open-telemetry/opentelemetry-specification/pull/216">PR/216</a></li>
+</ul>
+</li>
+<li>Sample with 1/N probability</li>
+</ul>
+</li>
+</ul>
+<p><strong>Root Span Decision:</strong></p>
+<table><thead><tr><th>Sampler</th><th>RecordEvents</th><th>SampledFlag</th></tr></thead><tbody>
+<tr><td>ALWAYS_ON</td><td><code>True</code></td><td><code>True</code></td></tr>
+<tr><td>ALWAYS_OFF</td><td><code>False</code></td><td><code>False</code></td></tr>
+<tr><td>ALWAYS_PARENT</td><td><code>False</code></td><td><code>False</code></td></tr>
+<tr><td>Probability</td><td><code>Same as SampledFlag</code></td><td><code>Probability</code></td></tr>
+</tbody></table>
+<p><strong>Child Span Decision:</strong></p>
+<table><thead><tr><th>Sampler</th><th>RecordEvents</th><th>SampledFlag</th></tr></thead><tbody>
+<tr><td>ALWAYS_ON</td><td><code>True</code></td><td><code>True</code></td></tr>
+<tr><td>ALWAYS_OFF</td><td><code>False</code></td><td><code>False</code></td></tr>
+<tr><td>ALWAYS_PARENT</td><td><code>ParentSampledFlag</code></td><td><code>ParentSampledFlag</code></td></tr>
+<tr><td>Probability</td><td><code>Same as SampledFlag</code></td><td><code>ParentSampledFlag OR Probability</code></td></tr>
+</tbody></table>
+<h3><a class="header" href="#links" id="links">Links</a></h3>
+<p>This RFC proposes that Links will be recorded only during the start <code>Span</code> operation, because:</p>
+<ul>
+<li>Link's <code>SampledFlag</code> can be used in the sampling decision.</li>
+<li>OpenTracing supports adding references only during the <code>Span</code> creation.</li>
+<li>OpenCensus supports adding links at any moment, but this was mostly used to record child Links
+which are not supported in OpenTelemetry.</li>
+<li>Allowing links to be recorded after the sampling decision is made will cause samplers to not
+work correctly and unexpected behaviors for sampling.</li>
+</ul>
+<h3><a class="header" href="#when-does-sampling-happen" id="when-does-sampling-happen">When does sampling happen</a></h3>
+<p>The sampling decision will happen before a real <code>Span</code> object is returned to the user, because:</p>
+<ul>
+<li>If child spans are created they need to know the 'SampledFlag'.</li>
+<li>If <code>SpanContext</code> is propagated on the wire the 'SampledFlag' needs to be set.</li>
+<li>If user records any tracing event the <code>Span</code> object needs to know if the data are kept or not.
+It may be possible to always collect all the events until the sampling decision is made but this is
+an important optimization.</li>
+</ul>
+<p>There are two important use-cases to be considered:</p>
+<ul>
+<li>All information that may be used for sampling decisions are available at the moment when the
+logical <code>Span</code> operation should start. This is the most common case.</li>
+<li>Some information that may be used for sampling decision are NOT available at the moment when the
+logical <code>Span</code> operation should start (e.g. <code>http.route</code> may be determine later).</li>
+</ul>
+<p>The current <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md#span-creation">span creation logic</a> facilitates the first use-case very well, but
+the second use-case requires users to record the logical <code>start_time</code> and collect all the
+information necessarily to start the <code>Span</code> in custom objects, then when all the properties are
+available call the span creation API.</p>
+<p>The RFC proposes that we keep the current <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md#span-creation">span creation logic</a> as it is and we will
+address the delayed sampling in a different RFC when that becomes a high priority.</p>
+<p>The SDK must call the <code>Sampler</code> every time a <code>Span</code> is created during the start span operation.</p>
+<p><strong>Alternatives considerations:</strong></p>
+<ul>
+<li>We considered, to offer a delayed span construction mechanism:
+<ul>
+<li>For languages where a <code>Builder</code> pattern is used to construct a <code>Span</code>, to allow users to
+create a <code>Builder</code> where the start time of the Span is considered when the <code>Builder</code> is created.</li>
+<li>For languages where no intermediate object is used to construct a <code>Span</code>, to allow users maybe
+via a <code>StartSpanOption</code> object to start a <code>Span</code>. The <code>StartSpanOption</code> allows users to set all
+the start <code>Span</code> properties.</li>
+<li>Pros:
+<ul>
+<li>Would resolve the second use-case posted above.</li>
+</ul>
+</li>
+<li>Cons:
+<ul>
+<li>We could not identify too many real case examples for the second use-case and decided to
+postpone the decision to avoid premature decisions.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>We considered, instead of requiring that sampling decision happens before the <code>Span</code> is
+created to add an explicit <code>MakeSamplingDecision(SamplingHint)</code> on the <code>Span</code>. Attempts to create
+a child <code>Span</code>, or to access the <code>SpanContext</code> would fail if <code>MakeSamplingDecision()</code> had not yet
+been run.
+<ul>
+<li>Pros:
+<ul>
+<li>Simplifies the case when all the attributes that may be used for sampling are not available
+when the logical <code>Span</code> operation should start.</li>
+</ul>
+</li>
+<li>Cons:
+<ul>
+<li>The most common case would have required an extra API call.</li>
+<li>Error prone, users may forget to call the extra API.</li>
+<li>Unexpected and hard to find errors if user tries to create a child <code>Span</code> before calling
+MakeSamplingDecision().</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>We considered allowing the sampling decision to be arbitrarily delayed, but guaranteed before
+any child <code>Span</code> is created, or <code>SpanContext</code> is accessed, or before <code>Span.end()</code> finished.
+<ul>
+<li>Pros:
+<ul>
+<li>Similar and smaller API that supports both use-cases defined ahead.</li>
+</ul>
+</li>
+<li>Cons:
+<ul>
+<li>If <code>SamplingHint</code> needs to also be delayed recorded then an extra API on Span is required
+to set this.</li>
+<li>Does not allow optimization to not record tracing events, all tracing events MUST be
+recorded before the sampling decision is made.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#prior-art-and-alternatives" id="prior-art-and-alternatives">Prior art and alternatives</a></h2>
+<p>Prior art for Zipkin, and other Dapper based systems: all client-side sampling decisions are made at
+head. Thus, we need to retain compatibility with this.</p>
+<h2><a class="header" href="#open-questions" id="open-questions">Open questions</a></h2>
+<p>This RFC does not necessarily resolve the question of how to propagate sampling rate values between
+different spans and processes. A separate RFC will be opened to cover this case.</p>
+<h2><a class="header" href="#future-possibilities" id="future-possibilities">Future possibilities</a></h2>
+<p>In the future, we propose that library developers may be able to defer the decision on whether to
+recommend the trace be sampled or not sampled until mid-way through execution;</p>
+<h2><a class="header" href="#related-issues" id="related-issues">Related Issues</a></h2>
+<ul>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/189">opentelemetry-specification/189</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/187">opentelemetry-specification/187</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/164">opentelemetry-specification/164</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/125">opentelemetry-specification/125</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/87">opentelemetry-specification/87</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/66">opentelemetry-specification/66</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/65">opentelemetry-specification/65</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/53">opentelemetry-specification/53</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/33">opentelemetry-specification/33</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/32">opentelemetry-specification/32</a></li>
+<li><a href="https://github.com/open-telemetry/opentelemetry-specification/issues/31">opentelemetry-specification/31</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="0005-global-init.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0007-no-out-of-band-reporting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="0005-global-init.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0007-no-out-of-band-reporting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

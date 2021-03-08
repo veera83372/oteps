@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduction</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html" class="active">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#opentelemetry-enhancement-proposal-otep" id="opentelemetry-enhancement-proposal-otep">OpenTelemetry Enhancement Proposal (OTEP)</a></h1>
+<p><a href="https://gitter.im/open-telemetry/opentelemetry-specification?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/open-telemetry/opentelemetry-specification.svg" alt="Gitter chat" /></a>
+<a href="https://circleci.com/gh/open-telemetry/oteps"><img src="https://circleci.com/gh/open-telemetry/oteps.svg?style=svg" alt="Build Status" /></a></p>
+<h2><a class="header" href="#evolving-opentelemetry-at-the-speed-of-markdown" id="evolving-opentelemetry-at-the-speed-of-markdown">Evolving OpenTelemetry at the speed of Markdown</a></h2>
+<p>OpenTelemetry uses an &quot;OTEP&quot; (similar to a RFC) process for proposing changes to the <a href="https://github.com/open-telemetry/opentelemetry-specification">OpenTelemetry specification</a>.</p>
+<h3><a class="header" href="#table-of-contents" id="table-of-contents">Table of Contents</a></h3>
+<ul>
+<li><a href="#opentelemetry-enhancement-proposal-otep">OpenTelemetry Enhancement Proposal (OTEP)</a>
+<ul>
+<li><a href="#evolving-opentelemetry-at-the-speed-of-markdown">Evolving OpenTelemetry at the speed of Markdown</a>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#what-changes-require-an-otep">What changes require an OTEP</a>
+<ul>
+<li><a href="#extrapolating-cross-cutting-changes">Extrapolating cross-cutting changes</a></li>
+</ul>
+</li>
+<li><a href="#otep-scope">OTEP scope</a></li>
+<li><a href="#writing-an-otep">Writing an OTEP</a></li>
+<li><a href="#submitting-the-otep">Submitting the OTEP</a></li>
+<li><a href="#integrating-the-otep-into-the-spec">Integrating the OTEP into the Spec</a></li>
+<li><a href="#implementing-the-otep">Implementing the OTEP</a></li>
+</ul>
+</li>
+<li><a href="#changes-to-the-otep-process">Changes to the OTEP process</a></li>
+<li><a href="#background-on-the-opentelemetry-otep-process">Background on the OpenTelemetry OTEP process</a></li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#what-changes-require-an-otep" id="what-changes-require-an-otep">What changes require an OTEP</a></h3>
+<p>The OpenTelemetry OTEP process is intended for changes that are <strong>cross-cutting</strong> - that is, applicable across <em>languages</em> and <em>implementations</em> - and either <strong>introduce new behaviour</strong>, <strong>change desired behaviour</strong>, or otherwise <strong>modify requirements</strong>.</p>
+<p>In practice, this means that OTEPs should be used for such changes as:</p>
+<ul>
+<li>New tracer configuration options</li>
+<li>Additions to span data</li>
+<li>New metric types</li>
+<li>Modifications to extensibility requirements</li>
+</ul>
+<p>On the other hand, they do not need to be used for such changes as:</p>
+<ul>
+<li>Bug fixes</li>
+<li>Rephrasing, grammatical fixes, typos, etc.</li>
+<li>Refactoring</li>
+<li>Things that affect only a single language or implementation</li>
+</ul>
+<p><strong>Note:</strong> The above lists are intended only as examples and are not meant to be exhaustive. If you don't know whether a change requires an OTEP, please feel free to ask!</p>
+<h4><a class="header" href="#extrapolating-cross-cutting-changes" id="extrapolating-cross-cutting-changes">Extrapolating cross-cutting changes</a></h4>
+<p>Sometimes, a change that is only immediately relevant within a single language or implementation may be indicative of a problem upstream in the specification. We encourage you to add an OTEP if and when you notice such cases.</p>
+<h3><a class="header" href="#otep-scope" id="otep-scope">OTEP scope</a></h3>
+<p>While OTEPs are intended for &quot;significant&quot; changes, we recommend trying to keep each OTEP's scope as small as makes sense. A general rule of thumb is that if the core functionality proposed could still provide value without a particular piece, then that piece should be removed from the proposal and used instead as an <em>example</em> (and, ideally, given its own OTEP!).</p>
+<p>For example, an OTEP proposing configurable sampling <em>and</em> various samplers should instead be split into one OTEP proposing configurable sampling as well as an OTEP per sampler.</p>
+<h3><a class="header" href="#writing-an-otep" id="writing-an-otep">Writing an OTEP</a></h3>
+<ul>
+<li>First, <a href="https://help.github.com/en/articles/fork-a-repo">fork</a> this <a href="https://github.com/open-telemetry/oteps">repo</a>.</li>
+<li>Copy <a href="./0000-template.html"><code>0000-template.md</code></a> to <code>text/0000-my-OTEP.md</code>, where <code>my-OTEP</code> is a title relevant to your proposal, and <code>0000</code> is the OTEP ID. Leave the number as is for now. Once a Pull Request is made, update this ID to match the PR ID.</li>
+<li>Fill in the template. Put care into the details: It is important to present convincing motivation, demonstrate an understanding of the design's impact, and honestly assess the drawbacks and potential alternatives.</li>
+</ul>
+<h3><a class="header" href="#submitting-the-otep" id="submitting-the-otep">Submitting the OTEP</a></h3>
+<ul>
+<li>An OTEP is <code>proposed</code> by posting it as a PR. Once the PR is created, update the OTEP file name to use the PR ID as the OTEP ID.</li>
+<li>An OTEP is <code>approved</code> when four reviewers github-approve the PR. The OTEP is then merged.</li>
+<li>If an OTEP is <code>rejected</code> or <code>withdrawn</code>, the PR is closed. Note that these OTEPs submissions are still recorded, as Github retains both the discussion and the proposal, even if the branch is later deleted.</li>
+<li>If an OTEP discussion becomes long, and the OTEP then goes through a major revision, the next version of the OTEP can be posted as a new PR, which references the old PR. The old PR is then closed. This makes OTEP review easier to follow and participate in.</li>
+</ul>
+<h3><a class="header" href="#integrating-the-otep-into-the-spec" id="integrating-the-otep-into-the-spec">Integrating the OTEP into the Spec</a></h3>
+<ul>
+<li>Once an OTEP is <code>approved</code>, an issue is created in the <a href="https://github.com/open-telemetry/opentelemetry-specification">specification repo</a> to integrate the OTEP into the spec.</li>
+<li>When reviewing the spec PR for the OTEP, focus on whether the spec is written clearly, and reflects the changes approved in the OTEP. Please abstain from relitigating the approved OTEP changes at this stage.</li>
+<li>An OTEP is <code>integrated</code> when four reviewers github-approve the spec PR. The PR is then merged, and the spec is versioned.</li>
+</ul>
+<h3><a class="header" href="#implementing-the-otep" id="implementing-the-otep">Implementing the OTEP</a></h3>
+<ul>
+<li>Once an OTEP is <code>integrated</code> into the spec, an issue is created in the backlog of every relevant OpenTelemetry implementation.</li>
+<li>PRs are made until the all the requested changes are implemented.</li>
+<li>The status of the OpenTelemetry implementation is updated to reflect that it is implementing a new version of the spec.</li>
+</ul>
+<h2><a class="header" href="#changes-to-the-otep-process" id="changes-to-the-otep-process">Changes to the OTEP process</a></h2>
+<p>The hope and expectation is that the OTEP process will <strong>evolve</strong> with the OpenTelemetry. The process is by no means fixed.</p>
+<p>Have suggestions? Concerns? Questions? <strong>Please</strong> raise an issue or raise the matter on our <a href="https://github.com/open-telemetry/community">community</a> chat.</p>
+<h2><a class="header" href="#background-on-the-opentelemetry-otep-process" id="background-on-the-opentelemetry-otep-process">Background on the OpenTelemetry OTEP process</a></h2>
+<p>Our OTEP process borrows from the <a href="https://github.com/rust-lang/rfcs">Rust RFC</a> and <a href="https://github.com/kubernetes/enhancements">Kubernetes Enhancement Proposal</a> processes, the former also being <a href="https://github.com/kubernetes/enhancements/blob/master/keps/0001-kubernetes-enhancement-proposal-process.md#prior-art">very influential</a> on the latter; as well as the <a href="https://github.com/opentracing/specification/tree/master/rfc_process.md">OpenTracing OTEP</a> process. Massive kudos and thanks to the respective authors and communities for providing excellent prior art 💖</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+                            <a rel="next" href="0001-telemetry-without-manual-instrumentation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+                    <a rel="next" href="0001-telemetry-without-manual-instrumentation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

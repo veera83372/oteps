@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0098-metric-instruments-explained</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0001-telemetry-without-manual-instrumentation.html"><strong aria-hidden="true">1.</strong> 0001-telemetry-without-manual-instrumentation</a></li><li class="chapter-item expanded "><a href="0002-remove-spandata.html"><strong aria-hidden="true">2.</strong> 0002-remove-spandata</a></li><li class="chapter-item expanded "><a href="0003-measure-metric-type.html"><strong aria-hidden="true">3.</strong> 0003-measure-metric-type</a></li><li class="chapter-item expanded "><a href="0005-global-init.html"><strong aria-hidden="true">4.</strong> 0005-global-init</a></li><li class="chapter-item expanded "><a href="0006-sampling.html"><strong aria-hidden="true">5.</strong> 0006-sampling</a></li><li class="chapter-item expanded "><a href="0007-no-out-of-band-reporting.html"><strong aria-hidden="true">6.</strong> 0007-no-out-of-band-reporting</a></li><li class="chapter-item expanded "><a href="0008-metric-observer.html"><strong aria-hidden="true">7.</strong> 0008-metric-observer</a></li><li class="chapter-item expanded "><a href="0009-metric-handles.html"><strong aria-hidden="true">8.</strong> 0009-metric-handles</a></li><li class="chapter-item expanded "><a href="0010-cumulative-to-counter.html"><strong aria-hidden="true">9.</strong> 0010-cumulative-to-counter</a></li><li class="chapter-item expanded "><a href="0016-named-tracers.html"><strong aria-hidden="true">10.</strong> 0016-named-tracers</a></li><li class="chapter-item expanded "><a href="0035-opentelemetry-protocol.html"><strong aria-hidden="true">11.</strong> 0035-opentelemetry-protocol</a></li><li class="chapter-item expanded "><a href="0038-version-semantic-attribute.html"><strong aria-hidden="true">12.</strong> 0038-version-semantic-attribute</a></li><li class="chapter-item expanded "><a href="0049-metric-label-set.html"><strong aria-hidden="true">13.</strong> 0049-metric-label-set</a></li><li class="chapter-item expanded "><a href="0059-otlp-trace-data-format.html"><strong aria-hidden="true">14.</strong> 0059-otlp-trace-data-format</a></li><li class="chapter-item expanded "><a href="0066-separate-context-propagation.html"><strong aria-hidden="true">15.</strong> 0066-separate-context-propagation</a></li><li class="chapter-item expanded "><a href="0070-metric-bound-instrument.html"><strong aria-hidden="true">16.</strong> 0070-metric-bound-instrument</a></li><li class="chapter-item expanded "><a href="0072-metric-observer.html"><strong aria-hidden="true">17.</strong> 0072-metric-observer</a></li><li class="chapter-item expanded "><a href="0080-remove-metric-gauge.html"><strong aria-hidden="true">18.</strong> 0080-remove-metric-gauge</a></li><li class="chapter-item expanded "><a href="0083-component.html"><strong aria-hidden="true">19.</strong> 0083-component</a></li><li class="chapter-item expanded "><a href="0088-metric-instrument-optional-refinements.html"><strong aria-hidden="true">20.</strong> 0088-metric-instrument-optional-refinements</a></li><li class="chapter-item expanded "><a href="0090-remove-labelset-from-metrics-api.html"><strong aria-hidden="true">21.</strong> 0090-remove-labelset-from-metrics-api</a></li><li class="chapter-item expanded "><a href="0091-logs-vocabulary.html"><strong aria-hidden="true">22.</strong> 0091-logs-vocabulary</a></li><li class="chapter-item expanded "><a href="0092-logs-vision.html"><strong aria-hidden="true">23.</strong> 0092-logs-vision</a></li><li class="chapter-item expanded "><a href="0097-log-data-model.html"><strong aria-hidden="true">24.</strong> 0097-log-data-model</a></li><li class="chapter-item expanded "><a href="0098-metric-instruments-explained.html" class="active"><strong aria-hidden="true">25.</strong> 0098-metric-instruments-explained</a></li><li class="chapter-item expanded "><a href="0099-otlp-http.html"><strong aria-hidden="true">26.</strong> 0099-otlp-http</a></li><li class="chapter-item expanded "><a href="0108-naming-guidelines.html"><strong aria-hidden="true">27.</strong> 0108-naming-guidelines</a></li><li class="chapter-item expanded "><a href="0110-z-pages.html"><strong aria-hidden="true">28.</strong> 0110-z-pages</a></li><li class="chapter-item expanded "><a href="0111-auto-resource-detection.html"><strong aria-hidden="true">29.</strong> 0111-auto-resource-detection</a></li><li class="chapter-item expanded "><a href="0113-exemplars.html"><strong aria-hidden="true">30.</strong> 0113-exemplars</a></li><li class="chapter-item expanded "><a href="0119-standard-system-metrics.html"><strong aria-hidden="true">31.</strong> 0119-standard-system-metrics</a></li><li class="chapter-item expanded "><a href="0121-config-service.html"><strong aria-hidden="true">32.</strong> 0121-config-service</a></li><li class="chapter-item expanded "><a href="0122-otlp-http-json.html"><strong aria-hidden="true">33.</strong> 0122-otlp-http-json</a></li><li class="chapter-item expanded "><a href="0126-Configurable-Metric-Aggregations.html"><strong aria-hidden="true">34.</strong> 0126-Configurable-Metric-Aggregations</a></li><li class="chapter-item expanded "><a href="0130-logs-1.0ga-definition.html"><strong aria-hidden="true">35.</strong> 0130-logs-1.0ga-definition</a></li><li class="chapter-item expanded "><a href="0131-otlp-export-behavior.html"><strong aria-hidden="true">36.</strong> 0131-otlp-export-behavior</a></li><li class="chapter-item expanded "><a href="0136-error_flagging.html"><strong aria-hidden="true">37.</strong> 0136-error_flagging</a></li><li class="chapter-item expanded "><a href="0143-versioning-and-stability.html"><strong aria-hidden="true">38.</strong> 0143-versioning-and-stability</a></li><li class="chapter-item expanded "><a href="0146-metrics-prototype-scenarios.html"><strong aria-hidden="true">39.</strong> 0146-metrics-prototype-scenarios</a></li><li class="chapter-item expanded "><a href="SUMMARY.html"><strong aria-hidden="true">40.</strong> SUMMARY</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#explain-the-metric-instruments" id="explain-the-metric-instruments">Explain the metric instruments</a></h1>
+<p>Propose and explain final names for the standard metric instruments theorized in <a href="./0088-metric-instrument-optional-refinements.html">OTEP 88</a> and address related confusion.</p>
+<h2><a class="header" href="#motivation" id="motivation">Motivation</a></h2>
+<p><a href="./0088-metric-instrument-optional-refinements.html">OTEP 88</a> introduced a logical structure for metric instruments with two foundational categories of instrument, called &quot;synchronous&quot; vs. &quot;asynchronous&quot;, named &quot;Measure&quot; and &quot;Observer&quot; in the abstract sense.  The proposal identified four kinds of &quot;refinement&quot; and mapped out the space of <em>possible</em> instruments, while not proposing which would actually be included in the standard.</p>
+<p><a href="https://github.com/open-telemetry/oteps/pull/93">OTEP 93</a> proposed with a list of six standard instruments, the most necessary and useful combination of instrument refinements, plus one special case used to record timing measurements.  OTEP 93 was closed without merging after a more consistent approach to naming was uncovered.  <a href="https://github.com/open-telemetry/oteps/pull/96">OTEP 96</a> made another proposal, that was closed in favor of this one after more debate surfaced.</p>
+<p>This proposal finalizes the naming proposal for the standard instruments, seeking to address core confusion related to the &quot;Measure&quot; and &quot;Observer&quot; terms:</p>
+<ol>
+<li><a href="./0088-metric-instrument-optional-refinements.html">OTEP 88</a> stipulates that the terms currently in use to name synchronous and asynchronous instruments--&quot;Measure&quot; and &quot;Observer&quot;--become <em>abstract</em> terms.  It also used phrases like &quot;Measure-like&quot; and &quot;Observer-like&quot; to discuss instruments with refinements.  This proposal states that we shall prefer the adjectives, commonly abbreviated &quot;Sync&quot; and &quot;Async&quot;, when describing the kind of an instrument.  &quot;Measure-like&quot; means an instrument is synchronous.  &quot;Observer-like&quot; means that an instrument is asynchronous.</li>
+<li>There is inconsistency in the hypothetical naming scheme for instruments presented in <a href="./0088-metric-instrument-optional-refinements.html">OTEP 88</a>.  Note that &quot;Counter&quot; and &quot;Observer&quot; end in &quot;-er&quot;, a noun suffix used in the sense of &quot;<a href="https://www.merriam-webster.com/dictionary/-er">person occupationally connected with</a>&quot;, while the term &quot;Measure&quot; does not fit this pattern.  This proposal proposes to replace the abstract term &quot;Measure&quot; by &quot;Recorder&quot;, since the associated function name (verb) is specified as <code>Record()</code>.</li>
+</ol>
+<p>This proposal also repeats the current specification--and the justification--for the default aggregation of each standard instrument.</p>
+<h2><a class="header" href="#explanation" id="explanation">Explanation</a></h2>
+<p>The following table summarizes the final proposed standard instruments resulting from this set of proposals.  The columns are described in more detail below.</p>
+<table><thead><tr><th>Existing name</th><th><strong>Standard name</strong></th><th>Instrument kind</th><th>Function name</th><th>Input temporal quality</th><th>Default aggregation</th><th>Rate support (Monotonic)</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Counter</td><td><strong>Counter</strong></td><td>Sync</td><td>Add()</td><td>Delta</td><td>Sum</td><td>Yes</td><td>Per-request, part of a monotonic sum</td></tr>
+<tr><td></td><td><strong>UpDownCounter</strong></td><td>Sync</td><td>Add()</td><td>Delta</td><td>Sum</td><td>No</td><td>Per-request, part of a non-monotonic sum</td></tr>
+<tr><td>Measure</td><td><strong>ValueRecorder</strong></td><td>Sync</td><td>Record()</td><td>Instantaneous</td><td>MinMaxSumCount</td><td>No</td><td>Per-request, any non-additive measurement</td></tr>
+<tr><td></td><td><strong>SumObserver</strong></td><td>Async</td><td>Observe()</td><td>Cumulative</td><td>Sum</td><td>Yes</td><td>Per-interval, reporting a monotonic sum</td></tr>
+<tr><td></td><td><strong>UpDownSumObserver</strong></td><td>Async</td><td>Observe()</td><td>Cumulative</td><td>Sum</td><td>No</td><td>Per-interval, reporting a non-monotonic sum</td></tr>
+<tr><td>Observer</td><td><strong>ValueObserver</strong></td><td>Async</td><td>Observe()</td><td>Instantaneous</td><td>MinMaxSumCount</td><td>No</td><td>Per-interval, any non-additive measurement</td></tr>
+</tbody></table>
+<p>There are three synchronous instruments and three asynchronous instruments in this proposal, although a hypothetical 10 instruments were discussed in <a href="./0088-metric-instrument-optional-refinements.html">OTEP 88</a>.  Although we consider them rational and logical, two categories of instrument are excluded in this proposal: synchronous cumulative instruments and asynchronous delta instruments.</p>
+<p>Synchronous cumulative instruments are excluded from the standard based on the <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/performance.md">OpenTelemetry library performance guidelines</a>.  To report a cumulative value correctly at runtime requires a degree of order dependence--thus synchronization--that OpenTelemetry API will not itself admit.  In a hypothetical example, if two actors both synchronously modify a sum and were to capture it using a synchronous cumulative metric event, the OpenTelemetry library would have to guarantee those measurements were processed in order.  The library guidelines do not support this level of synchronization; we cannot block for the sake of instrumentation, therefore we do not support synchronous cumulative instruments.</p>
+<p>Asynchronous delta instruments are excluded from the standard based on the lack of motivating examples, but we could also justify this as a desire to keep asynchronous callbacks stateless. An observer has to have memory in order to compute deltas; it is simpler for asynchronous code to report cumulative values.</p>
+<p>With six instruments in total, one may be curious--how does the historical Metrics API term <em>Gauge</em> translate into this specification?  <em>Gauge</em>, in Metrics API terminology, may cover all of these instrument use-cases with the exception of <code>Counter</code>.  As defined in <a href="./0088-metric-instrument-optional-refinements.html">OTEP 88</a>, the OpenTelemetry Metrics API will disambiguate these use-cases by requiring <em>single purpose instruments</em>.  The choice of instrument implies a default interpretation, a standard aggregation, and suggests how to treat Metric data in observability systems, out of the box.  Uses of <code>Gauge</code> translate into the various OpenTelemetry Metric instruments depending on what kind of values is being captured and whether the measurement is made synchronously or not.</p>
+<p>Summarizing the naming scheme:</p>
+<ul>
+<li>If you've measured an amount of something that adds up to a total, where you are mainly interested in that total, use one of the additive instruments:
+<ul>
+<li>If synchronous and monotonic, use <code>Counter</code> with non-negative values</li>
+<li>If synchronous and not monotonic, use <code>UpDownCounter</code> with arbitrary values</li>
+<li>If asynchronous and a cumulative, monotonic sum is measured, use <code>SumObserver</code></li>
+<li>If asynchronous and a cumulative, arbitrary sum is measured, use <code>UpDownSumObserver</code></li>
+</ul>
+</li>
+<li>If the measurements are non-additive or additive with an interest in the distribution, use an instantaneous instrument:
+<ul>
+<li>If synchronous, use <code>ValueRecorder</code> to record a value that is part of a distribution</li>
+<li>If asynchronous use <code>ValueObserver</code> to record a single measurement nearing the end of a collection interval.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#sync-vs-async-instruments" id="sync-vs-async-instruments">Sync vs Async instruments</a></h3>
+<p>Synchronous instruments are called in a request context, meaning they potentially have an associated tracing context and distributed correlation values.  Multiple metric events may occur for a synchronous instrument within a given collection interval.  Note that synchronous instruments may be called outside of a request context, such as for background computation.  In these scenarios, we may simply consider the Context to be empty.</p>
+<p>Asynchronous instruments are reported by a callback, once per collection interval, and lack request context.  They are permitted to report only one value per distinct label set per period.  If the application observes multiple values in a single callback, for one collection interval, the last value &quot;wins&quot;.</p>
+<h3><a class="header" href="#temporal-quality" id="temporal-quality">Temporal quality</a></h3>
+<p>Measurements can be described in terms of their relationship with time.  Note: although this term logically applies and is used throughout this OTEP, discussion in the Metrics SIG meeting (4/30/2020) leads us to exclude this term from use in documenting the Metric API.  The explanation of terms here is consistent with the [terminology used in the protocol], but we will prefer to use these adjectives to describe properties of an aggregation, not properties of an instrument (despite this document continuing to use the terms freely).  In the API specification, this distinction will be described using &quot;additive synchronous&quot; in contrast with &quot;additive asynchronous&quot;.</p>
+<p>Delta measurements are those that measure a change to a sum.  Delta instruments are usually selected because the program does not need to compute the sum for itself, but is able to measure the change.  In these cases, it would require extra state for the user to report cumulative values and reporting deltas is natural.</p>
+<p>Cumulative measurements are those that report the current value of a sum.  Cumulative instruments are usually selected because the program maintains a sum for its own purposes, or because changes in the sum are not instrumented.  In these cases, it would require extra state for the user to report delta values and reporting cumulative values is natural.</p>
+<p>Instantaneous measurements are those that report a non-additive measurement, one where it is not natural to compute a sum.  Instantaneous instruments are usually chosen when the distribution of values is of interest, not only the sum.</p>
+<p>The terms &quot;Delta&quot;, &quot;Cumulative&quot;, and &quot;Instantaneous&quot; as used in this proposal refer to measurement values passed to the Metric API.  The argument to an (additive) instrument with the Delta temporal quality is the change in a sum.  The argument to an (additive) instrument with the Cumulative temporal quality is itself a sum.  The argument to an instrument with the Instantaneous temporal quality is simply a value.  In the SDK specification, as measurements are aggregated and transformed for export, these terms will be used again, with the same meanings, to describe aggregates.</p>
+<h3><a class="header" href="#function-names" id="function-names">Function names</a></h3>
+<p>Synchronous delta instruments support an <code>Add()</code> function, signifying that they add to a sum and are not cumulative.</p>
+<p>Synchronous instantaneous instruments support a <code>Record()</code> function, signifying that they capture individual events, not only a sum.</p>
+<p>Asynchronous instruments all support an <code>Observe()</code> function, signifying that they capture only one value per measurement interval.</p>
+<h3><a class="header" href="#rate-support" id="rate-support">Rate support</a></h3>
+<p>Rate aggregation is supported for Counter and SumObserver instruments in the default implementation.</p>
+<p>The <code>UpDown-</code> forms of additive instrument are not suitable for aggregating rates because the up- and down-changes in state may cancel each other.</p>
+<p>Non-additive instruments can be used to derive a sum, meaning rate aggregation is possible when the values are non-negative. There is not a standard non-additive instrument with a non-negative refinement in the standard.</p>
+<h3><a class="header" href="#default-aggregations" id="default-aggregations">Default Aggregations</a></h3>
+<p>Additive instruments use <code>Sum</code> aggregation by default, since by definition they are used when only the sum is of interest.</p>
+<p>Instantaneous instruments use <code>MinMaxSumCount</code> aggregation by default, which is an inexpensive way to summarize a distribution of values.</p>
+<h2><a class="header" href="#detail" id="detail">Detail</a></h2>
+<p>Here we discuss the six proposed instruments individually and mention other names considered for each.</p>
+<h3><a class="header" href="#counter" id="counter">Counter</a></h3>
+<p><code>Counter</code> is the most common synchronous instrument.  This instrument supports an <code>Add(delta)</code> function for reporting a sum, and is restricted to non-negative deltas.  The default aggregation is <code>Sum</code>, as for any additive instrument, which are those instruments with Delta or Cumulative measurement kind.</p>
+<p>Example uses for <code>Counter</code>:</p>
+<ul>
+<li>count the number of bytes received</li>
+<li>count the number of accounts created</li>
+<li>count the number of checkpoints run</li>
+<li>count a number of 5xx errors.</li>
+</ul>
+<p>These example instruments would be useful for monitoring the rate of any of these quantities.  In these situations, it is usually more convenient to report a change of the associated sums, as the change happens, as opposed to maintaining and reporting the sum.</p>
+<p>Other names considered: <code>Adder</code>, <code>SumCounter</code>.</p>
+<h3><a class="header" href="#updowncounter" id="updowncounter">UpDownCounter</a></h3>
+<p><code>UpDownCounter</code> is similar to <code>Counter</code> except that <code>Add(delta)</code> supports negative deltas.  This makes <code>UpDownCounter</code> not useful for computing a rate aggregation.  It aggregates a <code>Sum</code>, only the sum is non-monotonic.  It is generally useful for counting changes in an amount of resources used, or any quantity that rises and falls, in a request context.</p>
+<p>Example uses for <code>UpDownCounter</code>:</p>
+<ul>
+<li>count memory in use by instrumenting <code>new</code> and <code>delete</code></li>
+<li>count queue size by instrumenting <code>enqueue</code> and <code>dequeue</code></li>
+<li>count semaphore <code>up</code> and <code>down</code> operations.</li>
+</ul>
+<p>These example instruments would be useful for monitoring resource levels across a group of processes.</p>
+<p>Other names considered: <code>NonMonotonicCounter</code>.</p>
+<h3><a class="header" href="#valuerecorder" id="valuerecorder">ValueRecorder</a></h3>
+<p><code>ValueRecorder</code> is a non-additive synchronous instrument useful for recording any non-additive number, positive or negative.  Values captured by a <code>ValueRecorder</code> are treated as individual events belonging to a distribution that is being summarized.  <code>ValueRecorder</code> should be chosen either when capturing measurements that do not contribute meaningfully to a sum, or when capturing numbers that are additive in nature, but where the distribution of individual increments is considered interesting.</p>
+<p>One of the most common uses for <code>ValueRecorder</code> is to capture latency measurements.  Latency measurements are not additive in the sense that there is little need to know the latency-sum of all processed requests.  We use a <code>ValueRecorder</code> instrument to capture latency measurements typically because we are interested in knowing mean, median, and other summary statistics about individual events.</p>
+<p>The default aggregation for <code>ValueRecorder</code> computes the minimum and maximum values, the sum of event values, and the count of events, allowing the rate, the mean, and and range of input values to be monitored.</p>
+<p>Example uses for <code>ValueRecorder</code> that are non-additive:</p>
+<ul>
+<li>capture any kind of timing information</li>
+<li>capture the acceleration experienced by a pilot</li>
+<li>capture nozzle pressure of a fuel injector</li>
+<li>capture the velocity of a MIDI key-press.</li>
+</ul>
+<p>Example <em>additive</em> uses of <code>ValueRecorder</code> capture measurements that are cumulative or delta values, but where we may have an interest in the distribution of values and not only the sum:</p>
+<ul>
+<li>capture a request size</li>
+<li>capture an account balance</li>
+<li>capture a queue length</li>
+<li>capture a number of board feet of lumber.</li>
+</ul>
+<p>These examples show that although they are additive in nature, choosing <code>ValueRecorder</code> as opposed to <code>Counter</code> or <code>UpDownCounter</code> implies an interest in more than the sum.  If you did not care to collect information about the distribution, you would have chosen one of the additive instruments instead.  Using <code>ValueRecorder</code> makes sense for distributions that are likely to be important in an observability setting.</p>
+<p>Use these with caution because they naturally cost more than the use of additive measurements.</p>
+<p>Other names considered: <code>Distribution</code>, <code>Measure</code>, <code>LastValueRecorder</code>, <code>GaugeRecorder</code>, <code>DistributionRecorder</code>.</p>
+<h3><a class="header" href="#sumobserver" id="sumobserver">SumObserver</a></h3>
+<p><code>SumObserver</code> is the asynchronous instrument corresponding to <code>Counter</code>, used to capture a monotonic count.  &quot;Sum&quot; appears in the name to remind users that it is a cumulative instrument.  Use a <code>SumObserver</code> to capture any value that starts at zero and rises throughout the process lifetime but never falls.</p>
+<p>Example uses for <code>SumObserver</code>.</p>
+<ul>
+<li>capture process user/system CPU seconds</li>
+<li>capture the number of cache misses.</li>
+</ul>
+<p>A <code>SumObserver</code> is a good choice in situations where a measurement is expensive to compute, such that it would be wasteful to compute on every request.  For example, a system call is needed to capture process CPU usage, therefore it should be done periodically, not on each request.  A <code>SumObserver</code> is also a good choice in situations where it would be impractical or wasteful to instrument individual deltas that comprise a sum.  For example, even though the number of cache misses is a sum of individual cache-miss events, it would be too expensive to synchronously capture each event using a <code>Counter</code>.</p>
+<p>Other names considered: <code>CumulativeObserver</code>.</p>
+<h3><a class="header" href="#updownsumobserver" id="updownsumobserver">UpDownSumObserver</a></h3>
+<p><code>UpDownSumObserver</code> is the asynchronous instrument corresponding to <code>UpDownCounter</code>, used to capture a non-monotonic count.  &quot;Sum&quot; appears in the name to remind users that it is a cumulative instrument.  Use a <code>UpDownSumObserver</code> to capture any value that starts at zero and rises or falls throughout the process lifetime.</p>
+<p>Example uses for <code>UpDownSumObserver</code>.</p>
+<ul>
+<li>capture process heap size</li>
+<li>capture number of active shards</li>
+<li>capture number of requests started/completed</li>
+<li>capture current queue size.</li>
+</ul>
+<p>The same considerations mentioned for choosing <code>SumObserver</code> over the synchronous <code>Counter</code> apply for choosing <code>UpDownSumObserver</code> over the synchronous <code>UpDownCounter</code>.  If a measurement is expensive to compute, or if the corresponding delta events happen so frequently that it would be impractical to instrument them, use a <code>UpDownSumObserver</code>.</p>
+<p>Other names considered: <code>UpDownCumulativeObserver</code>.</p>
+<h3><a class="header" href="#valueobserver" id="valueobserver">ValueObserver</a></h3>
+<p><code>ValueObserver</code> is the asynchronous instrument corresponding to <code>ValueRecorder</code>, used to capture non-additive measurements that are expensive to compute and/or are not request-oriented.</p>
+<p>Example uses for <code>ValueObserver</code>:</p>
+<ul>
+<li>capture CPU fan speed</li>
+<li>capture CPU temperature.</li>
+</ul>
+<p>Note that these examples use non-additive measurements.  In the <code>ValueRecorder</code> case above, example uses were given for capturing synchronous cumulative measurements in a request context (e.g., current queue size seen by a request).  In the asynchronous case, however, how should users decide whether to use <code>ValueObserver</code> as opposed to <code>UpDownSumObserver</code>?</p>
+<p>Consider how to report the (cumulative) size of a queue asynchronously.  Both <code>ValueObserver</code> and <code>UpDownSumObserver</code> logically apply in this case.  Asynchronous instruments capture only one measurement per interval, so in this example the <code>SumObserver</code> reports a current sum, while the <code>ValueObserver</code> reports a current sum (equal to the max and the min) and a count equal to 1.  When there is no aggregation, these results are equivalent.</p>
+<p>The recommendation is to choose the instrument with the more-appropriate default aggregation.  If you are observing a queue size across a group of machines and the only thing you want to know is the aggregate queue size, use <code>SumObserver</code>.  If you are observing a queue size across a group of machines and you are interested in knowing the distribution of queue sizes across those machines, use <code>ValueObserver</code>.</p>
+<p>Other names considered: <code>GaugeObserver</code>, <code>LastValueObserver</code>, <code>DistributionObserver</code>.</p>
+<h2><a class="header" href="#details-qa" id="details-qa">Details Q&amp;A</a></h2>
+<h3><a class="header" href="#why-minmaxsumcount-for-valuerecorder-valueobserver" id="why-minmaxsumcount-for-valuerecorder-valueobserver">Why MinMaxSumCount for <code>ValueRecorder</code>, <code>ValueObserver</code>?</a></h3>
+<p>There has been a question about the choice of <code>MinMaxSumCount</code> for the two non-additive instruments. The use of four values in the default aggregation for these instruments means that four values will be exported for these two instrument kinds.  The choice of Min, Max, Sum, and Count was intended to be an inexpensive default, but there is an even-more-minimal default aggregation we could choose.  The question was: Should &quot;SumCount&quot; be the default aggregation for these instruments?  The use of &quot;SumCount&quot; implies the ability to monitor the rate and the average, but not the range of values.</p>
+<p>This proposal continues to specify the use of MinMaxSumCount for these two instruments.  Our belief is that in cases where performance and cost are concerns, usually the is an additive instruments that can be applied to lower cost.  In the case of <code>ValueObserver</code>, consider using a <code>SumObserver</code> or <code>UpDownSumObserver</code>.  In the case of <code>ValueRecorder</code>, consider configuring a less expensive view of these instruments than the default.</p>
+<h3><a class="header" href="#valueobserver-temporal-quality-delta-or-instantaneous" id="valueobserver-temporal-quality-delta-or-instantaneous"><code>ValueObserver</code> temporal quality: Delta or Instantaneous?</a></h3>
+<p>There has been a question about labeling <code>ValueObserver</code> measurements with the temporal quality Delta vs. Instantaneous.  There is a related question: What does it mean aggregate a Min and Max value for an asynchronous instrument, which may only produce one measurement per collection interval?</p>
+<p>The purpose of defining the default aggregation, when there is only one measurement per interval, is to specify how values will be aggregated across multiple collection intervals.  When there is no aggregation being applied, the result of MinMaxSumCount aggregation for a single collection interval is a single measurement equal to the Min, the Max, and the Sum, as well as a Count equal to 1.  Before we apply aggregation to a <code>ValueObserver</code> measurement, we can clearly define it as an Intantaneous measurement.  A measurement, captured at an instant near the end of the collection interval, is neither a cumulative nor a delta with respect to the prior collection interval.</p>
+<p><a href="./0088-metric-instrument-optional-refinements.html">OTEP 88</a> discusses the Last Value relationship to help address this question.  After capturing a single <code>ValueObserver</code> measurement for a given instrument and label set, that measurement becomes the Last value associated with that instrument until the next measurement is taken.</p>
+<p>To aggregate <code>ValueObserver</code> measurements across spatial dimensions means to combine last values into a distribution at an effective moment in time.  MinMaxSumCount aggregation, in this case, means computing the Min and Max values, the measurement sum, and the count of distinct label sets that contributed measurements.  The aggregated result is considered instantaneous: it may have been computed using data points from different machines, potentially using different collection intervals.  The aggregate value must be considered approximate, with respect to time, since it averages the results from uncoordinated collection intervals.  We may have combined the last-value from a 1-minute collection interval with the last-value from a 10-second collection interval: the result is an instantaneous summary of the distribution across spatial dimensions.</p>
+<p>Aggregating <code>ValueObserver</code> measurements across the time dimension for a given instrument and label set yields a set of measurements that were taken across a span of time, but this does not automatically lead us to consider them delta measurements.  If we aggregate 10 consecutive collection intervals for a given label set, what we have is distribution of instantaneous measurements with Count equal to 10, with the Min, Max and Sum serving to convey the average value and the range of values present in the distribution.  The result is a time-averaged distribution of instantaneous measurements.</p>
+<p>Whether aggregating across time or space, it has been argued, the result of a <code>ValueObserver</code> instrument has the Instantaneous temporal quality.</p>
+<h4><a class="header" href="#temporal-and-spatial-aggregation-of-valueobserver-measurements" id="temporal-and-spatial-aggregation-of-valueobserver-measurements">Temporal and spatial aggregation of <code>ValueObserver</code> measurements</a></h4>
+<p>Aggregating <code>ValueObserver</code> measurements across both spatial and time dimensions must be done carefully to avoid a bias toward results computed over shorter collection intervals.  A time-averaged aggregation across spatial dimensions must take the collection interval into account, which can be done as follows:</p>
+<ol>
+<li>Decide the time span being queried, say [T_begin, T_end].</li>
+<li>Divide the time span into a list of timestamps, say [T_begin, T_begin+(T_end-T_begin)/2, T_end].</li>
+<li>For each distinct label set and timestamp, compute the spatial aggregation using the last-value definition at that timestamp.  This results in a set of timestamped aggregate measurements with comparable counts.</li>
+<li>Aggregate the timestamped measurements from step 3.</li>
+</ol>
+<p>Steps 2 and 3 ensure that measurements taken less frequently have equal representation in the output, by virtue of computing the spatial aggregation first.  If we were to compute the temporal aggregation first, then aggreagate across spatial dimensions, then instruments collected at a higher frequency will contribute correspondingly more points to the aggregation.  Thus, we must aggregate across <code>ValueObserver</code> instruments across spatial dimensions before averaging across time.</p>
+<h2><a class="header" href="#open-questions" id="open-questions">Open Questions</a></h2>
+<h3><a class="header" href="#timing-instrument" id="timing-instrument">Timing instrument</a></h3>
+<p>One potentially important special-purpose instrument, found in some metrics APIs, is a dedicated instrument for reporting timings.  The rationale is that when reporting timings, getting the units right is important and often not easy.  Many programming languages use a different type to represent time or a difference between times.  To correctly report a timing distribution, OpenTelemetry requires using a <code>ValueRecorder</code> but also configuring it for the units output by the clock that was used.</p>
+<p>In the past, a proposal to create a dedicated <code>TimingValueRecorder</code> instrument was rejected.  This instrument would be identical to a <code>ValueRecorder</code>, but its <code>Record()</code> method would be specialized for the correct type used to represent a duration, so that the units could be set correctly and automatically.  A related pattern is a <code>Timer</code> or <code>StopWatch</code> instrument, one responsible for both measuring and capturing a timing.</p>
+<p>Should types such as these be added as helpers?  For example, should <code>TimingValueRecorder</code> be a real instrument, or should it be a helper that wraps around a <code>ValueRecorder</code>?  There is a concern that making <code>TimingValueRecorder</code> into a helper makes it less visible, less standard, and that not having it at all will encourage instrumentation mistakes.</p>
+<p>This may be revisited in the future.</p>
+<h3><a class="header" href="#synchronous-cumulative-and-asynchronous-delta-helpers" id="synchronous-cumulative-and-asynchronous-delta-helpers">Synchronous cumulative and asynchronous delta helpers</a></h3>
+<p>A cumulative measurement can be converted into delta measurement by remembering the last-reported value.  A helper instrument could offer to emulate synchronous cumulative measurements by remembering the last-reported value and reporting deltas synchronously.</p>
+<p>A delta measurement can be converted into a cumluative measurement by remembering the sum of all reported values.  A helper instrument could offer to emulate asynchronous delta measurements in this way.</p>
+<p>Should helpers of this nature be standardized, if there is demand?  These helpers are excluded from the standard because they carry a number of caveats, but as helpers they can easily do what an OpenTelemery SDK cannot do in general.  For example, we are avoiding synchronous cumulative instruments because they seem to imply ordering that an SDK is not required to support, however an instrument helper that itself uses a lock can easily convert to deltas.</p>
+<p>Should such helpers be standardized?  The answer is probably no.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="0097-log-data-model.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="0099-otlp-http.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="0097-log-data-model.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="0099-otlp-http.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
